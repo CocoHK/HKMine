@@ -21,7 +21,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.drawView setupWithRowCount:9 columnCount:5 sideLength:32.0 mineCount:10];
+    [self.drawView setupWithRowCount:16 columnCount:16 sideLength:32.0 mineCount:40];
     [self setupScrollView];
 }
 

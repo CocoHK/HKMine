@@ -39,6 +39,7 @@ typedef NS_ENUM(NSUInteger, StateType) {
     
     // random mines
     int addedMineCount = 0;
+    srand(time(0)); // 用当前时间设置rand()的种子
     while (addedMineCount < mineCount) {
         int randIndex = rand() % (self.rowCount * self.columnCount);
         HKCellState * mineCellState = self.cellsStates[randIndex];
@@ -48,6 +49,7 @@ typedef NS_ENUM(NSUInteger, StateType) {
         }
     }
     
+    // count cell number
     for (int rowIndex = 0; rowIndex < self.rowCount; ++rowIndex) {
         for (int columnIndex = 0; columnIndex < self.columnCount; ++columnIndex) {
             HKCellState *cell = self.cellsStates[rowIndex * self.columnCount + columnIndex];
@@ -70,6 +72,7 @@ typedef NS_ENUM(NSUInteger, StateType) {
         }
     }
     
+    
 }
 
 - (void)resize {
@@ -78,7 +81,7 @@ typedef NS_ENUM(NSUInteger, StateType) {
     [self setNeedsDisplay];
 }
 
-- (void)drawSquare:(CGRect)bounds state:(StateType)state {
+- (void)drawSquare:(CGRect)bounds state:(StateType)state cellNumber:(NSUInteger)cellNumber {
     UIBezierPath *rectanglePath = [UIBezierPath bezierPathWithRect:bounds];
     [[UIColor blackColor] setStroke];
     switch (state) {
@@ -90,14 +93,24 @@ typedef NS_ENUM(NSUInteger, StateType) {
             [[UIColor redColor] setFill];
             break;
         case StateTypeNumber:
-            [[UIColor greenColor] setFill];
-            break;
         case StateTypeEmpty:
             [[UIColor whiteColor] setFill];
             break;
     }
     [rectanglePath fill];
     [rectanglePath stroke];
+    
+    if (state == StateTypeNumber) {
+        int margin = 5;
+        UIFont *font = [UIFont fontWithName:@"Apple SD Gothic Neo" size:MAX(8, self.sideLength - margin - margin)];
+        NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+        paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
+        paragraphStyle.alignment = NSTextAlignmentCenter;
+        NSDictionary *attributes = @{ NSFontAttributeName: font,
+                                      NSParagraphStyleAttributeName: paragraphStyle,
+                                      NSForegroundColorAttributeName: [UIColor darkGrayColor]};
+        [[@(cellNumber) stringValue] drawInRect:CGRectInset(bounds, margin, margin) withAttributes:attributes];
+    }
 }
 
 - (void)drawCellAtRowIndex:(NSUInteger)rowIndex columnIndex:(NSUInteger)columnIndex {
@@ -113,11 +126,12 @@ typedef NS_ENUM(NSUInteger, StateType) {
         else if (cellState.number == 0) {
             state = StateTypeEmpty;
         }
-        else
+        else {
             state = StateTypeNumber;
+        }
     }
     [self drawSquare:CGRectMake(self.sideLength * columnIndex,self.sideLength * rowIndex , self.sideLength, self.sideLength)
-               state:state];
+               state:state cellNumber:cellState.number];
 }
 
 - (void)drawAllSquares {
@@ -139,6 +153,59 @@ typedef NS_ENUM(NSUInteger, StateType) {
     }
 }
 
+#pragma mark - touch events
+
+- (void)redrawCellAtRowIndex:(NSUInteger)rowIndex columnIndex:(NSUInteger)columnIndex {
+    [self setNeedsDisplayInRect:CGRectMake(self.sideLength * columnIndex, self.sideLength * rowIndex, self.sideLength, self.sideLength)];
+}
+
+- (void)cellDidPressAtRowIdx:(NSUInteger)rowIdx columnIdx:(NSUInteger)columnIdx {
+    //修改对应格子属性
+    int index = self.columnCount * rowIdx + columnIdx;
+    HKCellState *cellState = self.cellsStates[index];
+    if (cellState.hasPressed == NO) {
+        cellState.hasPressed = YES;
+        [self redrawCellAtRowIndex:rowIdx columnIndex:columnIdx];
+        
+        // cell has a mine
+        if (cellState.number == -1) {
+            // display all the mines
+            for(int mineRowIndex = 0; mineRowIndex < self.rowCount; ++mineRowIndex) {
+                for (int mineColumnIndex = 0; mineColumnIndex <self.columnCount; ++mineColumnIndex) {
+                    HKCellState *mineCell = self.cellsStates[mineRowIndex * self.columnCount + mineColumnIndex];
+                    if (mineCell.number == -1) {
+                        mineCell.hasPressed = YES;
+                        rowIdx = mineRowIndex;
+                        columnIdx = mineColumnIndex;
+                        [self redrawCellAtRowIndex:rowIdx columnIndex:columnIdx];
+                    }
+                }
+            }
+            
+            // disable touch
+            self.userInteractionEnabled = NO;
+        }
+        
+        // cell is empty
+        else if (cellState.number == 0) {
+            for (int nbRowIdx = rowIdx - 1; nbRowIdx <= rowIdx + 1; ++nbRowIdx) {
+                for (int nbColumnIdx = columnIdx - 1; nbColumnIdx <= columnIdx + 1; ++nbColumnIdx) {
+                    if (nbRowIdx >= 0 && nbRowIdx < self.rowCount &&
+                        nbColumnIdx >= 0 && nbColumnIdx < self.columnCount) {
+                        if (nbRowIdx != rowIdx || nbColumnIdx != columnIdx) {
+                            [self cellDidPressAtRowIdx:nbRowIdx columnIdx:nbColumnIdx];
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    
+}
+
+
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     if ([touches count] > 0) {
         UITouch *touch = [[touches allObjects] objectAtIndex:0];
@@ -148,12 +215,7 @@ typedef NS_ENUM(NSUInteger, StateType) {
 
         if (rowIdx >= 0 && rowIdx < self.rowCount &&
             columnIdx >= 0 && columnIdx < self.columnCount) {
-            //修改对应格子属性
-            int index = self.columnCount * rowIdx + columnIdx;
-            HKCellState *cellState = self.cellsStates[index];
-            cellState.hasPressed = YES;
-            
-            [self setNeedsDisplayInRect:CGRectMake(self.sideLength * columnIdx, self.sideLength * rowIdx, self.sideLength, self.sideLength)];
+            [self cellDidPressAtRowIdx:rowIdx columnIdx:columnIdx];
         }
     }
 }
