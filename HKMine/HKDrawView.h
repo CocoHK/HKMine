@@ -12,7 +12,11 @@
 
 @property (nonatomic, assign) NSUInteger rowCount, columnCount;
 @property (nonatomic, assign) CGFloat sideLength;
+@property (nonatomic, strong) NSMutableArray *cellsStates;
 
-- (CGSize)resize;
-
+- (void)resize;
+- (void)setupWithRowCount:(NSUInteger)rowCount
+              columnCount:(NSUInteger)columnCount
+               sideLength:(CGFloat)sideLength
+                mineCount:(NSInteger)mineCount;
 @end

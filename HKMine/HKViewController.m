@@ -15,20 +15,13 @@
 
 @implementation HKViewController
 
-- (void)setupDrawView {
-    self.drawView.rowCount = 16;
-    self.drawView.columnCount = 16;
-    self.drawView.sideLength = 32;
-    [self.drawView resize];
-}
-
 - (void)setupScrollView {
     [scrollView setContentSize:self.drawView.frame.size];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupDrawView];
+    [self.drawView setupWithRowCount:9 columnCount:5 sideLength:32.0 mineCount:10];
     [self setupScrollView];
 }
 

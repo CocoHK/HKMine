@@ -7,36 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CCBA2B541870610B00647596 /* HKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBA2B4D1870610B00647596 /* HKAppDelegate.m */; };
+		CCBA2B551870610B00647596 /* HKDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBA2B4F1870610B00647596 /* HKDrawView.m */; };
+		CCBA2B561870610B00647596 /* HKModels.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBA2B511870610B00647596 /* HKModels.m */; };
+		CCBA2B571870610B00647596 /* HKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBA2B531870610B00647596 /* HKViewController.m */; };
+		CCBA2B5A1870611200647596 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCBA2B581870611200647596 /* Main.storyboard */; };
+		CCBA2B601870611F00647596 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CCBA2B5B1870611F00647596 /* InfoPlist.strings */; };
+		CCBA2B621870611F00647596 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBA2B5F1870611F00647596 /* main.m */; };
 		CCC5DC06185DFC9F0075A2B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC5DC05185DFC9F0075A2B5 /* Foundation.framework */; };
 		CCC5DC08185DFC9F0075A2B5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC5DC07185DFC9F0075A2B5 /* CoreGraphics.framework */; };
 		CCC5DC0A185DFC9F0075A2B5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC5DC09185DFC9F0075A2B5 /* UIKit.framework */; };
-		CCC5DC10185DFC9F0075A2B5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CCC5DC0E185DFC9F0075A2B5 /* InfoPlist.strings */; };
-		CCC5DC12185DFC9F0075A2B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC5DC11185DFC9F0075A2B5 /* main.m */; };
-		CCC5DC16185DFC9F0075A2B5 /* HKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC5DC15185DFC9F0075A2B5 /* HKAppDelegate.m */; };
-		CCC5DC19185DFC9F0075A2B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCC5DC17185DFC9F0075A2B5 /* Main.storyboard */; };
-		CCC5DC1F185DFC9F0075A2B5 /* HKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC5DC1E185DFC9F0075A2B5 /* HKViewController.m */; };
-		CCC5DC21185DFC9F0075A2B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCC5DC20185DFC9F0075A2B5 /* Images.xcassets */; };
-		CCC5DC3F185DFCCF0075A2B5 /* HKDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC5DC3E185DFCCF0075A2B5 /* HKDrawView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CCC5DC02185DFC9F0075A2B5 /* DrawPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrawPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCBA2B4C1870610B00647596 /* HKAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKAppDelegate.h; path = HKMine/HKAppDelegate.h; sourceTree = SOURCE_ROOT; };
+		CCBA2B4D1870610B00647596 /* HKAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKAppDelegate.m; path = HKMine/HKAppDelegate.m; sourceTree = SOURCE_ROOT; };
+		CCBA2B4E1870610B00647596 /* HKDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKDrawView.h; path = HKMine/HKDrawView.h; sourceTree = SOURCE_ROOT; };
+		CCBA2B4F1870610B00647596 /* HKDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKDrawView.m; path = HKMine/HKDrawView.m; sourceTree = SOURCE_ROOT; };
+		CCBA2B501870610B00647596 /* HKModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKModels.h; path = HKMine/HKModels.h; sourceTree = SOURCE_ROOT; };
+		CCBA2B511870610B00647596 /* HKModels.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKModels.m; path = HKMine/HKModels.m; sourceTree = SOURCE_ROOT; };
+		CCBA2B521870610B00647596 /* HKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKViewController.h; path = HKMine/HKViewController.h; sourceTree = SOURCE_ROOT; };
+		CCBA2B531870610B00647596 /* HKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKViewController.m; path = HKMine/HKViewController.m; sourceTree = SOURCE_ROOT; };
+		CCBA2B591870611200647596 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = HKMine/Base.lproj/Main.storyboard; sourceTree = SOURCE_ROOT; };
+		CCBA2B5C1870611F00647596 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = HKMine/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
+		CCBA2B5D1870611F00647596 /* HKMine-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "HKMine-Info.plist"; path = "HKMine/HKMine-Info.plist"; sourceTree = SOURCE_ROOT; };
+		CCBA2B5E1870611F00647596 /* HKMine-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "HKMine-Prefix.pch"; path = "HKMine/HKMine-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		CCBA2B5F1870611F00647596 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = HKMine/main.m; sourceTree = SOURCE_ROOT; };
+		CCC5DC02185DFC9F0075A2B5 /* HKMine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HKMine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCC5DC05185DFC9F0075A2B5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CCC5DC07185DFC9F0075A2B5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		CCC5DC09185DFC9F0075A2B5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		CCC5DC0D185DFC9F0075A2B5 /* DrawPractice-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DrawPractice-Info.plist"; sourceTree = "<group>"; };
-		CCC5DC0F185DFC9F0075A2B5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		CCC5DC11185DFC9F0075A2B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		CCC5DC13185DFC9F0075A2B5 /* DrawPractice-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DrawPractice-Prefix.pch"; sourceTree = "<group>"; };
-		CCC5DC14185DFC9F0075A2B5 /* HKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKAppDelegate.h; sourceTree = "<group>"; };
-		CCC5DC15185DFC9F0075A2B5 /* HKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKAppDelegate.m; sourceTree = "<group>"; };
-		CCC5DC18185DFC9F0075A2B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CCC5DC1D185DFC9F0075A2B5 /* HKViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HKViewController.h; sourceTree = "<group>"; };
-		CCC5DC1E185DFC9F0075A2B5 /* HKViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HKViewController.m; sourceTree = "<group>"; };
-		CCC5DC20185DFC9F0075A2B5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CCC5DC27185DFC9F0075A2B5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		CCC5DC3D185DFCCF0075A2B5 /* HKDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKDrawView.h; sourceTree = "<group>"; };
-		CCC5DC3E185DFCCF0075A2B5 /* HKDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKDrawView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +66,7 @@
 		CCC5DC03185DFC9F0075A2B5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CCC5DC02185DFC9F0075A2B5 /* DrawPractice.app */,
+				CCC5DC02185DFC9F0075A2B5 /* HKMine.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,14 +85,15 @@
 		CCC5DC0B185DFC9F0075A2B5 /* DrawPractice */ = {
 			isa = PBXGroup;
 			children = (
-				CCC5DC14185DFC9F0075A2B5 /* HKAppDelegate.h */,
-				CCC5DC15185DFC9F0075A2B5 /* HKAppDelegate.m */,
-				CCC5DC3D185DFCCF0075A2B5 /* HKDrawView.h */,
-				CCC5DC3E185DFCCF0075A2B5 /* HKDrawView.m */,
-				CCC5DC17185DFC9F0075A2B5 /* Main.storyboard */,
-				CCC5DC1D185DFC9F0075A2B5 /* HKViewController.h */,
-				CCC5DC1E185DFC9F0075A2B5 /* HKViewController.m */,
-				CCC5DC20185DFC9F0075A2B5 /* Images.xcassets */,
+				CCBA2B4C1870610B00647596 /* HKAppDelegate.h */,
+				CCBA2B4D1870610B00647596 /* HKAppDelegate.m */,
+				CCBA2B4E1870610B00647596 /* HKDrawView.h */,
+				CCBA2B4F1870610B00647596 /* HKDrawView.m */,
+				CCBA2B501870610B00647596 /* HKModels.h */,
+				CCBA2B511870610B00647596 /* HKModels.m */,
+				CCBA2B521870610B00647596 /* HKViewController.h */,
+				CCBA2B531870610B00647596 /* HKViewController.m */,
+				CCBA2B581870611200647596 /* Main.storyboard */,
 				CCC5DC0C185DFC9F0075A2B5 /* Supporting Files */,
 			);
 			path = DrawPractice;
@@ -100,10 +102,10 @@
 		CCC5DC0C185DFC9F0075A2B5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CCC5DC0D185DFC9F0075A2B5 /* DrawPractice-Info.plist */,
-				CCC5DC0E185DFC9F0075A2B5 /* InfoPlist.strings */,
-				CCC5DC11185DFC9F0075A2B5 /* main.m */,
-				CCC5DC13185DFC9F0075A2B5 /* DrawPractice-Prefix.pch */,
+				CCBA2B5D1870611F00647596 /* HKMine-Info.plist */,
+				CCBA2B5B1870611F00647596 /* InfoPlist.strings */,
+				CCBA2B5F1870611F00647596 /* main.m */,
+				CCBA2B5E1870611F00647596 /* HKMine-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -111,9 +113,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CCC5DC01185DFC9F0075A2B5 /* DrawPractice */ = {
+		CCC5DC01185DFC9F0075A2B5 /* HKMine */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CCC5DC37185DFC9F0075A2B5 /* Build configuration list for PBXNativeTarget "DrawPractice" */;
+			buildConfigurationList = CCC5DC37185DFC9F0075A2B5 /* Build configuration list for PBXNativeTarget "HKMine" */;
 			buildPhases = (
 				CCC5DBFE185DFC9F0075A2B5 /* Sources */,
 				CCC5DBFF185DFC9F0075A2B5 /* Frameworks */,
@@ -123,9 +125,9 @@
 			);
 			dependencies = (
 			);
-			name = DrawPractice;
+			name = HKMine;
 			productName = DrawPractice;
-			productReference = CCC5DC02185DFC9F0075A2B5 /* DrawPractice.app */;
+			productReference = CCC5DC02185DFC9F0075A2B5 /* HKMine.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -134,7 +136,7 @@
 		CCC5DBFA185DFC9F0075A2B5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = CE;
+				CLASSPREFIX = HK;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = Coco;
 				TargetAttributes = {
@@ -143,7 +145,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CCC5DBFD185DFC9F0075A2B5 /* Build configuration list for PBXProject "DrawPractice" */;
+			buildConfigurationList = CCC5DBFD185DFC9F0075A2B5 /* Build configuration list for PBXProject "HKMine" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -156,7 +158,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CCC5DC01185DFC9F0075A2B5 /* DrawPractice */,
+				CCC5DC01185DFC9F0075A2B5 /* HKMine */,
 			);
 		};
 /* End PBXProject section */
@@ -166,9 +168,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCC5DC21185DFC9F0075A2B5 /* Images.xcassets in Resources */,
-				CCC5DC19185DFC9F0075A2B5 /* Main.storyboard in Resources */,
-				CCC5DC10185DFC9F0075A2B5 /* InfoPlist.strings in Resources */,
+				CCBA2B5A1870611200647596 /* Main.storyboard in Resources */,
+				CCBA2B601870611F00647596 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,30 +180,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCC5DC3F185DFCCF0075A2B5 /* HKDrawView.m in Sources */,
-				CCC5DC16185DFC9F0075A2B5 /* HKAppDelegate.m in Sources */,
-				CCC5DC12185DFC9F0075A2B5 /* main.m in Sources */,
-				CCC5DC1F185DFC9F0075A2B5 /* HKViewController.m in Sources */,
+				CCBA2B621870611F00647596 /* main.m in Sources */,
+				CCBA2B571870610B00647596 /* HKViewController.m in Sources */,
+				CCBA2B561870610B00647596 /* HKModels.m in Sources */,
+				CCBA2B541870610B00647596 /* HKAppDelegate.m in Sources */,
+				CCBA2B551870610B00647596 /* HKDrawView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CCC5DC0E185DFC9F0075A2B5 /* InfoPlist.strings */ = {
+		CCBA2B581870611200647596 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CCC5DC0F185DFC9F0075A2B5 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		CCC5DC17185DFC9F0075A2B5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CCC5DC18185DFC9F0075A2B5 /* Base */,
+				CCBA2B591870611200647596 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CCBA2B5B1870611F00647596 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CCBA2B5C1870611F00647596 /* en */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -290,9 +292,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DrawPractice/DrawPractice-Prefix.pch";
-				INFOPLIST_FILE = "DrawPractice/DrawPractice-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "HKMine/HKMine-Prefix.pch";
+				INFOPLIST_FILE = "HKMine/HKMine-Info.plist";
+				PRODUCT_NAME = HKMine;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -306,9 +308,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DrawPractice/DrawPractice-Prefix.pch";
-				INFOPLIST_FILE = "DrawPractice/DrawPractice-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "HKMine/HKMine-Prefix.pch";
+				INFOPLIST_FILE = "HKMine/HKMine-Info.plist";
+				PRODUCT_NAME = HKMine;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -317,7 +319,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CCC5DBFD185DFC9F0075A2B5 /* Build configuration list for PBXProject "DrawPractice" */ = {
+		CCC5DBFD185DFC9F0075A2B5 /* Build configuration list for PBXProject "HKMine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CCC5DC35185DFC9F0075A2B5 /* Debug */,
@@ -326,7 +328,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CCC5DC37185DFC9F0075A2B5 /* Build configuration list for PBXNativeTarget "DrawPractice" */ = {
+		CCC5DC37185DFC9F0075A2B5 /* Build configuration list for PBXNativeTarget "HKMine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CCC5DC38185DFC9F0075A2B5 /* Debug */,
