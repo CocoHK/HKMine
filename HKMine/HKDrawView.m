@@ -101,6 +101,36 @@ typedef NS_ENUM(NSUInteger, StateType) {
     [rectanglePath stroke];
     
     if (state == StateTypeNumber) {
+        UIColor *numberColor;
+        switch (cellNumber) {
+            case 1:
+                numberColor = [UIColor colorWithRed:44/255.0f green:69/255.0f blue:174/255.0f alpha:1];
+                break;
+            case 2:
+                numberColor = [UIColor colorWithRed:49/255.0f green:87/255.0f blue:13/255.0f alpha:1];
+
+                break;
+            case 3:
+                numberColor = [UIColor colorWithRed:137/255.0f green:27/255.0f blue:27/255.0f alpha:1];
+                break;
+            case 4:
+                numberColor = [UIColor colorWithRed:0/255.0f green:18/255.0f blue:108/255.0f alpha:1];
+                break;
+            case 5:
+                numberColor = [UIColor colorWithRed:110/255.0f green:40/255.0f blue:42/255.0f alpha:1];
+                break;
+            case 6:
+                numberColor = [UIColor colorWithRed:78/255.0f green:20/255.0f blue:84/255.0f alpha:1];
+                break;
+            case 7:
+                numberColor = [UIColor colorWithRed:49/255.0f green:112/255.0f blue:81/255.0f alpha:1];
+                break;
+            case 8:
+                numberColor = [UIColor colorWithRed:80/255.0f green:38/255.0f blue:16/255.0f alpha:1];
+                break;
+            default:
+                break;
+        }
         int margin = 5;
         UIFont *font = [UIFont fontWithName:@"Apple SD Gothic Neo" size:MAX(8, self.sideLength - margin - margin)];
         NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
@@ -108,7 +138,7 @@ typedef NS_ENUM(NSUInteger, StateType) {
         paragraphStyle.alignment = NSTextAlignmentCenter;
         NSDictionary *attributes = @{ NSFontAttributeName: font,
                                       NSParagraphStyleAttributeName: paragraphStyle,
-                                      NSForegroundColorAttributeName: [UIColor darkGrayColor]};
+                                      NSForegroundColorAttributeName:numberColor};
         [[@(cellNumber) stringValue] drawInRect:CGRectInset(bounds, margin, margin) withAttributes:attributes];
     }
 }
