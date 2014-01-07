@@ -12,8 +12,11 @@
 
 @interface HKViewController : UIViewController {
     IBOutlet UIScrollView *scrollView;
+    IBOutlet UIButton *restartBtn;
+    
 }
 
 @property (nonatomic, assign) IBOutlet HKDrawView *drawView;
 
+- (IBAction)restartDrawView:(id)sender;
 @end

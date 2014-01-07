@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CCB3C6631879D6EF00CD470B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCB3C6621879D6EF00CD470B /* Images.xcassets */; };
 		CCBA2B541870610B00647596 /* HKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBA2B4D1870610B00647596 /* HKAppDelegate.m */; };
 		CCBA2B551870610B00647596 /* HKDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBA2B4F1870610B00647596 /* HKDrawView.m */; };
 		CCBA2B561870610B00647596 /* HKModels.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBA2B511870610B00647596 /* HKModels.m */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CCB3C6621879D6EF00CD470B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = SOURCE_ROOT; };
 		CCBA2B4C1870610B00647596 /* HKAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKAppDelegate.h; path = HKMine/HKAppDelegate.h; sourceTree = SOURCE_ROOT; };
 		CCBA2B4D1870610B00647596 /* HKAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKAppDelegate.m; path = HKMine/HKAppDelegate.m; sourceTree = SOURCE_ROOT; };
 		CCBA2B4E1870610B00647596 /* HKDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKDrawView.h; path = HKMine/HKDrawView.h; sourceTree = SOURCE_ROOT; };
@@ -94,6 +96,7 @@
 				CCBA2B521870610B00647596 /* HKViewController.h */,
 				CCBA2B531870610B00647596 /* HKViewController.m */,
 				CCBA2B581870611200647596 /* Main.storyboard */,
+				CCB3C6621879D6EF00CD470B /* Images.xcassets */,
 				CCC5DC0C185DFC9F0075A2B5 /* Supporting Files */,
 			);
 			path = DrawPractice;
@@ -168,6 +171,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCB3C6631879D6EF00CD470B /* Images.xcassets in Resources */,
 				CCBA2B5A1870611200647596 /* Main.storyboard in Resources */,
 				CCBA2B601870611F00647596 /* InfoPlist.strings in Resources */,
 			);

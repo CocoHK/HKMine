@@ -22,6 +22,7 @@ typedef NS_ENUM(NSUInteger, StateType) {
               columnCount:(NSUInteger)columnCount
                sideLength:(CGFloat)sideLength
                 mineCount:(NSInteger)mineCount{
+        
     self.rowCount = rowCount;
     self.columnCount = columnCount;
     self.sideLength = sideLength;
@@ -189,7 +190,7 @@ typedef NS_ENUM(NSUInteger, StateType) {
     [self setNeedsDisplayInRect:CGRectMake(self.sideLength * columnIndex, self.sideLength * rowIndex, self.sideLength, self.sideLength)];
 }
 
-- (void)cellDidPressAtRowIdx:(NSUInteger)rowIdx columnIdx:(NSUInteger)columnIdx {
+- (void)cellDidPressAtRowIdx:(int)rowIdx columnIdx:(int)columnIdx {
     //修改对应格子属性
     int index = self.columnCount * rowIdx + columnIdx;
     HKCellState *cellState = self.cellsStates[index];
@@ -215,7 +216,6 @@ typedef NS_ENUM(NSUInteger, StateType) {
             // disable touch
             self.userInteractionEnabled = NO;
         }
-        
         // cell is empty
         else if (cellState.number == 0) {
             for (int nbRowIdx = rowIdx - 1; nbRowIdx <= rowIdx + 1; ++nbRowIdx) {
@@ -240,8 +240,8 @@ typedef NS_ENUM(NSUInteger, StateType) {
     if ([touches count] > 0) {
         UITouch *touch = [[touches allObjects] objectAtIndex:0];
         CGPoint location = [touch locationInView:self];
-        CGFloat rowIdx = floor(location.y / self.sideLength);
-        CGFloat columnIdx = floor(location.x / self.sideLength);
+        int rowIdx = (int)floor(location.y / self.sideLength);
+        int columnIdx = (int)floor(location.x / self.sideLength);
 
         if (rowIdx >= 0 && rowIdx < self.rowCount &&
             columnIdx >= 0 && columnIdx < self.columnCount) {
