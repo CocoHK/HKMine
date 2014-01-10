@@ -8,15 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@class HKDrawView;
+@class HKBoardView;
 
-@interface HKViewController : UIViewController {
+@interface HKViewController : UIViewController <UIScrollViewDelegate> {
     IBOutlet UIScrollView *scrollView;
     IBOutlet UIButton *restartBtn;
-    
 }
 
-@property (nonatomic, assign) IBOutlet HKDrawView *drawView;
+@property (nonatomic, assign) IBOutlet HKBoardView *boardView;
 
-- (IBAction)restartDrawView:(id)sender;
+- (IBAction)startNewGame:(id)sender;
 @end

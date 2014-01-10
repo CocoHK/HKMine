@@ -12,13 +12,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Hbe-mL-BFI">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.5" maximumZoomScale="1.5" id="Hbe-mL-BFI">
                                 <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" id="8SP-fC-95h" customClass="HKDrawView">
+                                    <view contentMode="scaleToFill" id="8SP-fC-95h" customClass="HKBoardView">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
@@ -32,7 +32,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="restart"/>
                                         <connections>
-                                            <action selector="restartDrawView:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="wTX-NN-jYv"/>
+                                            <action selector="startNewGame:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="tG3-63-GOO"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -46,9 +46,9 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="drawView" destination="8SP-fC-95h" id="KJU-v5-hl7"/>
+                        <outlet property="boardView" destination="8SP-fC-95h" id="Pnu-PR-GAr"/>
                         <outlet property="restartBtn" destination="z8a-Go-cPq" id="Q7d-gv-OzI"/>
-                        <outlet property="scrollView" destination="Hbe-mL-BFI" id="xAp-Ab-iH5"/>
+                        <outlet property="scrollView" destination="Hbe-mL-BFI" id="uUL-sK-TD4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

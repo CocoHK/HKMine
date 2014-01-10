@@ -1,12 +1,12 @@
 //
-//  CEDrawView.m
+//  HKBoardView.m
 //  DrawPractice
 //
 //  Created by Coco on 15/12/13.
 //  Copyright (c) 2013 Coco. All rights reserved.
 //
 
-#import "HKDrawView.h"
+#import "HKBoardView.h"
 #import "HKModels.h"
 
 typedef NS_ENUM(NSUInteger, StateType) {
@@ -16,13 +16,12 @@ typedef NS_ENUM(NSUInteger, StateType) {
     StateTypeEmpty,
 };
 
-@implementation HKDrawView
+@implementation HKBoardView
 
 - (void)setupWithRowCount:(NSUInteger)rowCount
               columnCount:(NSUInteger)columnCount
                sideLength:(CGFloat)sideLength
                 mineCount:(NSInteger)mineCount{
-        
     self.rowCount = rowCount;
     self.columnCount = columnCount;
     self.sideLength = sideLength;
@@ -72,8 +71,6 @@ typedef NS_ENUM(NSUInteger, StateType) {
             }
         }
     }
-    
-    
 }
 
 - (void)resize {

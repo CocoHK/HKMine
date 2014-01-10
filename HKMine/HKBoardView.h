@@ -1,5 +1,5 @@
 //
-//  CEDrawView.h
+//  HKBoardView.h
 //  DrawPractice
 //
 //  Created by Coco on 15/12/13.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HKDrawView : UIView
+@interface HKBoardView : UIView
 
 @property (nonatomic, assign) NSUInteger rowCount, columnCount;
 @property (nonatomic, assign) CGFloat sideLength;
