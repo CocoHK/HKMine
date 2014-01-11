@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //和边框有15像素的距离
     [scrollView setContentInset:UIEdgeInsetsMake(15, 15, 15, 15)];
     [self startNewGame];
 }
@@ -28,7 +29,6 @@
     [scrollView setContentSize:self.boardView.frame.size];
     [self scrollViewUpdateMinZoomScale];
     scrollView.zoomScale = scrollView.minimumZoomScale;
-    [self scrollViewCenterContent];
 }
 
 - (void)scrollViewUpdateMinZoomScale {
@@ -41,8 +41,8 @@
 - (void)scrollViewCenterContent {
     CGPoint newCenter;
     UIEdgeInsets contentInset = scrollView.contentInset;
-    newCenter.x = MAX(CGRectGetWidth(self.boardView.frame), CGRectGetWidth(scrollView.bounds) - contentInset.left - contentInset.right) / 2.0f;
-    newCenter.y = MAX(CGRectGetHeight(self.boardView.frame), CGRectGetHeight(scrollView.bounds) - contentInset.bottom - contentInset.top) / 2.0f;
+    newCenter.x = MAX(CGRectGetWidth(self.boardView.frame), CGRectGetWidth(scrollView.frame) - contentInset.left - contentInset.right) / 2.0f;
+    newCenter.y = MAX(CGRectGetHeight(self.boardView.frame), CGRectGetHeight(scrollView.frame) - contentInset.bottom - contentInset.top) / 2.0f;
     self.boardView.center = newCenter;
 }
 
@@ -50,7 +50,7 @@
 
 - (void)startNewGame {
     scrollView.zoomScale = 1;
-    [self.boardView setupWithRowCount:19 columnCount:19 sideLength:32.0 mineCount:10];
+    [self.boardView setupWithRowCount:19 columnCount:19 sideLength:32.0 mineCount:20];
     [self scrollViewSetup];
     self.boardView.userInteractionEnabled = YES;
 }
@@ -65,6 +65,10 @@
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
     return self.boardView;
+}
+
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView {
+    [self scrollViewCenterContent];
 }
 
 #pragma mark - Actions

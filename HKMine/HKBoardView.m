@@ -101,6 +101,7 @@ typedef NS_ENUM(NSUInteger, StateType) {
     if (state == StateTypeNumber) {
         UIColor *numberColor;
         switch (cellNumber) {
+            default:
             case 1:
                 numberColor = [UIColor colorWithRed:44/255.0f green:69/255.0f blue:174/255.0f alpha:1];
                 break;
@@ -126,13 +127,11 @@ typedef NS_ENUM(NSUInteger, StateType) {
             case 8:
                 numberColor = [UIColor colorWithRed:80/255.0f green:38/255.0f blue:16/255.0f alpha:1];
                 break;
-            default:
-                break;
         }
         int margin = 5;
         UIFont *font = [UIFont fontWithName:@"Apple SD Gothic Neo" size:MAX(8, self.sideLength - margin - margin)];
-        NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-        paragraphStyle.lineBreakMode = NSLineBreakByTruncatingTail;
+        NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
+        paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;
         paragraphStyle.alignment = NSTextAlignmentCenter;
         NSDictionary *attributes = @{ NSFontAttributeName: font,
                                       NSParagraphStyleAttributeName: paragraphStyle,
