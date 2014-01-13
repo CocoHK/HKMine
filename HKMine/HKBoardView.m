@@ -208,10 +208,14 @@ typedef NS_ENUM(NSUInteger, StateType) {
                     }
                 }
             }
-            
             // disable touch
             self.userInteractionEnabled = NO;
+            if ([self.delegate respondsToSelector:@selector(mineDidPressed)]) {
+                [self.delegate mineDidPressed];
+            }
+
         }
+        
         // cell is empty
         else if (cellState.number == 0) {
             for (int nbRowIdx = rowIdx - 1; nbRowIdx <= rowIdx + 1; ++nbRowIdx) {
@@ -246,4 +250,9 @@ typedef NS_ENUM(NSUInteger, StateType) {
     }
 }
 
+- (void)win {
+    
+        <#statements#>
+    }
+}
 @end

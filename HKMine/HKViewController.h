@@ -6,11 +6,9 @@
 //  Copyright (c) 2013 Coco. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "HKBoardView.h"
 
-@class HKBoardView;
-
-@interface HKViewController : UIViewController <UIScrollViewDelegate> {
+@interface HKViewController : UIViewController <UIScrollViewDelegate, HKBoardViewDelegate > {
     IBOutlet UIScrollView *scrollView;
     IBOutlet UIButton *restartBtn;
 }

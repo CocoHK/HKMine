@@ -19,6 +19,7 @@
     [super viewDidLoad];
     //和边框有15像素的距离
     [scrollView setContentInset:UIEdgeInsetsMake(15, 15, 15, 15)];
+    self.boardView.delegate = self;
     [self startNewGame];
 }
 
@@ -75,6 +76,12 @@
 
 - (IBAction)startNewGame:(id)sender {
     [self startNewGame];
+}
+
+#pragma mark - HKBoardViewDelegate
+
+- (void)mineDidPressed {
+    scrollView.zoomScale = scrollView.minimumZoomScale;
 }
 
 @end
