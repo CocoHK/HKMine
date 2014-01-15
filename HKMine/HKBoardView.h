@@ -11,6 +11,7 @@
 @protocol HKBoardViewDelegate <NSObject>
 
 - (void)mineDidPressed;
+- (void)win;
 - (void)mineNumberDidChanged:(NSInteger)mineNumber;
 
 @end

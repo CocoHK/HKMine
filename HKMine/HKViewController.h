@@ -8,7 +8,7 @@
 
 #import "HKBoardView.h"
 
-@interface HKViewController : UIViewController <UIScrollViewDelegate, HKBoardViewDelegate > {
+@interface HKViewController : UIViewController <UIScrollViewDelegate,HKBoardViewDelegate,UIAlertViewDelegate> {
     IBOutlet UIScrollView *scrollView;
     IBOutlet UIButton *restartBtn;
 }

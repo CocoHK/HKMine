@@ -16,15 +16,20 @@ typedef NS_ENUM(NSUInteger, StateType) {
     StateTypeEmpty,
 };
 
-@implementation HKBoardView
+@implementation HKBoardView {
+    int noMineCellNumber;
+    int mineNumber;
+}
 
 - (void)setupWithRowCount:(NSUInteger)rowCount
               columnCount:(NSUInteger)columnCount
                sideLength:(CGFloat)sideLength
                 mineCount:(NSInteger)mineCount{
+    noMineCellNumber = 0;
     self.rowCount = rowCount;
     self.columnCount = columnCount;
     self.sideLength = sideLength;
+    mineNumber = mineCount;
     [self resize];
     if (!self.cellsStates) {
         self.cellsStates = [NSMutableArray new];
@@ -40,7 +45,7 @@ typedef NS_ENUM(NSUInteger, StateType) {
     // random mines
     int addedMineCount = 0;
     srand(time(0)); // 用当前时间设置rand()的种子
-    while (addedMineCount < mineCount) {
+    while (addedMineCount < mineNumber) {
         int randIndex = rand() % (self.rowCount * self.columnCount);
         HKCellState * mineCellState = self.cellsStates[randIndex];
         if (mineCellState.number != -1) {
@@ -205,6 +210,7 @@ typedef NS_ENUM(NSUInteger, StateType) {
                         rowIdx = mineRowIndex;
                         columnIdx = mineColumnIndex;
                         [self redrawCellAtRowIndex:rowIdx columnIndex:columnIdx];
+
                     }
                 }
             }
@@ -229,8 +235,17 @@ typedef NS_ENUM(NSUInteger, StateType) {
                 }
             }
         }
+        
+        if (cellState.number >= 0) {
+            ++noMineCellNumber;
+        }
+        NSLog(@"noMineCellNumber is %d",noMineCellNumber);
     }
-    
+    if (noMineCellNumber == self.rowCount * self.columnCount - mineNumber) {
+        if ([self.delegate respondsToSelector:@selector(win)]) {
+            [self.delegate win];
+        }
+    }
     
     
 }
@@ -250,9 +265,5 @@ typedef NS_ENUM(NSUInteger, StateType) {
     }
 }
 
-- (void)win {
-    
-        <#statements#>
-    }
-}
+
 @end

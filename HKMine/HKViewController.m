@@ -51,7 +51,10 @@
 
 - (void)startNewGame {
     scrollView.zoomScale = 1;
-    [self.boardView setupWithRowCount:19 columnCount:19 sideLength:32.0 mineCount:20];
+    [self.boardView setupWithRowCount:9
+                          columnCount:9
+                           sideLength:32
+                            mineCount:10];
     [self scrollViewSetup];
     self.boardView.userInteractionEnabled = YES;
 }
@@ -84,4 +87,14 @@
     scrollView.zoomScale = scrollView.minimumZoomScale;
 }
 
+- (void)win {
+    UIAlertView *alertWin = [[UIAlertView alloc]initWithTitle:@"You win!" message:@"" delegate:self cancelButtonTitle:@"new game" otherButtonTitles:@"OK",nil];
+    [alertWin show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        [self startNewGame];
+    }
+}
 @end
