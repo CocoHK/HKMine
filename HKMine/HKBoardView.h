@@ -18,7 +18,7 @@
 
 #pragma mark - 
 
-@interface HKBoardView : UIView
+@interface HKBoardView : UIView <UIGestureRecognizerDelegate>
 
 @property (nonatomic, assign) NSUInteger rowCount, columnCount;
 @property (nonatomic, assign) CGFloat sideLength;

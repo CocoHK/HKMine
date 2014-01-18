@@ -10,7 +10,13 @@
 
 @interface HKCellState : NSObject
 
+typedef NS_ENUM(int, CellAttribute) {
+    CellCovered = 0,
+    CellStateDigged,
+    CellStateMarked,
+};
+
 @property (nonatomic, assign) NSInteger number;
-@property (nonatomic, assign) BOOL hasPressed;
+@property (nonatomic, assign) int CellAttribute;
 
 @end

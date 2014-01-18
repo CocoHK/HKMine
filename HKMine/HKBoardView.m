@@ -14,11 +14,15 @@ typedef NS_ENUM(NSUInteger, StateType) {
     StateTypeMine,
     StateTypeNumber,
     StateTypeEmpty,
+    StateTypeMarked,
 };
+
+
 
 @implementation HKBoardView {
     int noMineCellNumber;
-    int mineNumber;
+    int markedNumber;
+    NSInteger mineNumber;
 }
 
 - (void)setupWithRowCount:(NSUInteger)rowCount
@@ -26,10 +30,29 @@ typedef NS_ENUM(NSUInteger, StateType) {
                sideLength:(CGFloat)sideLength
                 mineCount:(NSInteger)mineCount{
     noMineCellNumber = 0;
+    markedNumber = 0;
     self.rowCount = rowCount;
     self.columnCount = columnCount;
     self.sideLength = sideLength;
     mineNumber = mineCount;
+
+    //setup tap gesture
+    UITapGestureRecognizer * tapPressGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
+    tapPressGesture.numberOfTapsRequired = 1;
+    tapPressGesture.numberOfTouchesRequired = 1;
+//    tapPressGesture.delegate = self;
+    [self addGestureRecognizer:tapPressGesture];
+    
+    //setup long press gesture
+    UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongGesture:)];
+    longPressGesture.numberOfTapsRequired = 0;
+    longPressGesture.numberOfTouchesRequired = 1;
+    longPressGesture.minimumPressDuration = 0.3;
+//    longPressGesture.delegate = self;
+    [self addGestureRecognizer:longPressGesture];
+    [longPressGesture requireGestureRecognizerToFail:tapPressGesture];
+    
+    
     [self resize];
     if (!self.cellsStates) {
         self.cellsStates = [NSMutableArray new];
@@ -86,6 +109,7 @@ typedef NS_ENUM(NSUInteger, StateType) {
 
 - (void)drawSquare:(CGRect)bounds state:(StateType)state cellNumber:(NSUInteger)cellNumber {
     UIBezierPath *rectanglePath = [UIBezierPath bezierPathWithRect:bounds];
+    rectanglePath.lineWidth = 2;
     [[UIColor blackColor] setStroke];
     switch (state) {
         default:
@@ -93,12 +117,15 @@ typedef NS_ENUM(NSUInteger, StateType) {
             [[UIColor lightGrayColor] setFill];
             break;
         case StateTypeMine:
-            [[UIColor redColor] setFill];
+            [[UIColor blackColor] setFill];
             break;
         case StateTypeNumber:
         case StateTypeEmpty:
             [[UIColor whiteColor] setFill];
             break;
+        case StateTypeMarked:
+            [[UIColor redColor] setFill];
+
     }
     [rectanglePath fill];
     [rectanglePath stroke];
@@ -148,9 +175,12 @@ typedef NS_ENUM(NSUInteger, StateType) {
 - (void)drawCellAtRowIndex:(NSUInteger)rowIndex columnIndex:(NSUInteger)columnIndex {
     StateType state;
     HKCellState *cellState = self.cellsStates[self.columnCount * rowIndex  + columnIndex];
-    if (!cellState.hasPressed) {
+    if (cellState.CellAttribute == 0) {
         state = StateTypeDefault;
     }
+    else if (cellState.CellAttribute == 2)
+        state = StateTypeMarked;
+
     else {
         if (cellState.number == -1) {
             state = StateTypeMine;
@@ -191,14 +221,27 @@ typedef NS_ENUM(NSUInteger, StateType) {
     [self setNeedsDisplayInRect:CGRectMake(self.sideLength * columnIndex, self.sideLength * rowIndex, self.sideLength, self.sideLength)];
 }
 
-- (void)cellDidPressAtRowIdx:(int)rowIdx columnIdx:(int)columnIdx {
+- (void)cellDidPressAtRowIdx:(int)rowIdx columnIdx:(int)columnIdx cellAtrribute:(int)atrribute{
     //修改对应格子属性
     int index = self.columnCount * rowIdx + columnIdx;
     HKCellState *cellState = self.cellsStates[index];
-    if (cellState.hasPressed == NO) {
-        cellState.hasPressed = YES;
-        [self redrawCellAtRowIndex:rowIdx columnIndex:columnIdx];
+    [self redrawCellAtRowIndex:rowIdx columnIndex:columnIdx];
+
+    if (cellState.CellAttribute == 0) {
         
+    //want to mark this cell
+    if (atrribute == 2) {
+        cellState.CellAttribute = 2;
+        ++ markedNumber;
+        -- mineNumber;
+        NSLog(@"markedNumber is %d",markedNumber);
+        [self redrawCellAtRowIndex:rowIdx columnIndex:columnIdx];
+    }
+    
+    //if this cell is digged
+    else if (atrribute == 1) {
+        cellState.CellAttribute = 1;
+
         // cell has a mine
         if (cellState.number == -1) {
             // display all the mines
@@ -206,11 +249,11 @@ typedef NS_ENUM(NSUInteger, StateType) {
                 for (int mineColumnIndex = 0; mineColumnIndex <self.columnCount; ++mineColumnIndex) {
                     HKCellState *mineCell = self.cellsStates[mineRowIndex * self.columnCount + mineColumnIndex];
                     if (mineCell.number == -1) {
-                        mineCell.hasPressed = YES;
+                        mineCell.CellAttribute = 1;
                         rowIdx = mineRowIndex;
                         columnIdx = mineColumnIndex;
                         [self redrawCellAtRowIndex:rowIdx columnIndex:columnIdx];
-
+                        
                     }
                 }
             }
@@ -219,9 +262,8 @@ typedef NS_ENUM(NSUInteger, StateType) {
             if ([self.delegate respondsToSelector:@selector(mineDidPressed)]) {
                 [self.delegate mineDidPressed];
             }
-
+            
         }
-        
         // cell is empty
         else if (cellState.number == 0) {
             for (int nbRowIdx = rowIdx - 1; nbRowIdx <= rowIdx + 1; ++nbRowIdx) {
@@ -229,7 +271,7 @@ typedef NS_ENUM(NSUInteger, StateType) {
                     if (nbRowIdx >= 0 && nbRowIdx < self.rowCount &&
                         nbColumnIdx >= 0 && nbColumnIdx < self.columnCount) {
                         if (nbRowIdx != rowIdx || nbColumnIdx != columnIdx) {
-                            [self cellDidPressAtRowIdx:nbRowIdx columnIdx:nbColumnIdx];
+                            [self cellDidPressAtRowIdx:nbRowIdx columnIdx:nbColumnIdx cellAtrribute:1];
                         }
                     }
                 }
@@ -241,7 +283,21 @@ typedef NS_ENUM(NSUInteger, StateType) {
         }
         NSLog(@"noMineCellNumber is %d",noMineCellNumber);
     }
-    if (noMineCellNumber == self.rowCount * self.columnCount - mineNumber) {
+
+    
+
+        }
+    //want to cancel mark
+    else if (cellState.CellAttribute == 2){
+        if (atrribute == 0) {
+            cellState.CellAttribute = 0;
+            -- markedNumber;
+            ++ mineNumber;
+            NSLog(@"markedNumber is %d",markedNumber);
+            [self redrawCellAtRowIndex:rowIdx columnIndex:columnIdx];
+        }
+    }
+    if (noMineCellNumber == self.rowCount * self.columnCount - mineNumber - markedNumber) {
         if ([self.delegate respondsToSelector:@selector(win)]) {
             [self.delegate win];
         }
@@ -250,20 +306,41 @@ typedef NS_ENUM(NSUInteger, StateType) {
     
 }
 
-
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    if ([touches count] > 0) {
-        UITouch *touch = [[touches allObjects] objectAtIndex:0];
-        CGPoint location = [touch locationInView:self];
+- (void)handleLongGesture:(UILongPressGestureRecognizer *)gesture {
+    CGPoint location = [gesture locationInView:self];
+    if (gesture.state == UIGestureRecognizerStateBegan) {
         int rowIdx = (int)floor(location.y / self.sideLength);
         int columnIdx = (int)floor(location.x / self.sideLength);
-
+        
         if (rowIdx >= 0 && rowIdx < self.rowCount &&
             columnIdx >= 0 && columnIdx < self.columnCount) {
-            [self cellDidPressAtRowIdx:rowIdx columnIdx:columnIdx];
+            HKCellState *cell = self.cellsStates[rowIdx * self.columnCount + columnIdx];
+            if (cell.CellAttribute == 0) {
+//                cell.CellAttribute = 2;
+                NSLog(@"this cell is long pressed");
+                [self cellDidPressAtRowIdx:rowIdx columnIdx:columnIdx cellAtrribute:2];
+            }
+            else if (cell.CellAttribute == 2) {
+                NSLog(@"1er CellAttribute is %d",cell.CellAttribute);
+                NSLog(@"this cell is long pressed");
+                [self cellDidPressAtRowIdx:rowIdx columnIdx:columnIdx cellAtrribute:0];
+            }
         }
     }
 }
 
+- (void)handleTapGesture:(UITapGestureRecognizer *)gesture {
+    CGPoint location = [gesture locationInView:self];
+    if (gesture.state == UIGestureRecognizerStateEnded) {
+        
+        int rowIdx = (int)floor(location.y / self.sideLength);
+        int columnIdx = (int)floor(location.x / self.sideLength);
+        
+        if (rowIdx >= 0 && rowIdx < self.rowCount &&
+            columnIdx >= 0 && columnIdx < self.columnCount) {
+            [self cellDidPressAtRowIdx:rowIdx columnIdx:columnIdx cellAtrribute:1];
+        }
+    }
+}
 
 @end
