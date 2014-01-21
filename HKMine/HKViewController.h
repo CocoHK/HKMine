@@ -11,9 +11,11 @@
 @interface HKViewController : UIViewController <UIScrollViewDelegate,HKBoardViewDelegate,UIAlertViewDelegate> {
     IBOutlet UIScrollView *scrollView;
     IBOutlet UIButton *restartBtn;
+    IBOutlet UIBarButtonItem *preferenceBtn;
 }
 
 @property (nonatomic, assign) IBOutlet HKBoardView *boardView;
 
 - (IBAction)startNewGame:(id)sender;
+
 @end

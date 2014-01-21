@@ -7,12 +7,15 @@
 //
 
 #import "HKAppDelegate.h"
+//#import "HKPreferenceViewController.h"
 
 @implementation HKAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+//    HKPreferenceViewController *preferenceViewController = [HKPreferenceViewController new];
+//    self.navigationController = [[UINavigationController alloc]initWithRootViewController:preferenceViewController];
+    
     return YES;
 }
 							

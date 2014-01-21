@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC498E06188D589B001ED529 /* DAModularTableRow.m in Sources */ = {isa = PBXBuildFile; fileRef = CC498DFF188D589B001ED529 /* DAModularTableRow.m */; };
+		CC498E07188D589B001ED529 /* DAModularTableSection.m in Sources */ = {isa = PBXBuildFile; fileRef = CC498E01188D589B001ED529 /* DAModularTableSection.m */; };
+		CC498E08188D589B001ED529 /* DAModularTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC498E03188D589B001ED529 /* DAModularTableView.m */; };
+		CC498E09188D589B001ED529 /* DAModularTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CC498E05188D589B001ED529 /* DAModularTableViewController.m */; };
 		CCB3C6631879D6EF00CD470B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCB3C6621879D6EF00CD470B /* Images.xcassets */; };
 		CCBA2B541870610B00647596 /* HKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBA2B4D1870610B00647596 /* HKAppDelegate.m */; };
 		CCBA2B551870610B00647596 /* HKBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBA2B4F1870610B00647596 /* HKBoardView.m */; };
@@ -18,9 +22,18 @@
 		CCC5DC06185DFC9F0075A2B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC5DC05185DFC9F0075A2B5 /* Foundation.framework */; };
 		CCC5DC08185DFC9F0075A2B5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC5DC07185DFC9F0075A2B5 /* CoreGraphics.framework */; };
 		CCC5DC0A185DFC9F0075A2B5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC5DC09185DFC9F0075A2B5 /* UIKit.framework */; };
+		CCF7D951188B196100E8DDB5 /* HKPreferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCF7D950188B196100E8DDB5 /* HKPreferenceViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC498DFE188D589B001ED529 /* DAModularTableRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAModularTableRow.h; sourceTree = "<group>"; };
+		CC498DFF188D589B001ED529 /* DAModularTableRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAModularTableRow.m; sourceTree = "<group>"; };
+		CC498E00188D589B001ED529 /* DAModularTableSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAModularTableSection.h; sourceTree = "<group>"; };
+		CC498E01188D589B001ED529 /* DAModularTableSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAModularTableSection.m; sourceTree = "<group>"; };
+		CC498E02188D589B001ED529 /* DAModularTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAModularTableView.h; sourceTree = "<group>"; };
+		CC498E03188D589B001ED529 /* DAModularTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAModularTableView.m; sourceTree = "<group>"; };
+		CC498E04188D589B001ED529 /* DAModularTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAModularTableViewController.h; sourceTree = "<group>"; };
+		CC498E05188D589B001ED529 /* DAModularTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAModularTableViewController.m; sourceTree = "<group>"; };
 		CCB3C6621879D6EF00CD470B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = SOURCE_ROOT; };
 		CCBA2B4C1870610B00647596 /* HKAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKAppDelegate.h; path = HKMine/HKAppDelegate.h; sourceTree = SOURCE_ROOT; };
 		CCBA2B4D1870610B00647596 /* HKAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKAppDelegate.m; path = HKMine/HKAppDelegate.m; sourceTree = SOURCE_ROOT; };
@@ -40,6 +53,8 @@
 		CCC5DC07185DFC9F0075A2B5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		CCC5DC09185DFC9F0075A2B5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CCC5DC27185DFC9F0075A2B5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		CCF7D94F188B196100E8DDB5 /* HKPreferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKPreferenceViewController.h; sourceTree = SOURCE_ROOT; };
+		CCF7D950188B196100E8DDB5 /* HKPreferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKPreferenceViewController.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +71,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC498DFD188D589B001ED529 /* DAModularTableView */ = {
+			isa = PBXGroup;
+			children = (
+				CC498DFE188D589B001ED529 /* DAModularTableRow.h */,
+				CC498DFF188D589B001ED529 /* DAModularTableRow.m */,
+				CC498E00188D589B001ED529 /* DAModularTableSection.h */,
+				CC498E01188D589B001ED529 /* DAModularTableSection.m */,
+				CC498E02188D589B001ED529 /* DAModularTableView.h */,
+				CC498E03188D589B001ED529 /* DAModularTableView.m */,
+				CC498E04188D589B001ED529 /* DAModularTableViewController.h */,
+				CC498E05188D589B001ED529 /* DAModularTableViewController.m */,
+			);
+			name = DAModularTableView;
+			path = HKMine/DAModularTableView;
+			sourceTree = SOURCE_ROOT;
+		};
 		CCC5DBF9185DFC9F0075A2B5 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +118,7 @@
 		CCC5DC0B185DFC9F0075A2B5 /* DrawPractice */ = {
 			isa = PBXGroup;
 			children = (
+				CC498DFD188D589B001ED529 /* DAModularTableView */,
 				CCBA2B4C1870610B00647596 /* HKAppDelegate.h */,
 				CCBA2B4D1870610B00647596 /* HKAppDelegate.m */,
 				CCBA2B4E1870610B00647596 /* HKBoardView.h */,
@@ -95,6 +127,8 @@
 				CCBA2B511870610B00647596 /* HKModels.m */,
 				CCBA2B521870610B00647596 /* HKViewController.h */,
 				CCBA2B531870610B00647596 /* HKViewController.m */,
+				CCF7D94F188B196100E8DDB5 /* HKPreferenceViewController.h */,
+				CCF7D950188B196100E8DDB5 /* HKPreferenceViewController.m */,
 				CCBA2B581870611200647596 /* Main.storyboard */,
 				CCB3C6621879D6EF00CD470B /* Images.xcassets */,
 				CCC5DC0C185DFC9F0075A2B5 /* Supporting Files */,
@@ -184,10 +218,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC498E07188D589B001ED529 /* DAModularTableSection.m in Sources */,
+				CC498E06188D589B001ED529 /* DAModularTableRow.m in Sources */,
 				CCBA2B621870611F00647596 /* main.m in Sources */,
+				CC498E09188D589B001ED529 /* DAModularTableViewController.m in Sources */,
+				CC498E08188D589B001ED529 /* DAModularTableView.m in Sources */,
 				CCBA2B571870610B00647596 /* HKViewController.m in Sources */,
 				CCBA2B561870610B00647596 /* HKModels.m in Sources */,
 				CCBA2B541870610B00647596 /* HKAppDelegate.m in Sources */,
+				CCF7D951188B196100E8DDB5 /* HKPreferenceViewController.m in Sources */,
 				CCBA2B551870610B00647596 /* HKBoardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

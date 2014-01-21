@@ -8,6 +8,7 @@
 
 #import "HKViewController.h"
 #import "HKBoardView.h"
+#import "HKPreferenceViewController.h"
 
 @interface HKViewController ()
 
@@ -80,6 +81,7 @@
 - (IBAction)startNewGame:(id)sender {
     [self startNewGame];
 }
+
 
 #pragma mark - HKBoardViewDelegate
 
