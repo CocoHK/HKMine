@@ -7,115 +7,171 @@
 //
 
 #import "HKPreferenceViewController.h"
+#import "DXTableViewModel.h"
+
+@interface StyleValue1Cell : UITableViewCell @end
+
+@implementation StyleValue1Cell
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    return [super initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:reuseIdentifier];
+}
+
+@end
+
 
 @interface HKPreferenceViewController ()
+@property (strong, nonatomic) DXTableViewModel *tableViewModel;
 
 @end
 
 @implementation HKPreferenceViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.tableView.allowsSelectionDuringEditing = YES;
     self.title = @"Preference";
-    DAModularTableSection *levelSection = [DAModularTableSection section];
-    levelSection.headerTitle = @"LEVEL";
-    levelSection.headerHeight = 35.0f;
+    self.tableViewModel.tableView = self.tableView;
     self.tableView.rowHeight = 45.0f;
-
-    [self.tableView insertSection:levelSection];
+    self.tableView.sectionHeaderHeight = 35.0f;
     
-    DAModularTableRow *levelEasyRow = [DAModularTableRow row];
-    levelEasyRow.text = @"Easy";
-    levelEasyRow.detailText = @"9*9 10 mines";
-    levelEasyRow.cellStyle = UITableViewCellStyleValue1;
-    levelEasyRow.accessoryType = UITableViewCellAccessoryNone;
-    levelEasyRow.didSelectBlock = ^(NSIndexPath *indexPath) {
-        DAModularTableRow *tableRow = [self.tableView rowAtIndexPath:indexPath];
-        tableRow.cellStyle = (tableRow.cellStyle == UITableViewCellStyleValue1 ? UITableViewCellStyleDefault : UITableViewCellStyleValue1);
-        tableRow.accessoryType = (tableRow.accessoryType == UITableViewCellAccessoryCheckmark ? UITableViewCellAccessoryNone : UITableViewCellAccessoryCheckmark);
-        [self.tableView reloadRow:tableRow animated:YES];
+    DXTableViewSection *customSection = [[DXTableViewSection alloc]initWithName:@"Custom"];
+    customSection.headerTitle = @"CUSTOM";
+//    levelSection.headerHeight = 35.0f;
+    
+    
+    DXTableViewSection *levelSection = [[DXTableViewSection alloc]initWithName:@"LEVEL"];
+    levelSection.headerTitle = @"LEVEL";
+//    levelSection.headerHeight = 35.0f;
+    self.tableView.rowHeight = 45.0f;
+    [self.tableViewModel addSection:levelSection];
+    
+    DXTableViewRow *levelEasyRow = [[DXTableViewRow alloc]initWithCellReuseIdentifier:@"EasyCell"];
+    levelEasyRow.cellClass = [StyleValue1Cell class];
+    levelEasyRow.cellForRowBlock = ^(DXTableViewRow *row) {
+        StyleValue1Cell *cell = [row.tableView dequeueReusableCellWithIdentifier:row.cellReuseIdentifier];
+        cell.textLabel.text = @"Easy";
+        cell.detailTextLabel.text = @"9x9 10 mines";
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        return cell;
     };
-    [self.tableView insertRow:levelEasyRow];
-    
-    DAModularTableRow *levelMediumRow = [DAModularTableRow row];
-    levelMediumRow.text = @"Medium";
-    levelMediumRow.detailText = @"16*16 40 mines";
-    levelMediumRow.cellStyle = UITableViewCellStyleValue1;
-    levelMediumRow.accessoryType = UITableViewCellAccessoryNone;
-    levelMediumRow.didSelectBlock = ^(NSIndexPath *indexPath) {
-        DAModularTableRow *tableRow = [self.tableView rowAtIndexPath:indexPath];
-        tableRow.cellStyle = (tableRow.cellStyle == UITableViewCellStyleValue1 ? UITableViewCellStyleDefault : UITableViewCellStyleValue1);
-        tableRow.accessoryType = (tableRow.accessoryType == UITableViewCellAccessoryCheckmark ? UITableViewCellAccessoryNone : UITableViewCellAccessoryCheckmark);
-        [self.tableView reloadRow:tableRow animated:YES];
-    };
-    [self.tableView insertRow:levelMediumRow];
-    
-    DAModularTableRow *levelHardRow = [DAModularTableRow row];
-    levelHardRow.text = @"Hard";
-    levelHardRow.detailText = @"16*30 99 mines";
-    levelHardRow.cellStyle = UITableViewCellStyleValue1;
-    levelHardRow.accessoryType = UITableViewCellAccessoryNone;
-    levelHardRow.didSelectBlock = ^(NSIndexPath *indexPath) {
-        DAModularTableRow *tableRow = [self.tableView rowAtIndexPath:indexPath];
-        tableRow.cellStyle = (tableRow.cellStyle == UITableViewCellStyleValue1 ? UITableViewCellStyleDefault : UITableViewCellStyleValue1);
-        tableRow.accessoryType = (tableRow.accessoryType == UITableViewCellAccessoryCheckmark ? UITableViewCellAccessoryNone : UITableViewCellAccessoryCheckmark);
-        [self.tableView reloadRow:tableRow animated:YES];
-    };
-    [self.tableView insertRow:levelHardRow];
-    
-    DAModularTableRow *levelCustomRow = [DAModularTableRow row];
-    levelCustomRow.text = @"Custom";
-    levelCustomRow.rowHeight = 45.0f;
-    levelCustomRow.didSelectBlock = ^(NSIndexPath *indexPath) {
-        [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-        DAModularTableRow *tableRow = [self.tableView rowAtIndexPath:indexPath];
-        tableRow.rowHeight = (tableRow.rowHeight == 45.0f ? 200.0f : 45.0f);
+    levelEasyRow.didSelectRowBlock = ^(DXTableViewRow *row) {
+        UITableViewCell *cell = [row.tableView cellForRowAtIndexPath:row.rowIndexPath];
+        cell.detailTextLabel.hidden = (cell.detailTextLabel.hidden == YES ? NO : YES);
         
-        
-        [self.tableView beginUpdates];
-        [self.tableView endUpdates];
+        cell.accessoryType = cell.accessoryType == UITableViewCellAccessoryCheckmark ?
+        UITableViewCellAccessoryNone : UITableViewCellAccessoryCheckmark;
+        [row.tableView deselectRowAtIndexPath:row.rowIndexPath animated:YES];
     };
-    [self.tableView insertRow:levelCustomRow];
-
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 3;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    return 2;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    [levelSection addRow:levelEasyRow];
     
-    // Configure the cell...
     
-    return cell;
+    DXTableViewRow *levelMediumRow = [[DXTableViewRow alloc]initWithCellReuseIdentifier:@"MediumCell"];
+    levelMediumRow.cellClass = [StyleValue1Cell class];
+    levelMediumRow.cellForRowBlock = ^(DXTableViewRow *row) {
+        StyleValue1Cell *cell = [row.tableView dequeueReusableCellWithIdentifier:row.cellReuseIdentifier];
+        cell.textLabel.text = @"Medium";
+        cell.detailTextLabel.text = @"16x16 40 mines";
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        return cell;
+    };
+    levelMediumRow.didSelectRowBlock = ^(DXTableViewRow *row) {
+        UITableViewCell *cell = [row.tableView cellForRowAtIndexPath:row.rowIndexPath];
+        cell.detailTextLabel.hidden = (cell.detailTextLabel.hidden == YES ? NO : YES);
+        
+        cell.accessoryType = cell.accessoryType == UITableViewCellAccessoryCheckmark ?
+        UITableViewCellAccessoryNone : UITableViewCellAccessoryCheckmark;
+        [row.tableView deselectRowAtIndexPath:row.rowIndexPath animated:YES];
+    };
+    [levelSection addRow:levelMediumRow];
+
+    DXTableViewRow *levelHardRow = [[DXTableViewRow alloc]initWithCellReuseIdentifier:@"HardCell"];
+    levelHardRow.cellClass = [StyleValue1Cell class];
+    levelHardRow.cellForRowBlock = ^(DXTableViewRow *row) {
+        StyleValue1Cell *cell = [row.tableView dequeueReusableCellWithIdentifier:row.cellReuseIdentifier];
+        cell.textLabel.text = @"Hard";
+        cell.detailTextLabel.text = @"16x30 99 mines";
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        return cell;
+    };
+    levelHardRow.didSelectRowBlock = ^(DXTableViewRow *row) {
+        UITableViewCell *cell = [row.tableView cellForRowAtIndexPath:row.rowIndexPath];
+        cell.detailTextLabel.hidden = (cell.detailTextLabel.hidden == YES ? NO : YES);
+        
+        cell.accessoryType = cell.accessoryType == UITableViewCellAccessoryCheckmark ?
+        UITableViewCellAccessoryNone : UITableViewCellAccessoryCheckmark;
+        [row.tableView deselectRowAtIndexPath:row.rowIndexPath animated:YES];
+    };
+    [levelSection addRow:levelHardRow];
+
+    DXTableViewRow *levelCustomRow = [[DXTableViewRow alloc]initWithCellReuseIdentifier:@"CustomCell"];
+    levelCustomRow.cellClass = [UITableViewCell class];
+    levelCustomRow.cellForRowBlock = ^(DXTableViewRow *row) {
+        StyleValue1Cell *cell = [row.tableView dequeueReusableCellWithIdentifier:row.cellReuseIdentifier];
+        cell.textLabel.text = @"Custom";
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        return cell;
+    };
+    levelCustomRow.didSelectRowBlock = ^(DXTableViewRow *row) {
+//        [row.tableViewModel beginUpdates];
+
+        UITableViewCell *cell = [row.tableView cellForRowAtIndexPath:row.rowIndexPath];
+        if (cell.accessoryType == UITableViewCellAccessoryNone) {
+
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+//            [self.tableViewModel addSection:customSection];
+            NSLog(@"convert none to mark");
+        }
+        else {
+            cell.accessoryType = UITableViewCellAccessoryNone;
+//            [self.tableViewModel removeSection:customSection];
+            NSLog(@"convert mark to none");
+
+        }
+//        [row.tableViewModel endUpdates];
+        [row.tableView deselectRowAtIndexPath:row.rowIndexPath animated:YES];
+
+    };
+    [levelSection addRow:levelCustomRow];
+    
+    
+//    DXTableViewRow *typeinWidthRow = [[DXTableViewRow alloc] initWithCellReuseIdentifier:@"WidthCell"];
+//    typeinWidthRow.editingStyle = UITableViewCellEditingStyleInsert;
+//    addRow.cellClass = [UITableViewCell class];
+//    addRow.configureCellBlock = ^(DXTableViewRow *row, UITableViewCell *cell) {
+//        cell.textLabel.text = @"Add Item";
+//    };
+//    void (^addItemActionBlock)() = ^(DXTableViewRow *row) {
+//        [editableSection insertRows:@[[self newItemRow]] afterRow:row withRowAnimation:UITableViewRowAnimationRight];
+//        [row.tableView deselectRowAtIndexPath:row.rowIndexPath animated:YES];
+//    };
+//    addRow.didSelectRowBlock = addItemActionBlock;
+//    addRow.commitEditingStyleForRowBlock = addItemActionBlock;
+//    [editableSection addRow:addRow];
+
 }
+
+
+- (DXTableViewModel *)tableViewModel
+{
+    if (nil == _tableViewModel) {
+        _tableViewModel = [[DXTableViewModel alloc] init];
+    }
+    return _tableViewModel;
+}
+
+- (DXTableViewRow *)newItemRow
+{
+    DXTableViewRow *row = [[DXTableViewRow alloc] initWithCellReuseIdentifier:@"ItemCell"];
+    row.cellClass = [UITableViewCell class];
+    row.configureCellBlock = ^(DXTableViewRow *row, UITableViewCell *cell) {
+        cell.textLabel.text = @"Item";
+    };
+    return row;
+}
+
 
 @end

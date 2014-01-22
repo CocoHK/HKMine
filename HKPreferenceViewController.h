@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DAModularTableViewController.h"
 
-@interface HKPreferenceViewController : DAModularTableViewController
+@interface HKPreferenceViewController : UITableViewController
 
 @end
