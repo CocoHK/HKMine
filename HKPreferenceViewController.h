@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HKPreferenceViewController : UITableViewController
+@interface HKPreferenceViewController : UITableViewController <UITextFieldDelegate>
 
 @end

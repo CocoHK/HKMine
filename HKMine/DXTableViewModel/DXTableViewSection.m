@@ -218,6 +218,7 @@
     NSMutableArray *indexPaths = [NSMutableArray array];
     for (DXTableViewRow *aRow in rows) {
         [indexPaths addObject:[self insertRow:aRow afterRow:row]];
+//        row = aRow;
     }
     [self.tableViewModel.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:animation];
 }
