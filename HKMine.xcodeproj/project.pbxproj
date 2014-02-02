@@ -21,7 +21,7 @@
 		CCC5DC06185DFC9F0075A2B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC5DC05185DFC9F0075A2B5 /* Foundation.framework */; };
 		CCC5DC08185DFC9F0075A2B5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC5DC07185DFC9F0075A2B5 /* CoreGraphics.framework */; };
 		CCC5DC0A185DFC9F0075A2B5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC5DC09185DFC9F0075A2B5 /* UIKit.framework */; };
-		CCF7D951188B196100E8DDB5 /* HKPreferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCF7D950188B196100E8DDB5 /* HKPreferenceViewController.m */; };
+		CCEC6499189E9528004857E8 /* HKSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC6498189E9528004857E8 /* HKSettingViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +51,8 @@
 		CCC5DC07185DFC9F0075A2B5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		CCC5DC09185DFC9F0075A2B5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CCC5DC27185DFC9F0075A2B5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		CCEC6497189E9528004857E8 /* HKSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKSettingViewController.h; sourceTree = SOURCE_ROOT; };
+		CCEC6498189E9528004857E8 /* HKSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKSettingViewController.m; sourceTree = SOURCE_ROOT; };
 		CCF7D94F188B196100E8DDB5 /* HKPreferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKPreferenceViewController.h; sourceTree = SOURCE_ROOT; };
 		CCF7D950188B196100E8DDB5 /* HKPreferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKPreferenceViewController.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -124,6 +126,8 @@
 				CCBA2B511870610B00647596 /* HKModels.m */,
 				CCBA2B521870610B00647596 /* HKViewController.h */,
 				CCBA2B531870610B00647596 /* HKViewController.m */,
+				CCEC6497189E9528004857E8 /* HKSettingViewController.h */,
+				CCEC6498189E9528004857E8 /* HKSettingViewController.m */,
 				CCF7D94F188B196100E8DDB5 /* HKPreferenceViewController.h */,
 				CCF7D950188B196100E8DDB5 /* HKPreferenceViewController.m */,
 				CCBA2B581870611200647596 /* Main.storyboard */,
@@ -215,13 +219,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCEC6499189E9528004857E8 /* HKSettingViewController.m in Sources */,
 				CCBA2B621870611F00647596 /* main.m in Sources */,
 				CC1313DE188FE0F40014763A /* DXTableViewSection.m in Sources */,
 				CCBA2B571870610B00647596 /* HKViewController.m in Sources */,
 				CC1313DD188FE0F40014763A /* DXTableViewRow.m in Sources */,
 				CCBA2B561870610B00647596 /* HKModels.m in Sources */,
 				CCBA2B541870610B00647596 /* HKAppDelegate.m in Sources */,
-				CCF7D951188B196100E8DDB5 /* HKPreferenceViewController.m in Sources */,
 				CCBA2B551870610B00647596 /* HKBoardView.m in Sources */,
 				CC1313DC188FE0F40014763A /* DXTableViewModel.m in Sources */,
 			);
