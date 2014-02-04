@@ -8,8 +8,11 @@
 
 #import "HKViewController.h"
 #import "HKBoardView.h"
-#import "HKPreferenceViewController.h"
+#import "HKSettingViewController.h"
 
+#define kCustomLevelWidth @"kCustomLevelWidth"
+#define kCustomLevelHeight @"kCustomLevelHeight"
+#define kCustomLevelMine @"kCustomLevelMine"
 @interface HKViewController ()
 
 @end
@@ -52,10 +55,10 @@
 
 - (void)startNewGame {
     scrollView.zoomScale = 1;
-    [self.boardView setupWithRowCount:9
-                          columnCount:9
+    [self.boardView setupWithRowCount:[[NSUserDefaults standardUserDefaults]integerForKey:kCustomLevelHeight]
+                          columnCount:[[NSUserDefaults standardUserDefaults]integerForKey:kCustomLevelWidth]
                            sideLength:32
-                            mineCount:10];
+                            mineCount:[[NSUserDefaults standardUserDefaults]integerForKey:kCustomLevelMine]];
     [self scrollViewSetup];
     self.boardView.userInteractionEnabled = YES;
 }

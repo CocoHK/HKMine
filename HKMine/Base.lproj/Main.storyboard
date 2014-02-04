@@ -7,7 +7,7 @@
         <!--Setting View Controller-->
         <scene sceneID="laL-dK-URO">
             <objects>
-                <tableViewController id="YyZ-qX-QDY" customClass="HKSettingViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="HKSettingViewController" id="YyZ-qX-QDY" customClass="HKSettingViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gG5-JM-eJl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -53,6 +53,9 @@
                                         <slider opaque="NO" tag="202" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" id="NmD-Gi-KOM">
                                             <rect key="frame" x="134" y="5" width="168" height="34"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <connections>
+                                                <action selector="changeSlider:" destination="YyZ-qX-QDY" eventType="touchUpInside" id="Oek-le-Pzg"/>
+                                            </connections>
                                         </slider>
                                     </subviews>
                                 </tableViewCellContentView>
@@ -97,7 +100,6 @@
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" title="选项" id="J5D-Ct-Ul4">
                             <connections>
-                                <action selector="goToPreferenceView:" destination="vXZ-lx-hvc" id="le3-s5-FhW"/>
                                 <segue destination="YyZ-qX-QDY" kind="push" id="dWt-ub-zPN"/>
                             </connections>
                         </barButtonItem>
@@ -114,7 +116,7 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="boardView" destination="8SP-fC-95h" id="Pnu-PR-GAr"/>
-                        <outlet property="preferenceBtn" destination="J5D-Ct-Ul4" id="Xpv-4z-fiz"/>
+                        <outlet property="preferenceBtn" destination="J5D-Ct-Ul4" id="YzA-oT-RzO"/>
                         <outlet property="restartBtn" destination="z8a-Go-cPq" id="Q7d-gv-OzI"/>
                         <outlet property="scrollView" destination="Hbe-mL-BFI" id="uUL-sK-TD4"/>
                     </connections>

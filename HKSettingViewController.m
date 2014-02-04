@@ -95,7 +95,7 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
         }
             break;
 //        case 1:
-//            rowNumber = 3;
+//            rowNumber = 4;
 //            break;
         default:
             break;
@@ -124,62 +124,49 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
                     
                     static NSArray *levelTitles = nil;
                     static NSArray *detailTitles = nil;
+                    
                     if (!levelTitles)
                         levelTitles = @[@"Easy",@"Medium",@"Hard",@"Custom"];
                     if (!detailTitles)
                         detailTitles = @[@"9x9 10 mines",@"16x16 40 mines",@"16x30 99 mines",@""];
-
+                    
                     cell.textLabel.text = levelTitles[indexPath.row];
                     cell.detailTextLabel.text = detailTitles[indexPath.row];
                     int selectLevel = [[NSUserDefaults standardUserDefaults] integerForKey:kLevel];
-                    if (indexPath.row == selectLevel) {
+                    if (indexPath.row == selectLevel)
                         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-                    }
                     else
                         cell.accessoryType = UITableViewCellAccessoryNone;
+                    
                 }
                     break;
-                 case CellLevelCustomWidth:
+                case CellLevelCustomWidth:
                 {
-                    cell = [tableView dequeueReusableCellWithIdentifier:@"CustomSizeCellIndentifier" ];
+                    cell = [tableView dequeueReusableCellWithIdentifier:@"CustomSizeCellIndentifier"];
                     cell.textLabel.text = @"Width";
                     UIStepper *widthStepper = (UIStepper *)[cell viewWithTag:102];
                     widthStepper.minimumValue = 9;
                     widthStepper.maximumValue = 30;
                     widthStepper.stepValue = 1;
-                    double widthValue = [[NSUserDefaults standardUserDefaults] doubleForKey:kCustomLevelWidth];
-                    if (widthValue == 0) {
-                        widthStepper.value = 20;
-                        [[NSUserDefaults standardUserDefaults] setDouble:widthStepper.value forKey:kCustomLevelWidth];
-                        [[NSUserDefaults standardUserDefaults] synchronize];
-                    }
-                    else {
-                        widthStepper.value = widthValue;
-                    }
+                    int widthValue = [[NSUserDefaults standardUserDefaults] integerForKey:kCustomLevelWidth];
+                    widthStepper.value = widthValue;
+                    
                     UILabel *widthLabel = (UILabel *) [cell viewWithTag:101];
                     widthLabel.text = [NSString stringWithFormat:@"%2.0f",widthStepper.value];
-
                 }
                     break;
                 case CellLevelCustomHeight:
                 {
                     cell = [tableView dequeueReusableCellWithIdentifier:@"CustomSizeCellIndentifier"];
                     cell.textLabel.text = @"Height";
-
+                    
                     UIStepper *heightStepper = (UIStepper *)[cell viewWithTag:102];
                     heightStepper.minimumValue = 9;
                     heightStepper.maximumValue = 24;
                     heightStepper.stepValue = 1;
                     
-                    double heightValue = [[NSUserDefaults standardUserDefaults] doubleForKey:kCustomLevelHeight];
-                    if (heightValue == 0) {
-                        heightStepper.value = 16;
-                        [[NSUserDefaults standardUserDefaults] setDouble:heightStepper.value forKey:kCustomLevelHeight];
-                        [[NSUserDefaults standardUserDefaults] synchronize];
-                    }
-                    else {
-                        heightStepper.value = heightValue;
-                    }
+                    double heightValue = [[NSUserDefaults standardUserDefaults] integerForKey:kCustomLevelHeight];
+                    heightStepper.value = heightValue;
                     UILabel *heightLabel = (UILabel *) [cell viewWithTag:101];
                     heightLabel.text = [NSString stringWithFormat:@"%2.0f",heightStepper.value];
                 }
@@ -190,15 +177,12 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
                     cell.textLabel.text = @"Mine";
                     UISlider *mineSlider = (UISlider *)[cell viewWithTag:202];
                     mineSlider.minimumValue = 10;
-                    double widthValue = [[NSUserDefaults standardUserDefaults] doubleForKey:kCustomLevelWidth];
-                    double heightValue = [[NSUserDefaults standardUserDefaults] doubleForKey:kCustomLevelHeight];
+                    int widthValue = [[NSUserDefaults standardUserDefaults] integerForKey:kCustomLevelWidth];
+                    int heightValue = [[NSUserDefaults standardUserDefaults] integerForKey:kCustomLevelHeight];
                     mineSlider.maximumValue = (widthValue - 1) * (heightValue - 1);
-                    double mineValue = [[NSUserDefaults standardUserDefaults] doubleForKey:kCustomLevelMine];
-                    if (mineValue == 0) {
-                        mineSlider.value = 10;
-                        [[NSUserDefaults standardUserDefaults] setDouble:mineSlider.value forKey:kCustomLevelMine];
-                        [[NSUserDefaults standardUserDefaults] synchronize];
-                    }
+                    int mineValue = [[NSUserDefaults standardUserDefaults] integerForKey:kCustomLevelMine];
+                    
+                    mineSlider.value = mineValue;
                     UILabel *mineLabel = (UILabel *)[cell viewWithTag:201];
                     mineLabel.text =  [NSString stringWithFormat:@"%2.0f",mineSlider.value];
                     
@@ -219,15 +203,48 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row <= 3) {
-        [[NSUserDefaults standardUserDefaults] setInteger:indexPath.row forKey:kLevel];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+    int lastSelectLevel = [[NSUserDefaults standardUserDefaults] integerForKey:kLevel];
+    [[NSUserDefaults standardUserDefaults] setInteger:indexPath.row forKey:kLevel];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    if (indexPath.row <= 2) {
+        if (lastSelectLevel == 3) {
+            NSIndexPath *path1 = [NSIndexPath indexPathForRow:CellLevelCustomWidth inSection:0];
+            NSIndexPath *path2 = [NSIndexPath indexPathForRow:CellLevelCustomHeight inSection:0];
+            NSIndexPath *path3 = [NSIndexPath indexPathForRow:CellLevelCustomMine inSection:0];
+            NSArray *indexArray = @[path1,path2,path3];
+            [self.tableView beginUpdates];
+            [self.tableView deleteRowsAtIndexPaths:indexArray withRowAnimation:UITableViewRowAnimationBottom];
+            [self.tableView endUpdates];
+        }
+        static NSArray *setWidthArray = nil;
+        static NSArray *setHeightArray = nil;
+        static NSArray *setMineArray = nil;
+        if (!setWidthArray)
+            setWidthArray = @[@(9),@(16),@(16)];
+        if (!setHeightArray)
+            setHeightArray = @[@(9),@(16),@(30)];
+        if (!setMineArray)
+            setMineArray = @[@(10),@(40),@(99)];
+
+        [[NSUserDefaults standardUserDefaults] setInteger:[setWidthArray[indexPath.row] intValue] forKey:kCustomLevelWidth];
+        [[NSUserDefaults standardUserDefaults] setInteger:[setHeightArray[indexPath.row] intValue] forKey:kCustomLevelHeight];
+        [[NSUserDefaults standardUserDefaults] setInteger:[setMineArray [indexPath.row] intValue] forKey:kCustomLevelMine];
+        NSLog(@"userDefaults width is %i",[setWidthArray[indexPath.row] intValue]);
+        NSLog(@"userDefaults height is %i",[setHeightArray[indexPath.row] intValue]);
+        NSLog(@"userDefaults mine is %i",[setMineArray [indexPath.row] intValue]);
         [self.tableView reloadData];
     }
-    
-    
-    
+    else if (indexPath.row == 3 && lastSelectLevel != 3) {
+        NSIndexPath *path1 = [NSIndexPath indexPathForRow:CellLevelCustomWidth inSection:0];
+        NSIndexPath *path2 = [NSIndexPath indexPathForRow:CellLevelCustomHeight inSection:0];
+        NSIndexPath *path3 = [NSIndexPath indexPathForRow:CellLevelCustomMine inSection:0];
+        NSArray *indexArray = @[path1,path2,path3];
+        [self.tableView beginUpdates];
+        [self.tableView insertRowsAtIndexPaths:indexArray withRowAnimation:UITableViewRowAnimationTop];
+        [self.tableView endUpdates];
+    }
 }
+
 
 #pragma mark - Actions
 - (IBAction)changeStepper:(UIStepper *)sender {
@@ -237,21 +254,29 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
         cellView = cellView.superview;
     }
     NSIndexPath *cellIndex = [self.tableView indexPathForCell:(UITableViewCell *)cellView];
-    NSLog(@"cellIndex is %d",[cellIndex row]);
-    
     if (cellIndex.row == CellLevelCustomWidth) {
-        double widthValue = [sender value];
-        [[NSUserDefaults standardUserDefaults] setDouble:widthValue forKey:kCustomLevelWidth];
+        int widthValue = [sender value];
+        [[NSUserDefaults standardUserDefaults] setInteger:widthValue forKey:kCustomLevelWidth];
+        NSLog(@"userDefaults width is %d",widthValue);
+        
     }
     else if (cellIndex.row == CellLevelCustomHeight) {
-        double heightValue = [sender value];
-        [[NSUserDefaults standardUserDefaults] setDouble:heightValue forKey:kCustomLevelHeight];
+        int heightValue = [sender value];
+        [[NSUserDefaults standardUserDefaults] setInteger:heightValue forKey:kCustomLevelHeight];
+        NSLog(@"userDefaults height is %d",heightValue);
+        
     }
     [[NSUserDefaults standardUserDefaults] synchronize];
     [self.tableView reloadData];
+    
 }
 
-- (IBAction)changeSlider:(id)sender {
+- (IBAction)changeSlider:(UISlider *)sender {
+    int mineValue = [sender value];
+    [[NSUserDefaults standardUserDefaults] setInteger:mineValue forKey:kCustomLevelMine];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [self.tableView reloadData];
+    NSLog(@"userDefaults mine is %i",mineValue);
     
 }
 

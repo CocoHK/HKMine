@@ -7,7 +7,11 @@
 //
 
 #import "HKAppDelegate.h"
-
+#define kIsNotFirstTimeLaunch @"kIsNotFirstTimeLaunch"
+#define kLevel @"kLevel"
+#define kCustomLevelWidth @"kCustomLevelWidth"
+#define kCustomLevelHeight @"kCustomLevelHeight"
+#define kCustomLevelMine @"kCustomLevelMine"
 @implementation HKAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -15,7 +19,15 @@
 
 //    HKPreferenceViewController *preferenceViewController = [HKPreferenceViewController new];
 //    self.navigationController = [[UINavigationController alloc]initWithRootViewController:preferenceViewController];
-    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:kIsNotFirstTimeLaunch]) {
+		[[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionary]];
+		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:kIsNotFirstTimeLaunch];
+        [[NSUserDefaults standardUserDefaults] setInteger:3 forKey:kLevel];
+		[[NSUserDefaults standardUserDefaults] setInteger:20 forKey:kCustomLevelWidth];
+        [[NSUserDefaults standardUserDefaults] setInteger:16 forKey:kCustomLevelHeight];
+        [[NSUserDefaults standardUserDefaults] setInteger:10 forKey:kCustomLevelMine];
+		[[NSUserDefaults standardUserDefaults] synchronize];
+	}
     return YES;
 }
 							

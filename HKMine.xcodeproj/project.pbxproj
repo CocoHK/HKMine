@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CC1313DC188FE0F40014763A /* DXTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1313D7188FE0F40014763A /* DXTableViewModel.m */; };
-		CC1313DD188FE0F40014763A /* DXTableViewRow.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1313D9188FE0F40014763A /* DXTableViewRow.m */; };
-		CC1313DE188FE0F40014763A /* DXTableViewSection.m in Sources */ = {isa = PBXBuildFile; fileRef = CC1313DB188FE0F40014763A /* DXTableViewSection.m */; };
 		CCB3C6631879D6EF00CD470B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCB3C6621879D6EF00CD470B /* Images.xcassets */; };
 		CCBA2B541870610B00647596 /* HKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBA2B4D1870610B00647596 /* HKAppDelegate.m */; };
 		CCBA2B551870610B00647596 /* HKBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBA2B4F1870610B00647596 /* HKBoardView.m */; };
@@ -25,13 +22,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CC1313D5188FE0F40014763A /* DXTableViewModel-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DXTableViewModel-Prefix.pch"; sourceTree = "<group>"; };
-		CC1313D6188FE0F40014763A /* DXTableViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXTableViewModel.h; sourceTree = "<group>"; };
-		CC1313D7188FE0F40014763A /* DXTableViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXTableViewModel.m; sourceTree = "<group>"; };
-		CC1313D8188FE0F40014763A /* DXTableViewRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXTableViewRow.h; sourceTree = "<group>"; };
-		CC1313D9188FE0F40014763A /* DXTableViewRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXTableViewRow.m; sourceTree = "<group>"; };
-		CC1313DA188FE0F40014763A /* DXTableViewSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXTableViewSection.h; sourceTree = "<group>"; };
-		CC1313DB188FE0F40014763A /* DXTableViewSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXTableViewSection.m; sourceTree = "<group>"; };
 		CCB3C6621879D6EF00CD470B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = SOURCE_ROOT; };
 		CCBA2B4C1870610B00647596 /* HKAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKAppDelegate.h; path = HKMine/HKAppDelegate.h; sourceTree = SOURCE_ROOT; };
 		CCBA2B4D1870610B00647596 /* HKAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKAppDelegate.m; path = HKMine/HKAppDelegate.m; sourceTree = SOURCE_ROOT; };
@@ -53,8 +43,6 @@
 		CCC5DC27185DFC9F0075A2B5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		CCEC6497189E9528004857E8 /* HKSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKSettingViewController.h; sourceTree = SOURCE_ROOT; };
 		CCEC6498189E9528004857E8 /* HKSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKSettingViewController.m; sourceTree = SOURCE_ROOT; };
-		CCF7D94F188B196100E8DDB5 /* HKPreferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKPreferenceViewController.h; sourceTree = SOURCE_ROOT; };
-		CCF7D950188B196100E8DDB5 /* HKPreferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKPreferenceViewController.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,21 +59,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CC1313D4188FE0F40014763A /* DXTableViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				CC1313D5188FE0F40014763A /* DXTableViewModel-Prefix.pch */,
-				CC1313D6188FE0F40014763A /* DXTableViewModel.h */,
-				CC1313D7188FE0F40014763A /* DXTableViewModel.m */,
-				CC1313D8188FE0F40014763A /* DXTableViewRow.h */,
-				CC1313D9188FE0F40014763A /* DXTableViewRow.m */,
-				CC1313DA188FE0F40014763A /* DXTableViewSection.h */,
-				CC1313DB188FE0F40014763A /* DXTableViewSection.m */,
-			);
-			name = DXTableViewModel;
-			path = HKMine/DXTableViewModel;
-			sourceTree = SOURCE_ROOT;
-		};
 		CCC5DBF9185DFC9F0075A2B5 = {
 			isa = PBXGroup;
 			children = (
@@ -117,7 +90,6 @@
 		CCC5DC0B185DFC9F0075A2B5 /* DrawPractice */ = {
 			isa = PBXGroup;
 			children = (
-				CC1313D4188FE0F40014763A /* DXTableViewModel */,
 				CCBA2B4C1870610B00647596 /* HKAppDelegate.h */,
 				CCBA2B4D1870610B00647596 /* HKAppDelegate.m */,
 				CCBA2B4E1870610B00647596 /* HKBoardView.h */,
@@ -128,8 +100,6 @@
 				CCBA2B531870610B00647596 /* HKViewController.m */,
 				CCEC6497189E9528004857E8 /* HKSettingViewController.h */,
 				CCEC6498189E9528004857E8 /* HKSettingViewController.m */,
-				CCF7D94F188B196100E8DDB5 /* HKPreferenceViewController.h */,
-				CCF7D950188B196100E8DDB5 /* HKPreferenceViewController.m */,
 				CCBA2B581870611200647596 /* Main.storyboard */,
 				CCB3C6621879D6EF00CD470B /* Images.xcassets */,
 				CCC5DC0C185DFC9F0075A2B5 /* Supporting Files */,
@@ -221,13 +191,10 @@
 			files = (
 				CCEC6499189E9528004857E8 /* HKSettingViewController.m in Sources */,
 				CCBA2B621870611F00647596 /* main.m in Sources */,
-				CC1313DE188FE0F40014763A /* DXTableViewSection.m in Sources */,
 				CCBA2B571870610B00647596 /* HKViewController.m in Sources */,
-				CC1313DD188FE0F40014763A /* DXTableViewRow.m in Sources */,
 				CCBA2B561870610B00647596 /* HKModels.m in Sources */,
 				CCBA2B541870610B00647596 /* HKAppDelegate.m in Sources */,
 				CCBA2B551870610B00647596 /* HKBoardView.m in Sources */,
-				CC1313DC188FE0F40014763A /* DXTableViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
