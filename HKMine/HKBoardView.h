@@ -12,7 +12,7 @@
 
 - (void)mineDidPressed;
 - (void)win;
-- (void)mineNumberDidChanged:(NSInteger)mineNumber;
+//- (void)mineNumberDidChanged:(NSInteger)mineNumber;
 
 @end
 

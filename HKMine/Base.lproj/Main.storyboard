@@ -60,6 +60,23 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="SwitchCellIndentifier" selectionStyle="default" indentationWidth="10" reuseIdentifier="SwitchCellIndentifier" id="ZQg-vO-Cgb">
+                                <rect key="frame" x="0.0" y="174" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZQg-vO-Cgb" id="6VN-Hq-vso">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="fte-nE-V1S">
+                                            <rect key="frame" x="251" y="6" width="51" height="31"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <connections>
+                                                <action selector="changeSwitch:" destination="YyZ-qX-QDY" eventType="valueChanged" id="R8x-nu-df1"/>
+                                            </connections>
+                                        </switch>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="YyZ-qX-QDY" id="RhY-ve-Vs0"/>
@@ -70,7 +87,45 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nm3-oc-T6w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="271" y="-708"/>
+            <point key="canvasLocation" x="199" y="-711"/>
+        </scene>
+        <!--Statistics View Controller-->
+        <scene sceneID="zZ8-vX-3pX">
+            <objects>
+                <tableViewController storyboardIdentifier="HKStatisticsViewController" id="ddD-W5-JSA" customClass="HKStatisticsViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Wa6-WO-1gj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="ResetCellIndentifier" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ResetCellIndentifier" id="KpH-r6-KtL">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KpH-r6-KtL" id="lEx-Y3-2dq">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3rh-dl-wCx">
+                                            <rect key="frame" x="0.0" y="0.0" width="306" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Reset">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                        </button>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ddD-W5-JSA" id="RjQ-jU-xSw"/>
+                            <outlet property="delegate" destination="ddD-W5-JSA" id="uTZ-ER-mVJ"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="5ne-9V-tt3"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6zd-fP-kem" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="555" y="-905"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -111,6 +166,11 @@
                                 <action selector="startNewGame:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="tG3-63-GOO"/>
                             </connections>
                         </button>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="EDD-FK-MiQ">
+                            <connections>
+                                <segue destination="ddD-W5-JSA" kind="push" id="Eln-2t-pBU"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
@@ -119,6 +179,7 @@
                         <outlet property="preferenceBtn" destination="J5D-Ct-Ul4" id="YzA-oT-RzO"/>
                         <outlet property="restartBtn" destination="z8a-Go-cPq" id="Q7d-gv-OzI"/>
                         <outlet property="scrollView" destination="Hbe-mL-BFI" id="uUL-sK-TD4"/>
+                        <outlet property="statisticsBtn" destination="EDD-FK-MiQ" id="60G-SR-SWg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

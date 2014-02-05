@@ -60,7 +60,7 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 3;
+    return 2;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -86,17 +86,17 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
         case 0:
         {
             int selectLevel = [[NSUserDefaults standardUserDefaults] integerForKey:kLevel];
-            if (selectLevel == 3) {
-                rowNumber = 7;
+            if (selectLevel < 3) {
+                rowNumber = 4;
             }
             else {
-                rowNumber = 4;
+                rowNumber = 7;
             }
         }
             break;
-//        case 1:
-//            rowNumber = 4;
-//            break;
+        case 1:
+            rowNumber = 3;
+            break;
         default:
             break;
     }
@@ -107,7 +107,7 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
 {
     UITableViewCell *cell = nil;
     switch (indexPath.section) {
-        case 0:
+        case 0://section 0
         {
             switch (indexPath.row) {
                 case CellLevelEasy:
@@ -137,7 +137,6 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
                         cell.accessoryType = UITableViewCellAccessoryCheckmark;
                     else
                         cell.accessoryType = UITableViewCellAccessoryNone;
-                    
                 }
                     break;
                 case CellLevelCustomWidth:
@@ -193,7 +192,18 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
             }
         }
             break;
+        case 1://section 1
+        {
+            cell = [tableView dequeueReusableCellWithIdentifier:@"SwitchCellIndentifier"];
+            static NSArray *section1Array = nil;
+            if (!section1Array) {
+                section1Array = @[@"Sounds",@"Vibration",@"Game Center"];
+            }
+            cell.textLabel.text = section1Array[indexPath.row];
+            UISwitch *aSwitch = (UISwitch *)[cell viewWithTag:301];
+            aSwitch.on = YES;
             
+        }
         default:
             break;
     }
@@ -203,7 +213,12 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     int lastSelectLevel = [[NSUserDefaults standardUserDefaults] integerForKey:kLevel];
+    if (lastSelectLevel == indexPath.row) {
+        return;
+    }
     [[NSUserDefaults standardUserDefaults] setInteger:indexPath.row forKey:kLevel];
     [[NSUserDefaults standardUserDefaults] synchronize];
     if (indexPath.row <= 2) {
@@ -213,7 +228,9 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
             NSIndexPath *path3 = [NSIndexPath indexPathForRow:CellLevelCustomMine inSection:0];
             NSArray *indexArray = @[path1,path2,path3];
             [self.tableView beginUpdates];
-            [self.tableView deleteRowsAtIndexPaths:indexArray withRowAnimation:UITableViewRowAnimationBottom];
+            [self.tableView deleteRowsAtIndexPaths:indexArray withRowAnimation:UITableViewRowAnimationNone];
+            [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:lastSelectLevel inSection:0], indexPath]
+                                  withRowAnimation:UITableViewRowAnimationNone];
             [self.tableView endUpdates];
         }
         static NSArray *setWidthArray = nil;
@@ -229,9 +246,6 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
         [[NSUserDefaults standardUserDefaults] setInteger:[setWidthArray[indexPath.row] intValue] forKey:kCustomLevelWidth];
         [[NSUserDefaults standardUserDefaults] setInteger:[setHeightArray[indexPath.row] intValue] forKey:kCustomLevelHeight];
         [[NSUserDefaults standardUserDefaults] setInteger:[setMineArray [indexPath.row] intValue] forKey:kCustomLevelMine];
-        NSLog(@"userDefaults width is %i",[setWidthArray[indexPath.row] intValue]);
-        NSLog(@"userDefaults height is %i",[setHeightArray[indexPath.row] intValue]);
-        NSLog(@"userDefaults mine is %i",[setMineArray [indexPath.row] intValue]);
         [self.tableView reloadData];
     }
     else if (indexPath.row == 3 && lastSelectLevel != 3) {
@@ -240,7 +254,9 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
         NSIndexPath *path3 = [NSIndexPath indexPathForRow:CellLevelCustomMine inSection:0];
         NSArray *indexArray = @[path1,path2,path3];
         [self.tableView beginUpdates];
-        [self.tableView insertRowsAtIndexPaths:indexArray withRowAnimation:UITableViewRowAnimationTop];
+        [self.tableView insertRowsAtIndexPaths:indexArray withRowAnimation:UITableViewRowAnimationNone];
+        [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:lastSelectLevel inSection:0], indexPath]
+                              withRowAnimation:UITableViewRowAnimationNone];
         [self.tableView endUpdates];
     }
 }
@@ -278,6 +294,10 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
     [self.tableView reloadData];
     NSLog(@"userDefaults mine is %i",mineValue);
     
+}
+
+- (IBAction)changeSwitch:(UISwitch *)sender {
+    BOOL ifOn = sender.on;
 }
 
 @end

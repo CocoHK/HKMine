@@ -12,5 +12,5 @@
 
 - (IBAction)changeStepper:(id)sender;
 - (IBAction)changeSlider:(id)sender;
-
+- (IBAction)changeSwitch:(id)sender;
 @end

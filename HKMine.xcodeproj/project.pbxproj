@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CCB3C6631879D6EF00CD470B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCB3C6621879D6EF00CD470B /* Images.xcassets */; };
+		CCB4DD4818A2E294006699C3 /* HKSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB4DD4518A2E294006699C3 /* HKSettingViewController.m */; };
+		CCB4DD4918A2E294006699C3 /* HKStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB4DD4718A2E294006699C3 /* HKStatisticsViewController.m */; };
 		CCBA2B541870610B00647596 /* HKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBA2B4D1870610B00647596 /* HKAppDelegate.m */; };
 		CCBA2B551870610B00647596 /* HKBoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBA2B4F1870610B00647596 /* HKBoardView.m */; };
 		CCBA2B561870610B00647596 /* HKModels.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBA2B511870610B00647596 /* HKModels.m */; };
@@ -18,11 +20,14 @@
 		CCC5DC06185DFC9F0075A2B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC5DC05185DFC9F0075A2B5 /* Foundation.framework */; };
 		CCC5DC08185DFC9F0075A2B5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC5DC07185DFC9F0075A2B5 /* CoreGraphics.framework */; };
 		CCC5DC0A185DFC9F0075A2B5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC5DC09185DFC9F0075A2B5 /* UIKit.framework */; };
-		CCEC6499189E9528004857E8 /* HKSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCEC6498189E9528004857E8 /* HKSettingViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CCB3C6621879D6EF00CD470B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = SOURCE_ROOT; };
+		CCB4DD4418A2E294006699C3 /* HKSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKSettingViewController.h; path = HKMine/HKSettingViewController.h; sourceTree = SOURCE_ROOT; };
+		CCB4DD4518A2E294006699C3 /* HKSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKSettingViewController.m; path = HKMine/HKSettingViewController.m; sourceTree = SOURCE_ROOT; };
+		CCB4DD4618A2E294006699C3 /* HKStatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKStatisticsViewController.h; path = HKMine/HKStatisticsViewController.h; sourceTree = SOURCE_ROOT; };
+		CCB4DD4718A2E294006699C3 /* HKStatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKStatisticsViewController.m; path = HKMine/HKStatisticsViewController.m; sourceTree = SOURCE_ROOT; };
 		CCBA2B4C1870610B00647596 /* HKAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKAppDelegate.h; path = HKMine/HKAppDelegate.h; sourceTree = SOURCE_ROOT; };
 		CCBA2B4D1870610B00647596 /* HKAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKAppDelegate.m; path = HKMine/HKAppDelegate.m; sourceTree = SOURCE_ROOT; };
 		CCBA2B4E1870610B00647596 /* HKBoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKBoardView.h; path = HKMine/HKBoardView.h; sourceTree = SOURCE_ROOT; };
@@ -41,8 +46,6 @@
 		CCC5DC07185DFC9F0075A2B5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		CCC5DC09185DFC9F0075A2B5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CCC5DC27185DFC9F0075A2B5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		CCEC6497189E9528004857E8 /* HKSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKSettingViewController.h; sourceTree = SOURCE_ROOT; };
-		CCEC6498189E9528004857E8 /* HKSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKSettingViewController.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +101,10 @@
 				CCBA2B511870610B00647596 /* HKModels.m */,
 				CCBA2B521870610B00647596 /* HKViewController.h */,
 				CCBA2B531870610B00647596 /* HKViewController.m */,
-				CCEC6497189E9528004857E8 /* HKSettingViewController.h */,
-				CCEC6498189E9528004857E8 /* HKSettingViewController.m */,
+				CCB4DD4418A2E294006699C3 /* HKSettingViewController.h */,
+				CCB4DD4518A2E294006699C3 /* HKSettingViewController.m */,
+				CCB4DD4618A2E294006699C3 /* HKStatisticsViewController.h */,
+				CCB4DD4718A2E294006699C3 /* HKStatisticsViewController.m */,
 				CCBA2B581870611200647596 /* Main.storyboard */,
 				CCB3C6621879D6EF00CD470B /* Images.xcassets */,
 				CCC5DC0C185DFC9F0075A2B5 /* Supporting Files */,
@@ -189,11 +194,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCEC6499189E9528004857E8 /* HKSettingViewController.m in Sources */,
+				CCB4DD4818A2E294006699C3 /* HKSettingViewController.m in Sources */,
 				CCBA2B621870611F00647596 /* main.m in Sources */,
 				CCBA2B571870610B00647596 /* HKViewController.m in Sources */,
 				CCBA2B561870610B00647596 /* HKModels.m in Sources */,
 				CCBA2B541870610B00647596 /* HKAppDelegate.m in Sources */,
+				CCB4DD4918A2E294006699C3 /* HKStatisticsViewController.m in Sources */,
 				CCBA2B551870610B00647596 /* HKBoardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

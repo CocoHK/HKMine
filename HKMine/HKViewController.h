@@ -12,6 +12,7 @@
     IBOutlet UIScrollView *scrollView;
     IBOutlet UIButton *restartBtn;
     IBOutlet UIBarButtonItem *preferenceBtn;
+    IBOutlet UIBarButtonItem *statisticsBtn;
 }
 
 @property (nonatomic, assign) IBOutlet HKBoardView *boardView;
