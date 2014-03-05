@@ -259,8 +259,8 @@ typedef NS_ENUM(NSUInteger, StateType) {
             }
             // disable touch
             self.userInteractionEnabled = NO;
-            if ([self.delegate respondsToSelector:@selector(mineDidPressed)]) {
-                [self.delegate mineDidPressed];
+            if ([self.boardViewDelegate respondsToSelector:@selector(mineDidPressed)]) {
+                [self.boardViewDelegate mineDidPressed];
             }
             
         }
@@ -281,7 +281,7 @@ typedef NS_ENUM(NSUInteger, StateType) {
         if (cellState.number >= 0) {
             ++noMineCellNumber;
         }
-        NSLog(@"noMineCellNumber is %d",noMineCellNumber);
+//        NSLog(@"noMineCellNumber is %d",noMineCellNumber);
     }
 
     
@@ -298,8 +298,9 @@ typedef NS_ENUM(NSUInteger, StateType) {
         }
     }
     if (noMineCellNumber == self.rowCount * self.columnCount - mineNumber - markedNumber) {
-        if ([self.delegate respondsToSelector:@selector(win)]) {
-            [self.delegate win];
+        //detact if boardViewDelegate works
+        if ([self.boardViewDelegate respondsToSelector:@selector(win)]) {
+            [self.boardViewDelegate win];
         }
     }
     

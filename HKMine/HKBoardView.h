@@ -24,7 +24,7 @@
 @property (nonatomic, assign) CGFloat sideLength;
 @property (nonatomic, strong) NSMutableArray *cellsStates;
 
-@property (nonatomic, assign) id<HKBoardViewDelegate> delegate;
+@property (nonatomic, assign) id<HKBoardViewDelegate> boardViewDelegate;
 
 - (void)resize;
 - (void)setupWithRowCount:(NSUInteger)rowCount

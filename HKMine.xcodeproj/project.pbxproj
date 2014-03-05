@@ -20,6 +20,7 @@
 		CCC5DC06185DFC9F0075A2B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC5DC05185DFC9F0075A2B5 /* Foundation.framework */; };
 		CCC5DC08185DFC9F0075A2B5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC5DC07185DFC9F0075A2B5 /* CoreGraphics.framework */; };
 		CCC5DC0A185DFC9F0075A2B5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC5DC09185DFC9F0075A2B5 /* UIKit.framework */; };
+		CCD02F9618C68E9800B460DB /* HKDataMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD02F9518C68E9800B460DB /* HKDataMgr.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,8 @@
 		CCC5DC07185DFC9F0075A2B5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		CCC5DC09185DFC9F0075A2B5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CCC5DC27185DFC9F0075A2B5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		CCD02F9418C68E9800B460DB /* HKDataMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKDataMgr.h; sourceTree = SOURCE_ROOT; };
+		CCD02F9518C68E9800B460DB /* HKDataMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKDataMgr.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +111,8 @@
 				CCBA2B581870611200647596 /* Main.storyboard */,
 				CCB3C6621879D6EF00CD470B /* Images.xcassets */,
 				CCC5DC0C185DFC9F0075A2B5 /* Supporting Files */,
+				CCD02F9418C68E9800B460DB /* HKDataMgr.h */,
+				CCD02F9518C68E9800B460DB /* HKDataMgr.m */,
 			);
 			path = DrawPractice;
 			sourceTree = "<group>";
@@ -195,6 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCB4DD4818A2E294006699C3 /* HKSettingViewController.m in Sources */,
+				CCD02F9618C68E9800B460DB /* HKDataMgr.m in Sources */,
 				CCBA2B621870611F00647596 /* main.m in Sources */,
 				CCBA2B571870610B00647596 /* HKViewController.m in Sources */,
 				CCBA2B561870610B00647596 /* HKModels.m in Sources */,

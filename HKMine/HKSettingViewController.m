@@ -3,10 +3,13 @@
 //  HKMine
 //
 //  Created by Coco on 02/02/14.
-//  Copyright (c) 2014 Coco. All rights reserved.
+//  Copyright (c) 2014 Coco. All rights reserved.1
 //
 
 #import "HKSettingViewController.h"
+#import "HKAppDelegate.h"
+#import "HKDataMgr.h"
+
 #define kLevel @"kLevel"
 #define kCustomLevelWidth @"kCustomLevelWidth"
 #define kCustomLevelHeight @"kCustomLevelHeight"
@@ -22,7 +25,7 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
     CellLevelCustomMine,
 };
 @interface HKSettingViewController () {
-
+    HKDataMgr *dataMgr;
 }
 
 @end
@@ -41,7 +44,7 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    dataMgr = [HKDataMgr shared];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -85,7 +88,7 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
     switch (section) {
         case 0:
         {
-            int selectLevel = [[NSUserDefaults standardUserDefaults] integerForKey:kLevel];
+            int selectLevel = [dataMgr integerForKey:kLevel];
             if (selectLevel < 3) {
                 rowNumber = 4;
             }
@@ -132,7 +135,9 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
                     
                     cell.textLabel.text = levelTitles[indexPath.row];
                     cell.detailTextLabel.text = detailTitles[indexPath.row];
-                    int selectLevel = [[NSUserDefaults standardUserDefaults] integerForKey:kLevel];
+                    
+                    int selectLevel = [dataMgr integerForKey:kLevel];
+                    
                     if (indexPath.row == selectLevel)
                         cell.accessoryType = UITableViewCellAccessoryCheckmark;
                     else
@@ -215,12 +220,15 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    int lastSelectLevel = [[NSUserDefaults standardUserDefaults] integerForKey:kLevel];
+    int lastSelectLevel = [dataMgr integerForKey:kLevel];
+    
+    
     if (lastSelectLevel == indexPath.row) {
         return;
     }
-    [[NSUserDefaults standardUserDefaults] setInteger:indexPath.row forKey:kLevel];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+
+    //新增，把当前难度存在appdelegate中
+    [dataMgr setInteger:indexPath.row forKey:kLevel];
     if (indexPath.row <= 2) {
         if (lastSelectLevel == 3) {
             NSIndexPath *path1 = [NSIndexPath indexPathForRow:CellLevelCustomWidth inSection:0];

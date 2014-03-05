@@ -7,30 +7,39 @@
 //
 
 #import "HKAppDelegate.h"
+#import "HKDataMgr.h"
+
 #define kIsNotFirstTimeLaunch @"kIsNotFirstTimeLaunch"
 #define kLevel @"kLevel"
 #define kCustomLevelWidth @"kCustomLevelWidth"
 #define kCustomLevelHeight @"kCustomLevelHeight"
 #define kCustomLevelMine @"kCustomLevelMine"
+
 @implementation HKAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-
+    HKDataMgr *dataMgr = [HKDataMgr shared];
+    if (![dataMgr boolForKey:kIsNotFirstTimeLaunch]) {
+        [dataMgr setInteger:2 forKey:kLevel];
+        [dataMgr setBool:YES forKey:kIsNotFirstTimeLaunch];
+    }
 //    HKPreferenceViewController *preferenceViewController = [HKPreferenceViewController new];
 //    self.navigationController = [[UINavigationController alloc]initWithRootViewController:preferenceViewController];
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:kIsNotFirstTimeLaunch]) {
-		[[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionary]];
-		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:kIsNotFirstTimeLaunch];
-        [[NSUserDefaults standardUserDefaults] setInteger:3 forKey:kLevel];
-		[[NSUserDefaults standardUserDefaults] setInteger:20 forKey:kCustomLevelWidth];
-        [[NSUserDefaults standardUserDefaults] setInteger:16 forKey:kCustomLevelHeight];
-        [[NSUserDefaults standardUserDefaults] setInteger:10 forKey:kCustomLevelMine];
-		[[NSUserDefaults standardUserDefaults] synchronize];
-	}
+//    if (![[NSUserDefaults standardUserDefaults] boolForKey:kIsNotFirstTimeLaunch]) {
+//		[[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionary]];
+//		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:kIsNotFirstTimeLaunch];
+////        [[NSUserDefaults standardUserDefaults] setInteger:3 forKey:kLevel];
+//		[[NSUserDefaults standardUserDefaults] setInteger:20 forKey:kCustomLevelWidth];
+//        [[NSUserDefaults standardUserDefaults] setInteger:16 forKey:kCustomLevelHeight];
+//        [[NSUserDefaults standardUserDefaults] setInteger:10 forKey:kCustomLevelMine];
+//		[[NSUserDefaults standardUserDefaults] synchronize];
+//	}
+    NSLog(@"current level is %d",[dataMgr integerForKey:kLevel]);
+
     return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

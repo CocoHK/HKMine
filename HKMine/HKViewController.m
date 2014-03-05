@@ -9,6 +9,7 @@
 #import "HKViewController.h"
 #import "HKBoardView.h"
 #import "HKSettingViewController.h"
+#import "HKDataMgr.h"
 
 #define kCustomLevelWidth @"kCustomLevelWidth"
 #define kCustomLevelHeight @"kCustomLevelHeight"
@@ -17,14 +18,44 @@
 
 @end
 
-@implementation HKViewController
+@implementation HKViewController{
+    double time;
+    NSString *timeStr;
+    NSTimer *timer;
+    HKDataMgr *dataMgr;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    dataMgr = [HKDataMgr shared];
     //和边框有15像素的距离
     [scrollView setContentInset:UIEdgeInsetsMake(15, 15, 15, 15)];
-    self.boardView.delegate = self;
+    self.boardView.boardViewDelegate = self;
+    time = 0;
+    timeStr = [NSString stringWithFormat:@"000"];
     [self startNewGame];
+}
+
+- (void)startTimer {
+    [self stopTimer];
+    timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateTime:) userInfo:nil repeats:YES];
+}
+
+- (void)stopTimer {
+    if (timer) {
+        [timer invalidate];
+        timer = nil;
+    }
+}
+
+- (void)updateTimeString {
+    timeStr = [NSString stringWithFormat:@"%02.0f",time / 10];
+}
+
+- (void)updateTime:(NSTimer *)timer {
+    time ++;
+    [self updateTimeString];
+    [countTimeLabel setText:timeStr];
 }
 
 #pragma mark - Scroll View Manipulation
@@ -61,6 +92,10 @@
                             mineCount:[[NSUserDefaults standardUserDefaults]integerForKey:kCustomLevelMine]];
     [self scrollViewSetup];
     self.boardView.userInteractionEnabled = YES;
+    time = 0;
+    [self updateTimeString];
+    [self startTimer];
+    NSLog(@"current level is %d",[dataMgr integerForKey:@"kLevel"]);
 }
 
 #pragma mark - UIViewController
@@ -89,10 +124,12 @@
 #pragma mark - HKBoardViewDelegate
 
 - (void)mineDidPressed {
+    [self stopTimer];
     scrollView.zoomScale = scrollView.minimumZoomScale;
 }
 
 - (void)win {
+    [self stopTimer];
     UIAlertView *alertWin = [[UIAlertView alloc]initWithTitle:@"You win!" message:@"" delegate:self cancelButtonTitle:@"new game" otherButtonTitles:@"OK",nil];
     [alertWin show];
 }

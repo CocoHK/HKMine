@@ -158,14 +158,37 @@
                                 <segue destination="YyZ-qX-QDY" kind="push" id="dWt-ub-zPN"/>
                             </connections>
                         </barButtonItem>
-                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="z8a-Go-cPq">
-                            <rect key="frame" x="119" y="7" width="83" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="New Game"/>
-                            <connections>
-                                <action selector="startNewGame:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="tG3-63-GOO"/>
-                            </connections>
-                        </button>
+                        <view key="titleView" contentMode="scaleToFill" id="Klg-yV-UyU">
+                            <rect key="frame" x="54" y="6" width="212" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nUH-AS-xAN">
+                                    <rect key="frame" x="77" y="2" width="46" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="New">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="startNewGame:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="IGF-X7-2C3"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="E6z-qW-KoD">
+                                    <rect key="frame" x="7" y="6" width="47" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mine" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gcA-39-3E7">
+                                    <rect key="frame" x="131" y="6" width="42" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
                         <barButtonItem key="rightBarButtonItem" title="Item" id="EDD-FK-MiQ">
                             <connections>
                                 <segue destination="ddD-W5-JSA" kind="push" id="Eln-2t-pBU"/>
@@ -176,15 +199,16 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="boardView" destination="8SP-fC-95h" id="Pnu-PR-GAr"/>
+                        <outlet property="countTimeLabel" destination="E6z-qW-KoD" id="kPX-Qm-yBg"/>
                         <outlet property="preferenceBtn" destination="J5D-Ct-Ul4" id="YzA-oT-RzO"/>
-                        <outlet property="restartBtn" destination="z8a-Go-cPq" id="Q7d-gv-OzI"/>
+                        <outlet property="restartBtn" destination="nUH-AS-xAN" id="xUo-Wc-Gy0"/>
                         <outlet property="scrollView" destination="Hbe-mL-BFI" id="uUL-sK-TD4"/>
                         <outlet property="statisticsBtn" destination="EDD-FK-MiQ" id="60G-SR-SWg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="582" y="21"/>
+            <point key="canvasLocation" x="352" y="10"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zZs-qj-BAe">
