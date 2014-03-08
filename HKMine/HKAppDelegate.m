@@ -15,6 +15,10 @@
 #define kCustomLevelHeight @"kCustomLevelHeight"
 #define kCustomLevelMine @"kCustomLevelMine"
 
+#define easyBestTime @"easyBestTime"
+#define mediumBestTime @"mediumBestTime"
+#define hardBestTime @"hardBestTime"
+
 @implementation HKAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -23,6 +27,11 @@
     if (![dataMgr boolForKey:kIsNotFirstTimeLaunch]) {
         [dataMgr setInteger:2 forKey:kLevel];
         [dataMgr setBool:YES forKey:kIsNotFirstTimeLaunch];
+//        [dataMgr setDouble:0 forKey:easyBestTime];
+//        [dataMgr setDouble:0 forKey:mediumBestTime];
+//        [dataMgr setDouble:0 forKey:hardBestTime];
+
+        
     }
 //    HKPreferenceViewController *preferenceViewController = [HKPreferenceViewController new];
 //    self.navigationController = [[UINavigationController alloc]initWithRootViewController:preferenceViewController];

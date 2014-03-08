@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @protocol HKBoardViewDelegate <NSObject>
-
-- (void)mineDidPressed;
-- (void)win;
+- (void)gameStart;
+- (void)gameOver;
+- (void)gameWin;
 //- (void)mineNumberDidChanged:(NSInteger)mineNumber;
 
 @end

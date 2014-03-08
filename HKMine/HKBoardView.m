@@ -23,6 +23,7 @@ typedef NS_ENUM(NSUInteger, StateType) {
     int noMineCellNumber;
     int markedNumber;
     NSInteger mineNumber;
+    BOOL isNewGame;
 }
 
 - (void)setupWithRowCount:(NSUInteger)rowCount
@@ -35,7 +36,8 @@ typedef NS_ENUM(NSUInteger, StateType) {
     self.columnCount = columnCount;
     self.sideLength = sideLength;
     mineNumber = mineCount;
-
+    isNewGame = YES;
+    
     //setup tap gesture
     UITapGestureRecognizer * tapPressGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
     tapPressGesture.numberOfTapsRequired = 1;
@@ -226,7 +228,12 @@ typedef NS_ENUM(NSUInteger, StateType) {
     int index = self.columnCount * rowIdx + columnIdx;
     HKCellState *cellState = self.cellsStates[index];
     [self redrawCellAtRowIndex:rowIdx columnIndex:columnIdx];
-
+    if (isNewGame == YES) {
+        if ([self.boardViewDelegate respondsToSelector:@selector(gameStart)]) {
+            [self.boardViewDelegate gameStart];
+    }
+        isNewGame = NO;
+    }
     if (cellState.CellAttribute == 0) {
         
     //want to mark this cell
@@ -259,8 +266,8 @@ typedef NS_ENUM(NSUInteger, StateType) {
             }
             // disable touch
             self.userInteractionEnabled = NO;
-            if ([self.boardViewDelegate respondsToSelector:@selector(mineDidPressed)]) {
-                [self.boardViewDelegate mineDidPressed];
+            if ([self.boardViewDelegate respondsToSelector:@selector(gameOver)]) {
+                [self.boardViewDelegate gameOver];
             }
             
         }
@@ -299,8 +306,8 @@ typedef NS_ENUM(NSUInteger, StateType) {
     }
     if (noMineCellNumber == self.rowCount * self.columnCount - mineNumber - markedNumber) {
         //detact if boardViewDelegate works
-        if ([self.boardViewDelegate respondsToSelector:@selector(win)]) {
-            [self.boardViewDelegate win];
+        if ([self.boardViewDelegate respondsToSelector:@selector(gameWin)]) {
+            [self.boardViewDelegate gameWin];
         }
     }
     

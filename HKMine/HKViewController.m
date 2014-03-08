@@ -14,14 +14,26 @@
 #define kCustomLevelWidth @"kCustomLevelWidth"
 #define kCustomLevelHeight @"kCustomLevelHeight"
 #define kCustomLevelMine @"kCustomLevelMine"
+#define kLevel @"kLevel"
+
+#define easyBestTime @"easyBestTime"
+#define mediumBestTime @"mediumBestTime"
+#define hardBestTime @"hardBestTime"
+#define easyGamePlayed @"easyGamePlayed"
+#define mediumGamePlayed @"mediumGamePlayed"
+#define hardGamePlayed @"hardGamePlayed"
+#define easyGameWon @"easyGameWon"
+#define mediumGameWon @"mediumGameWon"
+#define hardGameWon @"hardGameWon"
+
 @interface HKViewController ()
 
 @end
 
 @implementation HKViewController{
-    double time;
-    NSString *timeStr;
-    NSTimer *timer;
+    double gameTime;
+    NSString *gameTimeStr;
+    NSTimer *gameTimer;
     HKDataMgr *dataMgr;
 }
 
@@ -31,31 +43,26 @@
     //和边框有15像素的距离
     [scrollView setContentInset:UIEdgeInsetsMake(15, 15, 15, 15)];
     self.boardView.boardViewDelegate = self;
-    time = 0;
-    timeStr = [NSString stringWithFormat:@"000"];
+    gameTime = 0;
+    countTimeLabel.text = @"000";
     [self startNewGame];
 }
 
 - (void)startTimer {
     [self stopTimer];
-    timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateTime:) userInfo:nil repeats:YES];
+    gameTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateTime:) userInfo:nil repeats:YES];
 }
 
 - (void)stopTimer {
-    if (timer) {
-        [timer invalidate];
-        timer = nil;
+    if (gameTimer) {
+        [gameTimer invalidate];
+        gameTimer = nil;
     }
 }
 
-- (void)updateTimeString {
-    timeStr = [NSString stringWithFormat:@"%02.0f",time / 10];
-}
-
 - (void)updateTime:(NSTimer *)timer {
-    time ++;
-    [self updateTimeString];
-    [countTimeLabel setText:timeStr];
+    gameTime ++;
+    [countTimeLabel setText:[NSString stringWithFormat:@"%003.0f",gameTime / 10]];
 }
 
 #pragma mark - Scroll View Manipulation
@@ -92,10 +99,7 @@
                             mineCount:[[NSUserDefaults standardUserDefaults]integerForKey:kCustomLevelMine]];
     [self scrollViewSetup];
     self.boardView.userInteractionEnabled = YES;
-    time = 0;
-    [self updateTimeString];
-    [self startTimer];
-    NSLog(@"current level is %d",[dataMgr integerForKey:@"kLevel"]);
+    NSLog(@"current level is %d",[dataMgr integerForKey:kLevel]);
 }
 
 #pragma mark - UIViewController
@@ -122,15 +126,90 @@
 
 
 #pragma mark - HKBoardViewDelegate
+- (void)gameStart {
+    gameTime = 0;
+    countTimeLabel.text = [NSString stringWithFormat:@"%03.0f",gameTime / 10];
+    [self startTimer];
+}
 
-- (void)mineDidPressed {
+- (void)gameOver {
+    int currentLevel = [dataMgr integerForKey:kLevel];;
+    int gamePlayed;
+    switch (currentLevel) {
+        case 0:
+            gamePlayed = [dataMgr integerForKey:easyGamePlayed];
+            [dataMgr setInteger:gamePlayed + 1 forKey:easyGamePlayed];
+            break;
+        case 1:
+            gamePlayed = [dataMgr integerForKey:mediumGamePlayed];
+            [dataMgr setInteger:gamePlayed + 1 forKey:mediumGamePlayed];
+            break;
+        case 2:
+            gamePlayed = [dataMgr integerForKey:hardGamePlayed];
+            [dataMgr setInteger:gamePlayed + 1 forKey:hardGamePlayed];
+            break;
+        default:
+            break;
+    }
     [self stopTimer];
     scrollView.zoomScale = scrollView.minimumZoomScale;
 }
 
-- (void)win {
+- (void)gameWin {
+    int gamePlayed;
+    int gameWon;
+    int currentLevel = [dataMgr integerForKey:kLevel];
+    double currentBestTime = 0;
+    NSString *alertMessage;
+    switch (currentLevel) {
+        case 0:
+            currentBestTime = [dataMgr doubleForKey:easyBestTime];
+            gamePlayed = [dataMgr integerForKey:easyGamePlayed];
+            gameWon = [dataMgr integerForKey:easyGameWon];
+            [dataMgr setInteger:gamePlayed + 1 forKey:easyGamePlayed];
+            [dataMgr setInteger:gameWon + 1 forKey:easyGameWon];
+            break;
+        case 1:
+            currentBestTime = [dataMgr doubleForKey:mediumBestTime];
+            gamePlayed = [dataMgr integerForKey:mediumGamePlayed];
+            gameWon = [dataMgr integerForKey:mediumGameWon];
+            [dataMgr setInteger:gamePlayed + 1 forKey:mediumGamePlayed];
+            [dataMgr setInteger:gameWon + 1 forKey:mediumGameWon];
+            break;
+        case 2:
+            currentBestTime = [dataMgr doubleForKey:hardBestTime];
+            gamePlayed = [dataMgr integerForKey:hardGamePlayed];
+            gameWon = [dataMgr integerForKey:hardGameWon];
+            [dataMgr setInteger:gamePlayed + 1 forKey:hardGamePlayed];
+            [dataMgr setInteger:gameWon + 1 forKey:hardGameWon];
+            break;
+        default:
+            break;
+    }
+    
+  //got new record
+    if (currentBestTime == 0 || gameTime < currentBestTime) {
+        switch (currentLevel) {
+            case 0:
+                [dataMgr setDouble:gameTime forKey:easyBestTime];
+                break;
+            case 1:
+                [dataMgr setDouble:gameTime forKey:mediumBestTime];
+                break;
+            case 2:
+                [dataMgr setDouble:gameTime forKey:hardBestTime];
+                break;
+            default:
+                break;
+        }
+        alertMessage = [NSString stringWithFormat:@"The shortest time in this level!\nBest time: %.1f seconds\nGames played: %d\nGames won: %d\nPercentage: %@",gameTime/10,gamePlayed + 1,gameWon + 1,[NSString stringWithFormat:@"%.2f%%",( (gameWon+1) / (float)(gamePlayed+1)) * 100]];
+    }
+    //didn't get new record
+    else {
+        alertMessage = [NSString stringWithFormat:@"Time: %.1f seconds\nGames played: %d\nGames won: %d\nPercentage: %@",gameTime / 10,gamePlayed + 1,gameWon + 1,[NSString stringWithFormat:@"%.2f%%",( (gameWon+1) / (float)(gamePlayed+1)) * 100]];
+    }
     [self stopTimer];
-    UIAlertView *alertWin = [[UIAlertView alloc]initWithTitle:@"You win!" message:@"" delegate:self cancelButtonTitle:@"new game" otherButtonTitles:@"OK",nil];
+    UIAlertView *alertWin = [[UIAlertView alloc]initWithTitle:@"You win!" message:alertMessage delegate:self cancelButtonTitle:@"new game" otherButtonTitles:@"OK",nil];
     [alertWin show];
 }
 
