@@ -15,9 +15,6 @@
 #define kCustomLevelHeight @"kCustomLevelHeight"
 #define kCustomLevelMine @"kCustomLevelMine"
 
-#define easyBestTime @"easyBestTime"
-#define mediumBestTime @"mediumBestTime"
-#define hardBestTime @"hardBestTime"
 
 @implementation HKAppDelegate
 
@@ -25,11 +22,12 @@
 {
     HKDataMgr *dataMgr = [HKDataMgr shared];
     if (![dataMgr boolForKey:kIsNotFirstTimeLaunch]) {
-        [dataMgr setInteger:2 forKey:kLevel];
+        [dataMgr setInteger:0 forKey:kLevel];
         [dataMgr setBool:YES forKey:kIsNotFirstTimeLaunch];
-//        [dataMgr setDouble:0 forKey:easyBestTime];
-//        [dataMgr setDouble:0 forKey:mediumBestTime];
-//        [dataMgr setDouble:0 forKey:hardBestTime];
+        [dataMgr setInteger:9 forKey:kCustomLevelWidth];
+        [dataMgr setInteger:9 forKey:kCustomLevelHeight];
+        [dataMgr setInteger:10 forKey:kCustomLevelMine];
+
 
         
     }
@@ -37,12 +35,6 @@
 //    self.navigationController = [[UINavigationController alloc]initWithRootViewController:preferenceViewController];
 //    if (![[NSUserDefaults standardUserDefaults] boolForKey:kIsNotFirstTimeLaunch]) {
 //		[[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionary]];
-//		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:kIsNotFirstTimeLaunch];
-////        [[NSUserDefaults standardUserDefaults] setInteger:3 forKey:kLevel];
-//		[[NSUserDefaults standardUserDefaults] setInteger:20 forKey:kCustomLevelWidth];
-//        [[NSUserDefaults standardUserDefaults] setInteger:16 forKey:kCustomLevelHeight];
-//        [[NSUserDefaults standardUserDefaults] setInteger:10 forKey:kCustomLevelMine];
-//		[[NSUserDefaults standardUserDefaults] synchronize];
 //	}
     NSLog(@"current level is %d",[dataMgr integerForKey:kLevel]);
 

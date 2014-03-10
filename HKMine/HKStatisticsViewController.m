@@ -7,12 +7,17 @@
 //
 
 #import "HKStatisticsViewController.h"
+#import "HKDataMgr.h"
+
+
 
 @interface HKStatisticsViewController ()
 
 @end
 
-@implementation HKStatisticsViewController
+@implementation HKStatisticsViewController {
+    HKDataMgr *dataMgr;
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,7 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    dataMgr = [HKDataMgr shared];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -84,22 +89,33 @@
             cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:StatisticsCellIdentifier];
         }
         static NSArray *statisticsTitles = nil;
-        static NSArray *statisticsDetailTitles = nil;
+        NSArray *statisticsDetailTitles = nil;
         if (!statisticsTitles)
-            statisticsTitles = @[@"最佳时间",@"Games played",@"Games won",@"Rate",@"Longest winning streak",@"Longest losing streak",@"Current streak"];
-        if (!statisticsDetailTitles)
-            statisticsDetailTitles = @[@"date",@"value",@"value",@"value",@"value",@"value",@"value"];
+            statisticsTitles = @[@"Best time",@"Games played",@"Games won",@"Percentage",@"Longest winning streak",@"Longest losing streak",@"Current streak"];
+        if (!statisticsDetailTitles) {
+            NSMutableDictionary *infoDict = [[dataMgr statisticsForLevel:indexPath.section] mutableCopy];
+
+            statisticsDetailTitles = @[[NSString stringWithFormat:@"%.1f s",[infoDict[kBestTime] doubleValue]/10],
+                                       [infoDict[kGamePlayed] stringValue],
+                                       [infoDict[kGameWon] stringValue],
+                                       infoDict[kPercentage],
+                                       [infoDict[kLWinStreak] stringValue],
+                                       [infoDict[kLLoseStreak] stringValue],
+                                       [infoDict[kCurrentStreak] stringValue]];
+        }
         cell.textLabel.text = statisticsTitles[indexPath.row];
         cell.detailTextLabel.text = statisticsDetailTitles[indexPath.row];
         cell.userInteractionEnabled = NO;
     }
     else {
-            cell = [tableView dequeueReusableCellWithIdentifier:@"ResetCellIndentifier"];
-            UIButton *resetBtn = (UIButton *)[cell viewWithTag:100];
-            resetBtn.titleLabel.text = @"Reset";
+        cell = [tableView dequeueReusableCellWithIdentifier:@"ResetCellIndentifier"];
+        UIButton *resetBtn = (UIButton *)[cell viewWithTag:100];
+        resetBtn.titleLabel.text = @"Reset";
+        [resetBtn addTarget:self action:@selector(resetBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     }
     return cell;
 }
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     int height;
@@ -109,55 +125,18 @@
         height = 43;
     return height;
 }
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+
+#pragma mark - Actions
+
+- (IBAction)resetBtnAction:(id)sender {
+    //get index of selected row
+    UIView *cellView = [sender superview];
+    while (cellView && ![cellView isKindOfClass:[UITableViewCell class]]) {
+        cellView = cellView.superview;
+    }
+    NSIndexPath *cellIndex = [self.tableView indexPathForCell:(UITableViewCell *)cellView];
+    [dataMgr resetDict:cellIndex.section];
+    [self.tableView reloadData];
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
- */
 
 @end

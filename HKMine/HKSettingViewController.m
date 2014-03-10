@@ -152,8 +152,7 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
                     widthStepper.minimumValue = 9;
                     widthStepper.maximumValue = 30;
                     widthStepper.stepValue = 1;
-                    int widthValue = [[NSUserDefaults standardUserDefaults] integerForKey:kCustomLevelWidth];
-                    widthStepper.value = widthValue;
+                    widthStepper.value = [dataMgr integerForKey:kCustomLevelWidth];
                     
                     UILabel *widthLabel = (UILabel *) [cell viewWithTag:101];
                     widthLabel.text = [NSString stringWithFormat:@"%2.0f",widthStepper.value];
@@ -169,7 +168,7 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
                     heightStepper.maximumValue = 24;
                     heightStepper.stepValue = 1;
                     
-                    double heightValue = [[NSUserDefaults standardUserDefaults] integerForKey:kCustomLevelHeight];
+                    double heightValue = [dataMgr integerForKey:kCustomLevelHeight];
                     heightStepper.value = heightValue;
                     UILabel *heightLabel = (UILabel *) [cell viewWithTag:101];
                     heightLabel.text = [NSString stringWithFormat:@"%2.0f",heightStepper.value];
@@ -181,10 +180,10 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
                     cell.textLabel.text = @"Mine";
                     UISlider *mineSlider = (UISlider *)[cell viewWithTag:202];
                     mineSlider.minimumValue = 10;
-                    int widthValue = [[NSUserDefaults standardUserDefaults] integerForKey:kCustomLevelWidth];
-                    int heightValue = [[NSUserDefaults standardUserDefaults] integerForKey:kCustomLevelHeight];
+                    int widthValue = [dataMgr integerForKey:kCustomLevelWidth];
+                    int heightValue =[dataMgr integerForKey:kCustomLevelHeight];
                     mineSlider.maximumValue = (widthValue - 1) * (heightValue - 1);
-                    int mineValue = [[NSUserDefaults standardUserDefaults] integerForKey:kCustomLevelMine];
+                    int mineValue = [dataMgr integerForKey:kCustomLevelMine];
                     
                     mineSlider.value = mineValue;
                     UILabel *mineLabel = (UILabel *)[cell viewWithTag:201];
@@ -251,9 +250,9 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
         if (!setMineArray)
             setMineArray = @[@(10),@(40),@(99)];
 
-        [[NSUserDefaults standardUserDefaults] setInteger:[setWidthArray[indexPath.row] intValue] forKey:kCustomLevelWidth];
-        [[NSUserDefaults standardUserDefaults] setInteger:[setHeightArray[indexPath.row] intValue] forKey:kCustomLevelHeight];
-        [[NSUserDefaults standardUserDefaults] setInteger:[setMineArray [indexPath.row] intValue] forKey:kCustomLevelMine];
+        [dataMgr setInteger:[setWidthArray[indexPath.row] intValue] forKey:kCustomLevelWidth];
+        [dataMgr setInteger:[setHeightArray[indexPath.row] intValue] forKey:kCustomLevelHeight];
+        [dataMgr setInteger:[setMineArray [indexPath.row] intValue] forKey:kCustomLevelMine];
         [self.tableView reloadData];
     }
     else if (indexPath.row == 3 && lastSelectLevel != 3) {
@@ -280,13 +279,13 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
     NSIndexPath *cellIndex = [self.tableView indexPathForCell:(UITableViewCell *)cellView];
     if (cellIndex.row == CellLevelCustomWidth) {
         int widthValue = [sender value];
-        [[NSUserDefaults standardUserDefaults] setInteger:widthValue forKey:kCustomLevelWidth];
+        [dataMgr setInteger:widthValue forKey:kCustomLevelWidth];
         NSLog(@"userDefaults width is %d",widthValue);
         
     }
     else if (cellIndex.row == CellLevelCustomHeight) {
         int heightValue = [sender value];
-        [[NSUserDefaults standardUserDefaults] setInteger:heightValue forKey:kCustomLevelHeight];
+        [dataMgr setInteger:heightValue forKey:kCustomLevelHeight];
         NSLog(@"userDefaults height is %d",heightValue);
         
     }
@@ -297,7 +296,7 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
 
 - (IBAction)changeSlider:(UISlider *)sender {
     int mineValue = [sender value];
-    [[NSUserDefaults standardUserDefaults] setInteger:mineValue forKey:kCustomLevelMine];
+    [dataMgr setInteger:mineValue forKey:kCustomLevelMine];
     [[NSUserDefaults standardUserDefaults] synchronize];
     [self.tableView reloadData];
     NSLog(@"userDefaults mine is %i",mineValue);

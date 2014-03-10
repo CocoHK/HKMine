@@ -16,15 +16,12 @@
 #define kCustomLevelMine @"kCustomLevelMine"
 #define kLevel @"kLevel"
 
-#define easyBestTime @"easyBestTime"
-#define mediumBestTime @"mediumBestTime"
-#define hardBestTime @"hardBestTime"
-#define easyGamePlayed @"easyGamePlayed"
-#define mediumGamePlayed @"mediumGamePlayed"
-#define hardGamePlayed @"hardGamePlayed"
-#define easyGameWon @"easyGameWon"
-#define mediumGameWon @"mediumGameWon"
-#define hardGameWon @"hardGameWon"
+#define kBestTime @"kBestTime"
+#define kGamePlayed @"kGamePlayed"
+#define kGameWon @"kGameWon"
+#define kLWinStreak @"kLWinStreak"
+#define kLLoseStreak @"kLLoseStreak"
+#define kCurrentStreak @"kCurrentStreak"
 
 @interface HKViewController ()
 
@@ -35,6 +32,12 @@
     NSString *gameTimeStr;
     NSTimer *gameTimer;
     HKDataMgr *dataMgr;
+    BOOL lastGameWin;
+//    BOOL mLastGameWin;
+//    BOOL hLastGameWin;
+    int crtStreak;
+//    int mCrtStreak;
+//    int hCrtStreak;
 }
 
 - (void)viewDidLoad {
@@ -133,80 +136,84 @@
 }
 
 - (void)gameOver {
-    int currentLevel = [dataMgr integerForKey:kLevel];;
-    int gamePlayed;
-    switch (currentLevel) {
-        case 0:
-            gamePlayed = [dataMgr integerForKey:easyGamePlayed];
-            [dataMgr setInteger:gamePlayed + 1 forKey:easyGamePlayed];
-            break;
-        case 1:
-            gamePlayed = [dataMgr integerForKey:mediumGamePlayed];
-            [dataMgr setInteger:gamePlayed + 1 forKey:mediumGamePlayed];
-            break;
-        case 2:
-            gamePlayed = [dataMgr integerForKey:hardGamePlayed];
-            [dataMgr setInteger:gamePlayed + 1 forKey:hardGamePlayed];
-            break;
-        default:
-            break;
+    int currentLevel = [dataMgr integerForKey:kLevel];
+    NSString *currentLevelInfoKey = [NSString stringWithFormat:@"DictInfoLevel%d",currentLevel];
+    NSMutableDictionary *infoDict = [[dataMgr objectForKey:currentLevelInfoKey] mutableCopy];
+    if (!infoDict) {
+        infoDict = [NSMutableDictionary dictionary];
     }
+    
+    NSNumber *gamePlayed = [infoDict objectForKey:kGamePlayed];
+    [infoDict setObject:[NSNumber numberWithInt:([gamePlayed integerValue] + 1)] forKey:kGamePlayed];
+    if (lastGameWin) {
+        lastGameWin = NO;
+        crtStreak = 1;
+    }
+    else {
+        crtStreak += 1;
+    }
+    if (crtStreak > [infoDict[kLLoseStreak] integerValue]) {
+        infoDict[kLLoseStreak] = @(crtStreak);
+    }
+    if (crtStreak > [infoDict[kCurrentStreak] integerValue] ) {
+        infoDict[kCurrentStreak] = @(crtStreak);
+    }
+    NSLog(@"crtStreak is %i, LonggestLoseStreak is %i,LonggestCrtStreak is %i",crtStreak,[infoDict[kLLoseStreak] integerValue],[infoDict[kCurrentStreak] integerValue]);
+    [dataMgr setObject:infoDict forKey:currentLevelInfoKey];
     [self stopTimer];
     scrollView.zoomScale = scrollView.minimumZoomScale;
 }
 
 - (void)gameWin {
-    int gamePlayed;
-    int gameWon;
     int currentLevel = [dataMgr integerForKey:kLevel];
-    double currentBestTime = 0;
     NSString *alertMessage;
-    switch (currentLevel) {
-        case 0:
-            currentBestTime = [dataMgr doubleForKey:easyBestTime];
-            gamePlayed = [dataMgr integerForKey:easyGamePlayed];
-            gameWon = [dataMgr integerForKey:easyGameWon];
-            [dataMgr setInteger:gamePlayed + 1 forKey:easyGamePlayed];
-            [dataMgr setInteger:gameWon + 1 forKey:easyGameWon];
-            break;
-        case 1:
-            currentBestTime = [dataMgr doubleForKey:mediumBestTime];
-            gamePlayed = [dataMgr integerForKey:mediumGamePlayed];
-            gameWon = [dataMgr integerForKey:mediumGameWon];
-            [dataMgr setInteger:gamePlayed + 1 forKey:mediumGamePlayed];
-            [dataMgr setInteger:gameWon + 1 forKey:mediumGameWon];
-            break;
-        case 2:
-            currentBestTime = [dataMgr doubleForKey:hardBestTime];
-            gamePlayed = [dataMgr integerForKey:hardGamePlayed];
-            gameWon = [dataMgr integerForKey:hardGameWon];
-            [dataMgr setInteger:gamePlayed + 1 forKey:hardGamePlayed];
-            [dataMgr setInteger:gameWon + 1 forKey:hardGameWon];
-            break;
-        default:
-            break;
-    }
-    
-  //got new record
-    if (currentBestTime == 0 || gameTime < currentBestTime) {
-        switch (currentLevel) {
-            case 0:
-                [dataMgr setDouble:gameTime forKey:easyBestTime];
-                break;
-            case 1:
-                [dataMgr setDouble:gameTime forKey:mediumBestTime];
-                break;
-            case 2:
-                [dataMgr setDouble:gameTime forKey:hardBestTime];
-                break;
-            default:
-                break;
+
+    if (currentLevel < 3) {
+        NSString *currentLevelInfoKey = [NSString stringWithFormat:@"DictInfoLevel%d",currentLevel];
+        NSMutableDictionary *infoDict = [[dataMgr objectForKey:currentLevelInfoKey] mutableCopy];
+        if (!infoDict) {
+            infoDict = [NSMutableDictionary dictionary];
         }
-        alertMessage = [NSString stringWithFormat:@"The shortest time in this level!\nBest time: %.1f seconds\nGames played: %d\nGames won: %d\nPercentage: %@",gameTime/10,gamePlayed + 1,gameWon + 1,[NSString stringWithFormat:@"%.2f%%",( (gameWon+1) / (float)(gamePlayed+1)) * 100]];
+        int gamePlayed = [infoDict[kGamePlayed] integerValue];
+        int gameWon = [infoDict[kGameWon] integerValue];
+        //    float gamePercentage = (gameWon + 1) / (float)(gamePlayed + 1) * 100;
+        NSString *gamePercentageStr = [NSString stringWithFormat:@"%.2f %%",(gameWon + 1) / (float)(gamePlayed + 1) * 100];
+        infoDict[kGamePlayed] = @(gamePlayed + 1);
+        infoDict[kGameWon] = @(gameWon + 1);
+        infoDict[kPercentage] = gamePercentageStr;
+        if (lastGameWin == NO) {
+            crtStreak = 1;
+            lastGameWin = YES;
+        }
+        else {
+            crtStreak += 1;
+        }
+        if (crtStreak > [infoDict[kLWinStreak] integerValue]) {
+            infoDict[kLWinStreak] = @(crtStreak);
+        }
+        if (crtStreak > [infoDict[kCurrentStreak] integerValue]) {
+            infoDict[kCurrentStreak] = @(crtStreak);
+        }
+        
+        //got new record
+        double currentBestTime = [infoDict[kBestTime] doubleValue];
+        
+        if (currentBestTime == 0 || gameTime < currentBestTime) {
+            infoDict[kBestTime] = @(gameTime);
+            
+            alertMessage = [NSString stringWithFormat:@"The shortest time in this level!\nBest time : %.1f s\nGames played : %d\nGames won : %d\nPercentage : %@",gameTime / 10,gamePlayed + 1,gameWon + 1,gamePercentageStr];
+        }
+        //didn't get new record
+        else {
+            alertMessage = [NSString stringWithFormat:@"Time : %.1f s\nGames played : %d\nGames won : %d\nPercentage : %@",gameTime / 10,gamePlayed + 1,gameWon + 1,gamePercentageStr];
+        }
+        NSLog(@"crtStreak is %i, LonggestWinStreak is %i,LonggestCrtStreak is %i",crtStreak,[infoDict[kLWinStreak] integerValue],[infoDict[kCurrentStreak] integerValue]);
+        
+        [dataMgr setObject:infoDict forKey:currentLevelInfoKey];
+
     }
-    //didn't get new record
     else {
-        alertMessage = [NSString stringWithFormat:@"Time: %.1f seconds\nGames played: %d\nGames won: %d\nPercentage: %@",gameTime / 10,gamePlayed + 1,gameWon + 1,[NSString stringWithFormat:@"%.2f%%",( (gameWon+1) / (float)(gamePlayed+1)) * 100]];
+        alertMessage = @"";
     }
     [self stopTimer];
     UIAlertView *alertWin = [[UIAlertView alloc]initWithTitle:@"You win!" message:alertMessage delegate:self cancelButtonTitle:@"new game" otherButtonTitles:@"OK",nil];
