@@ -137,29 +137,32 @@
 
 - (void)gameOver {
     int currentLevel = [dataMgr integerForKey:kLevel];
-    NSString *currentLevelInfoKey = [NSString stringWithFormat:@"DictInfoLevel%d",currentLevel];
-    NSMutableDictionary *infoDict = [[dataMgr objectForKey:currentLevelInfoKey] mutableCopy];
-    if (!infoDict) {
-        infoDict = [NSMutableDictionary dictionary];
+    if (currentLevel < 3) {
+        NSString *currentLevelInfoKey = [NSString stringWithFormat:@"DictInfoLevel%d",currentLevel];
+        NSMutableDictionary *infoDict = [[dataMgr objectForKey:currentLevelInfoKey] mutableCopy];
+        if (!infoDict) {
+            infoDict = [NSMutableDictionary dictionary];
+        }
+        
+        NSNumber *gamePlayed = [infoDict objectForKey:kGamePlayed];
+        [infoDict setObject:[NSNumber numberWithInt:([gamePlayed integerValue] + 1)] forKey:kGamePlayed];
+        if (lastGameWin) {
+            lastGameWin = NO;
+            crtStreak = 1;
+        }
+        else {
+            crtStreak += 1;
+        }
+        if (crtStreak > [infoDict[kLLoseStreak] integerValue]) {
+            infoDict[kLLoseStreak] = @(crtStreak);
+        }
+        if (crtStreak > [infoDict[kCurrentStreak] integerValue] ) {
+            infoDict[kCurrentStreak] = @(crtStreak);
+        }
+        NSLog(@"crtStreak is %i, LonggestLoseStreak is %i,LonggestCrtStreak is %i",crtStreak,[infoDict[kLLoseStreak] integerValue],[infoDict[kCurrentStreak] integerValue]);
+        [dataMgr setObject:infoDict forKey:currentLevelInfoKey];
     }
-    
-    NSNumber *gamePlayed = [infoDict objectForKey:kGamePlayed];
-    [infoDict setObject:[NSNumber numberWithInt:([gamePlayed integerValue] + 1)] forKey:kGamePlayed];
-    if (lastGameWin) {
-        lastGameWin = NO;
-        crtStreak = 1;
-    }
-    else {
-        crtStreak += 1;
-    }
-    if (crtStreak > [infoDict[kLLoseStreak] integerValue]) {
-        infoDict[kLLoseStreak] = @(crtStreak);
-    }
-    if (crtStreak > [infoDict[kCurrentStreak] integerValue] ) {
-        infoDict[kCurrentStreak] = @(crtStreak);
-    }
-    NSLog(@"crtStreak is %i, LonggestLoseStreak is %i,LonggestCrtStreak is %i",crtStreak,[infoDict[kLLoseStreak] integerValue],[infoDict[kCurrentStreak] integerValue]);
-    [dataMgr setObject:infoDict forKey:currentLevelInfoKey];
+
     [self stopTimer];
     scrollView.zoomScale = scrollView.minimumZoomScale;
 }
