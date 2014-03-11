@@ -289,7 +289,6 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
         NSLog(@"userDefaults height is %d",heightValue);
         
     }
-    [[NSUserDefaults standardUserDefaults] synchronize];
     [self.tableView reloadData];
     
 }
@@ -297,7 +296,6 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
 - (IBAction)changeSlider:(UISlider *)sender {
     int mineValue = [sender value];
     [dataMgr setInteger:mineValue forKey:kCustomLevelMine];
-    [[NSUserDefaults standardUserDefaults] synchronize];
     [self.tableView reloadData];
     NSLog(@"userDefaults mine is %i",mineValue);
     

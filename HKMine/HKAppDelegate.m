@@ -27,17 +27,9 @@
         [dataMgr setInteger:9 forKey:kCustomLevelWidth];
         [dataMgr setInteger:9 forKey:kCustomLevelHeight];
         [dataMgr setInteger:10 forKey:kCustomLevelMine];
-
-
-        
     }
 //    HKPreferenceViewController *preferenceViewController = [HKPreferenceViewController new];
 //    self.navigationController = [[UINavigationController alloc]initWithRootViewController:preferenceViewController];
-//    if (![[NSUserDefaults standardUserDefaults] boolForKey:kIsNotFirstTimeLaunch]) {
-//		[[NSUserDefaults standardUserDefaults] registerDefaults:[NSDictionary dictionary]];
-//	}
-    NSLog(@"current level is %d",[dataMgr integerForKey:kLevel]);
-
     return YES;
 }
 

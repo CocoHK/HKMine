@@ -33,11 +33,7 @@
     NSTimer *gameTimer;
     HKDataMgr *dataMgr;
     BOOL lastGameWin;
-//    BOOL mLastGameWin;
-//    BOOL hLastGameWin;
     int crtStreak;
-//    int mCrtStreak;
-//    int hCrtStreak;
 }
 
 - (void)viewDidLoad {
@@ -96,10 +92,10 @@
 
 - (void)startNewGame {
     scrollView.zoomScale = 1;
-    [self.boardView setupWithRowCount:[[NSUserDefaults standardUserDefaults]integerForKey:kCustomLevelHeight]
-                          columnCount:[[NSUserDefaults standardUserDefaults]integerForKey:kCustomLevelWidth]
+    [self.boardView setupWithRowCount:[dataMgr integerForKey:kCustomLevelHeight]
+                          columnCount:[dataMgr integerForKey:kCustomLevelWidth]
                            sideLength:32
-                            mineCount:[[NSUserDefaults standardUserDefaults]integerForKey:kCustomLevelMine]];
+                            mineCount:[dataMgr integerForKey:kCustomLevelMine]];
     [self scrollViewSetup];
     self.boardView.userInteractionEnabled = YES;
     NSLog(@"current level is %d",[dataMgr integerForKey:kLevel]);
@@ -211,7 +207,6 @@
             alertMessage = [NSString stringWithFormat:@"Time : %.1f s\nGames played : %d\nGames won : %d\nPercentage : %@",gameTime / 10,gamePlayed + 1,gameWon + 1,gamePercentageStr];
         }
         NSLog(@"crtStreak is %i, LonggestWinStreak is %i,LonggestCrtStreak is %i",crtStreak,[infoDict[kLWinStreak] integerValue],[infoDict[kCurrentStreak] integerValue]);
-        
         [dataMgr setObject:infoDict forKey:currentLevelInfoKey];
 
     }

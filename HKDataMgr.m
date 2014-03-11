@@ -58,14 +58,12 @@
 }
 
 - (NSDictionary *)statisticsForLevel:(int)level {
-    int levelNumber = level;
     NSString *currentLevelInfoKey = [NSString stringWithFormat:@"DictInfoLevel%d",level];
     NSDictionary *infoDict = [self objectForKey:currentLevelInfoKey];
     if (!infoDict) {
-        [self resetDict:levelNumber];
-
+        infoDict = [self resetDict:level];
     }
-    NSLog(@"level is %d levelNumber is %d dict is %@",level,levelNumber,infoDict);
+    NSLog(@" statistics level is %d dict is %@",level,infoDict);
     return infoDict;
 }
 
@@ -80,7 +78,7 @@
                 kLLoseStreak:@(0),
                 kCurrentStreak:@(0),
                 };
-    NSLog(@"level is %d dict is %@",level,infoDict);
+    NSLog(@"reset level is %d dict is %@",level,infoDict);
 
     [self setObject:infoDict forKey:currentLevelInfoKey];
     return infoDict;
