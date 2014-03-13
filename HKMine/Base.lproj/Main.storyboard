@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="A3B-0X-jGq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="A3B-0X-jGq">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Setting View Controller-->
@@ -176,7 +176,7 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="E6z-qW-KoD">
-                                    <rect key="frame" x="7" y="6" width="47" height="21"/>
+                                    <rect key="frame" x="36" y="5" width="43" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -184,11 +184,19 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mine" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gcA-39-3E7">
-                                    <rect key="frame" x="131" y="6" width="42" height="21"/>
+                                    <rect key="frame" x="119" y="5" width="42" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="310-alarm-clock.png" id="8fp-h8-tag">
+                                    <rect key="frame" x="5" y="5" width="23" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="labelBomb.png" id="Mbq-2W-fai">
+                                    <rect key="frame" x="161" y="5" width="23" height="23"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
@@ -202,10 +210,13 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="boardView" destination="8SP-fC-95h" id="Pnu-PR-GAr"/>
+                        <outlet property="bombImageView" destination="Mbq-2W-fai" id="Fy3-TH-Cc6"/>
+                        <outlet property="clockImageView" destination="8fp-h8-tag" id="CCv-j2-ucc"/>
                         <outlet property="countTimeLabel" destination="E6z-qW-KoD" id="kPX-Qm-yBg"/>
                         <outlet property="preferenceBtn" destination="J5D-Ct-Ul4" id="YzA-oT-RzO"/>
                         <outlet property="restartBtn" destination="nUH-AS-xAN" id="xUo-Wc-Gy0"/>
                         <outlet property="scrollView" destination="Hbe-mL-BFI" id="uUL-sK-TD4"/>
+                        <outlet property="showMineLabel" destination="gcA-39-3E7" id="n9T-Rf-b7i"/>
                         <outlet property="statisticsBtn" destination="EDD-FK-MiQ" id="60G-SR-SWg"/>
                     </connections>
                 </viewController>
@@ -229,6 +240,10 @@
             <point key="canvasLocation" x="-13" y="21"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="310-alarm-clock.png" width="26" height="24"/>
+        <image name="labelBomb.png" width="23" height="23"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -14,10 +14,12 @@
     IBOutlet UIBarButtonItem *preferenceBtn;
     IBOutlet UIBarButtonItem *statisticsBtn;
     IBOutlet UILabel *countTimeLabel;
+    IBOutlet UILabel *showMineLabel;
+    IBOutlet UIImageView *clockImageView;
+    IBOutlet UIImageView *bombImageView;
 }
 
 @property (nonatomic, assign) IBOutlet HKBoardView *boardView;
-//@property (nonatomic, assign) NSTimer *timer;
 //@property (nonatomic, assign) NSString *timeStr;
 - (IBAction)startNewGame:(id)sender;
 

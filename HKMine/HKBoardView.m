@@ -21,7 +21,6 @@ typedef NS_ENUM(NSUInteger, StateType) {
 
 @implementation HKBoardView {
     int noMineCellNumber;
-    int markedNumber;
     NSInteger mineNumber;
     BOOL isNewGame;
 }
@@ -31,7 +30,7 @@ typedef NS_ENUM(NSUInteger, StateType) {
                sideLength:(CGFloat)sideLength
                 mineCount:(NSInteger)mineCount{
     noMineCellNumber = 0;
-    markedNumber = 0;
+    self.markedNumber = 0;
     self.rowCount = rowCount;
     self.columnCount = columnCount;
     self.sideLength = sideLength;
@@ -111,22 +110,22 @@ typedef NS_ENUM(NSUInteger, StateType) {
 
 - (void)drawSquare:(CGRect)bounds state:(StateType)state cellNumber:(NSUInteger)cellNumber {
     UIBezierPath *rectanglePath = [UIBezierPath bezierPathWithRect:bounds];
-    rectanglePath.lineWidth = 2;
+    rectanglePath.lineWidth = 1.7;
     [[UIColor blackColor] setStroke];
     switch (state) {
         default:
         case StateTypeDefault:
-            [[UIColor lightGrayColor] setFill];
+            [[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]] setFill];
             break;
         case StateTypeMine:
-            [[UIColor blackColor] setFill];
+            [[UIColor colorWithPatternImage:[UIImage imageNamed:@"mine gray.png"]] setFill];
             break;
         case StateTypeNumber:
         case StateTypeEmpty:
-            [[UIColor whiteColor] setFill];
+            [[UIColor colorWithPatternImage:[UIImage imageNamed:@"bgPress.png"]] setFill];
             break;
         case StateTypeMarked:
-            [[UIColor redColor] setFill];
+            [[UIColor colorWithPatternImage:[UIImage imageNamed:@"bgMark.png"]] setFill];
 
     }
     [rectanglePath fill];
@@ -137,33 +136,33 @@ typedef NS_ENUM(NSUInteger, StateType) {
         switch (cellNumber) {
             default:
             case 1:
-                numberColor = [UIColor colorWithRed:44/255.0f green:69/255.0f blue:174/255.0f alpha:1];
+                numberColor = [UIColor colorWithRed:28/255.0f green:71/255.0f blue:179/255.0f alpha:1];
                 break;
             case 2:
-                numberColor = [UIColor colorWithRed:49/255.0f green:87/255.0f blue:13/255.0f alpha:1];
+                numberColor = [UIColor colorWithRed:27/255.0f green:80/255.0f blue:0/255.0f alpha:1];
 
                 break;
             case 3:
-                numberColor = [UIColor colorWithRed:137/255.0f green:27/255.0f blue:27/255.0f alpha:1];
+                numberColor = [UIColor colorWithRed:166/255.0f green:0/255.0f blue:0/255.0f alpha:1];
                 break;
             case 4:
-                numberColor = [UIColor colorWithRed:0/255.0f green:18/255.0f blue:108/255.0f alpha:1];
+                numberColor = [UIColor colorWithRed:0/255.0f green:21/255.0f blue:110/255.0f alpha:1];
                 break;
             case 5:
-                numberColor = [UIColor colorWithRed:110/255.0f green:40/255.0f blue:42/255.0f alpha:1];
+                numberColor = [UIColor colorWithRed:107/255.0f green:0/255.0f blue:0/255.0f alpha:1];
                 break;
             case 6:
-                numberColor = [UIColor colorWithRed:78/255.0f green:20/255.0f blue:84/255.0f alpha:1];
+                numberColor = [UIColor colorWithRed:0/255.0f green:104/255.0f blue:113/255.0f alpha:1];
                 break;
             case 7:
-                numberColor = [UIColor colorWithRed:49/255.0f green:112/255.0f blue:81/255.0f alpha:1];
+                numberColor = [UIColor colorWithRed:94/255.0f green:3/255.0f blue:13/255.0f alpha:1];
                 break;
             case 8:
-                numberColor = [UIColor colorWithRed:80/255.0f green:38/255.0f blue:16/255.0f alpha:1];
+                numberColor = [UIColor colorWithRed:50/255.0f green:6/255.0f blue:49/255.0f alpha:1];
                 break;
         }
         int margin = 5;
-        UIFont *font = [UIFont fontWithName:@"Apple SD Gothic Neo" size:MAX(8, self.sideLength - margin - margin)];
+        UIFont *font = [UIFont fontWithName:@"Helvetica" size:MAX(8, self.sideLength - margin - margin)];
         NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
         paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;
         paragraphStyle.alignment = NSTextAlignmentCenter;
@@ -239,9 +238,9 @@ typedef NS_ENUM(NSUInteger, StateType) {
     //want to mark this cell
     if (atrribute == 2) {
         cellState.CellAttribute = 2;
-        ++ markedNumber;
+        ++ self.markedNumber;
         -- mineNumber;
-        NSLog(@"markedNumber is %d",markedNumber);
+        NSLog(@"markedNumber is %d",self.markedNumber);
         [self redrawCellAtRowIndex:rowIdx columnIndex:columnIdx];
     }
     
@@ -298,13 +297,13 @@ typedef NS_ENUM(NSUInteger, StateType) {
     else if (cellState.CellAttribute == 2){
         if (atrribute == 0) {
             cellState.CellAttribute = 0;
-            -- markedNumber;
+            -- self.markedNumber;
             ++ mineNumber;
-            NSLog(@"markedNumber is %d",markedNumber);
+            NSLog(@"markedNumber is %d",self.markedNumber);
             [self redrawCellAtRowIndex:rowIdx columnIndex:columnIdx];
         }
     }
-    if (noMineCellNumber == self.rowCount * self.columnCount - mineNumber - markedNumber) {
+    if (noMineCellNumber == self.rowCount * self.columnCount - mineNumber - self.markedNumber) {
         //detact if boardViewDelegate works
         if ([self.boardViewDelegate respondsToSelector:@selector(gameWin)]) {
             [self.boardViewDelegate gameWin];

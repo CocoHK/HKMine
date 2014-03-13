@@ -17,9 +17,25 @@
 		CCBA2B5A1870611200647596 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCBA2B581870611200647596 /* Main.storyboard */; };
 		CCBA2B601870611F00647596 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CCBA2B5B1870611F00647596 /* InfoPlist.strings */; };
 		CCBA2B621870611F00647596 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CCBA2B5F1870611F00647596 /* main.m */; };
+		CCBDABA818CFBC9D002110FF /* mine gray.png in Resources */ = {isa = PBXBuildFile; fileRef = CCBDABA418CFBC9D002110FF /* mine gray.png */; };
+		CCBDABA918CFBC9D002110FF /* mine gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCBDABA518CFBC9D002110FF /* mine gray@2x.png */; };
+		CCBDABAA18CFBC9D002110FF /* mine red.png in Resources */ = {isa = PBXBuildFile; fileRef = CCBDABA618CFBC9D002110FF /* mine red.png */; };
+		CCBDABAB18CFBC9D002110FF /* mine red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCBDABA718CFBC9D002110FF /* mine red@2x.png */; };
+		CCBDABCB18CFD3B3002110FF /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = CCBDABC918CFD3B3002110FF /* background.png */; };
+		CCBDABCC18CFD3B3002110FF /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCBDABCA18CFD3B3002110FF /* background@2x.png */; };
+		CCBDABD318CFD6A2002110FF /* bgPress.png in Resources */ = {isa = PBXBuildFile; fileRef = CCBDABD118CFD6A2002110FF /* bgPress.png */; };
+		CCBDABD418CFD6A2002110FF /* bgPress@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCBDABD218CFD6A2002110FF /* bgPress@2x.png */; };
+		CCBDABD718CFD88B002110FF /* bgMark.png in Resources */ = {isa = PBXBuildFile; fileRef = CCBDABD518CFD88B002110FF /* bgMark.png */; };
+		CCBDABD818CFD88B002110FF /* bgMark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCBDABD618CFD88B002110FF /* bgMark@2x.png */; };
 		CCC5DC06185DFC9F0075A2B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC5DC05185DFC9F0075A2B5 /* Foundation.framework */; };
 		CCC5DC08185DFC9F0075A2B5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC5DC07185DFC9F0075A2B5 /* CoreGraphics.framework */; };
 		CCC5DC0A185DFC9F0075A2B5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC5DC09185DFC9F0075A2B5 /* UIKit.framework */; };
+		CCCCB20F18D0C4E20044029E /* 283-bomb.png in Resources */ = {isa = PBXBuildFile; fileRef = CCCCB20B18D0C4E20044029E /* 283-bomb.png */; };
+		CCCCB21018D0C4E20044029E /* 283-bomb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCCCB20C18D0C4E20044029E /* 283-bomb@2x.png */; };
+		CCCCB21118D0C4E20044029E /* 310-alarm-clock.png in Resources */ = {isa = PBXBuildFile; fileRef = CCCCB20D18D0C4E20044029E /* 310-alarm-clock.png */; };
+		CCCCB21218D0C4E20044029E /* 310-alarm-clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCCCB20E18D0C4E20044029E /* 310-alarm-clock@2x.png */; };
+		CCCCB21518D0CBFE0044029E /* labelBomb.png in Resources */ = {isa = PBXBuildFile; fileRef = CCCCB21318D0CBFE0044029E /* labelBomb.png */; };
+		CCCCB21618D0CBFE0044029E /* labelBomb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCCCB21418D0CBFE0044029E /* labelBomb@2x.png */; };
 		CCD02F9618C68E9800B460DB /* HKDataMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD02F9518C68E9800B460DB /* HKDataMgr.m */; };
 /* End PBXBuildFile section */
 
@@ -42,11 +58,27 @@
 		CCBA2B5D1870611F00647596 /* HKMine-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "HKMine-Info.plist"; path = "HKMine/HKMine-Info.plist"; sourceTree = SOURCE_ROOT; };
 		CCBA2B5E1870611F00647596 /* HKMine-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "HKMine-Prefix.pch"; path = "HKMine/HKMine-Prefix.pch"; sourceTree = SOURCE_ROOT; };
 		CCBA2B5F1870611F00647596 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = HKMine/main.m; sourceTree = SOURCE_ROOT; };
+		CCBDABA418CFBC9D002110FF /* mine gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mine gray.png"; path = "HKMine/images/mine gray.png"; sourceTree = SOURCE_ROOT; };
+		CCBDABA518CFBC9D002110FF /* mine gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mine gray@2x.png"; path = "HKMine/images/mine gray@2x.png"; sourceTree = SOURCE_ROOT; };
+		CCBDABA618CFBC9D002110FF /* mine red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mine red.png"; path = "HKMine/images/mine red.png"; sourceTree = SOURCE_ROOT; };
+		CCBDABA718CFBC9D002110FF /* mine red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mine red@2x.png"; path = "HKMine/images/mine red@2x.png"; sourceTree = SOURCE_ROOT; };
+		CCBDABC918CFD3B3002110FF /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = HKMine/images/background.png; sourceTree = SOURCE_ROOT; };
+		CCBDABCA18CFD3B3002110FF /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background@2x.png"; path = "HKMine/images/background@2x.png"; sourceTree = SOURCE_ROOT; };
+		CCBDABD118CFD6A2002110FF /* bgPress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bgPress.png; path = HKMine/images/bgPress.png; sourceTree = SOURCE_ROOT; };
+		CCBDABD218CFD6A2002110FF /* bgPress@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bgPress@2x.png"; path = "HKMine/images/bgPress@2x.png"; sourceTree = SOURCE_ROOT; };
+		CCBDABD518CFD88B002110FF /* bgMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bgMark.png; path = HKMine/images/bgMark.png; sourceTree = SOURCE_ROOT; };
+		CCBDABD618CFD88B002110FF /* bgMark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bgMark@2x.png"; path = "HKMine/images/bgMark@2x.png"; sourceTree = SOURCE_ROOT; };
 		CCC5DC02185DFC9F0075A2B5 /* HKMine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HKMine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCC5DC05185DFC9F0075A2B5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CCC5DC07185DFC9F0075A2B5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		CCC5DC09185DFC9F0075A2B5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CCC5DC27185DFC9F0075A2B5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		CCCCB20B18D0C4E20044029E /* 283-bomb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "283-bomb.png"; path = "HKMine/images/283-bomb.png"; sourceTree = SOURCE_ROOT; };
+		CCCCB20C18D0C4E20044029E /* 283-bomb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "283-bomb@2x.png"; path = "HKMine/images/283-bomb@2x.png"; sourceTree = SOURCE_ROOT; };
+		CCCCB20D18D0C4E20044029E /* 310-alarm-clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "310-alarm-clock.png"; path = "HKMine/images/310-alarm-clock.png"; sourceTree = SOURCE_ROOT; };
+		CCCCB20E18D0C4E20044029E /* 310-alarm-clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "310-alarm-clock@2x.png"; path = "HKMine/images/310-alarm-clock@2x.png"; sourceTree = SOURCE_ROOT; };
+		CCCCB21318D0CBFE0044029E /* labelBomb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = labelBomb.png; path = HKMine/images/labelBomb.png; sourceTree = SOURCE_ROOT; };
+		CCCCB21418D0CBFE0044029E /* labelBomb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "labelBomb@2x.png"; path = "HKMine/images/labelBomb@2x.png"; sourceTree = SOURCE_ROOT; };
 		CCD02F9418C68E9800B460DB /* HKDataMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKDataMgr.h; sourceTree = SOURCE_ROOT; };
 		CCD02F9518C68E9800B460DB /* HKDataMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKDataMgr.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -65,6 +97,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CCBDABAC18CFBD0D002110FF /* images */ = {
+			isa = PBXGroup;
+			children = (
+				CCBDABA418CFBC9D002110FF /* mine gray.png */,
+				CCBDABA518CFBC9D002110FF /* mine gray@2x.png */,
+				CCBDABA618CFBC9D002110FF /* mine red.png */,
+				CCBDABA718CFBC9D002110FF /* mine red@2x.png */,
+				CCBDABC918CFD3B3002110FF /* background.png */,
+				CCBDABCA18CFD3B3002110FF /* background@2x.png */,
+				CCBDABD118CFD6A2002110FF /* bgPress.png */,
+				CCBDABD218CFD6A2002110FF /* bgPress@2x.png */,
+				CCBDABD518CFD88B002110FF /* bgMark.png */,
+				CCBDABD618CFD88B002110FF /* bgMark@2x.png */,
+				CCCCB20B18D0C4E20044029E /* 283-bomb.png */,
+				CCCCB20C18D0C4E20044029E /* 283-bomb@2x.png */,
+				CCCCB20D18D0C4E20044029E /* 310-alarm-clock.png */,
+				CCCCB20E18D0C4E20044029E /* 310-alarm-clock@2x.png */,
+				CCCCB21318D0CBFE0044029E /* labelBomb.png */,
+				CCCCB21418D0CBFE0044029E /* labelBomb@2x.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		CCC5DBF9185DFC9F0075A2B5 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +157,8 @@
 				CCBA2B4F1870610B00647596 /* HKBoardView.m */,
 				CCBA2B501870610B00647596 /* HKModels.h */,
 				CCBA2B511870610B00647596 /* HKModels.m */,
+				CCD02F9418C68E9800B460DB /* HKDataMgr.h */,
+				CCD02F9518C68E9800B460DB /* HKDataMgr.m */,
 				CCBA2B521870610B00647596 /* HKViewController.h */,
 				CCBA2B531870610B00647596 /* HKViewController.m */,
 				CCB4DD4418A2E294006699C3 /* HKSettingViewController.h */,
@@ -111,8 +168,6 @@
 				CCBA2B581870611200647596 /* Main.storyboard */,
 				CCB3C6621879D6EF00CD470B /* Images.xcassets */,
 				CCC5DC0C185DFC9F0075A2B5 /* Supporting Files */,
-				CCD02F9418C68E9800B460DB /* HKDataMgr.h */,
-				CCD02F9518C68E9800B460DB /* HKDataMgr.m */,
 			);
 			path = DrawPractice;
 			sourceTree = "<group>";
@@ -120,6 +175,7 @@
 		CCC5DC0C185DFC9F0075A2B5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CCBDABAC18CFBD0D002110FF /* images */,
 				CCBA2B5D1870611F00647596 /* HKMine-Info.plist */,
 				CCBA2B5B1870611F00647596 /* InfoPlist.strings */,
 				CCBA2B5F1870611F00647596 /* main.m */,
@@ -155,7 +211,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = HK;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Coco;
 				TargetAttributes = {
 					CCC5DC01185DFC9F0075A2B5 = {
@@ -186,9 +242,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCBDABA818CFBC9D002110FF /* mine gray.png in Resources */,
+				CCBDABAA18CFBC9D002110FF /* mine red.png in Resources */,
 				CCB3C6631879D6EF00CD470B /* Images.xcassets in Resources */,
+				CCCCB20F18D0C4E20044029E /* 283-bomb.png in Resources */,
+				CCBDABD318CFD6A2002110FF /* bgPress.png in Resources */,
+				CCBDABAB18CFBC9D002110FF /* mine red@2x.png in Resources */,
+				CCCCB21218D0C4E20044029E /* 310-alarm-clock@2x.png in Resources */,
+				CCBDABA918CFBC9D002110FF /* mine gray@2x.png in Resources */,
+				CCCCB21518D0CBFE0044029E /* labelBomb.png in Resources */,
+				CCBDABD418CFD6A2002110FF /* bgPress@2x.png in Resources */,
+				CCBDABD718CFD88B002110FF /* bgMark.png in Resources */,
 				CCBA2B5A1870611200647596 /* Main.storyboard in Resources */,
+				CCCCB21618D0CBFE0044029E /* labelBomb@2x.png in Resources */,
+				CCBDABD818CFD88B002110FF /* bgMark@2x.png in Resources */,
+				CCBDABCB18CFD3B3002110FF /* background.png in Resources */,
+				CCBDABCC18CFD3B3002110FF /* background@2x.png in Resources */,
+				CCCCB21118D0C4E20044029E /* 310-alarm-clock.png in Resources */,
 				CCBA2B601870611F00647596 /* InfoPlist.strings in Resources */,
+				CCCCB21018D0C4E20044029E /* 283-bomb@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,7 +308,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -276,7 +347,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;

@@ -15,6 +15,7 @@
 #define kCustomLevelHeight @"kCustomLevelHeight"
 #define kCustomLevelMine @"kCustomLevelMine"
 #define kLevel @"kLevel"
+#define markedNumber @"markedNumber"
 
 #define kBestTime @"kBestTime"
 #define kGamePlayed @"kGamePlayed"
@@ -43,7 +44,8 @@
     [scrollView setContentInset:UIEdgeInsetsMake(15, 15, 15, 15)];
     self.boardView.boardViewDelegate = self;
     gameTime = 0;
-    countTimeLabel.text = @"000";
+    countTimeLabel.text = @"0";
+    showMineLabel.text = @"0";
     [self startNewGame];
 }
 
@@ -61,7 +63,7 @@
 
 - (void)updateTime:(NSTimer *)timer {
     gameTime ++;
-    [countTimeLabel setText:[NSString stringWithFormat:@"%003.0f",gameTime / 10]];
+    [countTimeLabel setText:[NSString stringWithFormat:@"%.0f",gameTime / 10]];
 }
 
 #pragma mark - Scroll View Manipulation
@@ -97,8 +99,12 @@
                            sideLength:32
                             mineCount:[dataMgr integerForKey:kCustomLevelMine]];
     [self scrollViewSetup];
+    showMineLabel.text = [NSString stringWithFormat:@"%d",[dataMgr integerForKey:kCustomLevelMine]] ;
+    NSLog(@"showMineLabel is %@",showMineLabel.text);
     self.boardView.userInteractionEnabled = YES;
     NSLog(@"current level is %d",[dataMgr integerForKey:kLevel]);
+    
+    [self.boardView addObserver:self forKeyPath:markedNumber options:(NSKeyValueObservingOptionNew |NSKeyValueObservingOptionOld) context:NULL];
 }
 
 #pragma mark - UIViewController
@@ -120,6 +126,8 @@
 #pragma mark - Actions
 
 - (IBAction)startNewGame:(id)sender {
+    countTimeLabel.text = @"0";
+    [self stopTimer];
     [self startNewGame];
 }
 
@@ -127,7 +135,7 @@
 #pragma mark - HKBoardViewDelegate
 - (void)gameStart {
     gameTime = 0;
-    countTimeLabel.text = [NSString stringWithFormat:@"%03.0f",gameTime / 10];
+    countTimeLabel.text = [NSString stringWithFormat:@"%.0f",gameTime / 10];
     [self startTimer];
 }
 
@@ -223,4 +231,18 @@
         [self startNewGame];
     }
 }
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:markedNumber]) {
+        NSInteger markedNbr = [[self.boardView valueForKey:markedNumber] integerValue];
+        showMineLabel.text = [NSString stringWithFormat:@"%d",[dataMgr integerForKey:kCustomLevelMine] - markedNbr];
+    }
+}
+
+#pragma mark - memory management
+
+- (void)dealloc {
+    [self.boardView removeObserver:self forKeyPath:markedNumber];
+}
+
 @end

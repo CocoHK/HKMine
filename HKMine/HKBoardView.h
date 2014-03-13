@@ -20,7 +20,9 @@
 
 @interface HKBoardView : UIView <UIGestureRecognizerDelegate>
 
-@property (nonatomic, assign) NSUInteger rowCount, columnCount;
+//@property (nonatomic, assign) NSUInteger rowCount, columnCount, markedNumber;
+@property (nonatomic, assign) int rowCount, columnCount, markedNumber;
+
 @property (nonatomic, assign) CGFloat sideLength;
 @property (nonatomic, strong) NSMutableArray *cellsStates;
 
