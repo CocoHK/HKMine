@@ -8,8 +8,10 @@
 
 #import "HKViewController.h"
 #import "HKBoardView.h"
-#import "HKSettingViewController.h"
 #import "HKDataMgr.h"
+#import "HKSettingViewController.h"
+#import "HKStatisticsViewController.h"
+#import "HKMoreViewController.h"
 
 #define kCustomLevelWidth @"kCustomLevelWidth"
 #define kCustomLevelHeight @"kCustomLevelHeight"
@@ -99,10 +101,10 @@
                            sideLength:32
                             mineCount:[dataMgr integerForKey:kCustomLevelMine]];
     [self scrollViewSetup];
-    showMineLabel.text = [NSString stringWithFormat:@"%d",[dataMgr integerForKey:kCustomLevelMine]] ;
+    showMineLabel.text = [NSString stringWithFormat:@"%ld",(long)[dataMgr integerForKey:kCustomLevelMine]] ;
     NSLog(@"showMineLabel is %@",showMineLabel.text);
     self.boardView.userInteractionEnabled = YES;
-    NSLog(@"current level is %d",[dataMgr integerForKey:kLevel]);
+    NSLog(@"current level is %ld",(long)[dataMgr integerForKey:kLevel]);
     
     [self.boardView addObserver:self forKeyPath:markedNumber options:(NSKeyValueObservingOptionNew |NSKeyValueObservingOptionOld) context:NULL];
 }
@@ -131,6 +133,31 @@
     [self startNewGame];
 }
 
+- (IBAction)clickOptionBtn:(id)sender {
+//    optionBtn = sender;
+    MZRSlideInMenu *menu = [[MZRSlideInMenu alloc] init];
+    [menu setDelegate:self];
+    [menu addMenuItemWithTitle:@"Settings"];
+    [menu addMenuItemWithTitle:@"Statistics"];
+    [menu addMenuItemWithTitle:@"More"];
+    [menu showMenuFromLeft];
+}
+
+- (void)slideInMenu:(MZRSlideInMenu *)menuView didSelectAtIndex:(NSUInteger)index
+{
+    if (index == 0) {
+        HKSettingViewController *settingsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"HKSettingViewController"];
+        [self.navigationController pushViewController:settingsViewController animated:YES];
+    }
+    else if (index == 1) {
+        HKStatisticsViewController *statisticsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"HKStatisticsViewController"];
+        [self.navigationController pushViewController:statisticsViewController animated:YES];
+    }
+    else {
+        HKMoreViewController *moreViewController = [HKMoreViewController new];
+        [self.navigationController pushViewController:moreViewController animated:YES];
+    }
+}
 
 #pragma mark - HKBoardViewDelegate
 - (void)gameStart {
@@ -140,16 +167,16 @@
 }
 
 - (void)gameOver {
-    int currentLevel = [dataMgr integerForKey:kLevel];
+    NSInteger currentLevel = [dataMgr integerForKey:kLevel];
     if (currentLevel < 3) {
-        NSString *currentLevelInfoKey = [NSString stringWithFormat:@"DictInfoLevel%d",currentLevel];
+        NSString *currentLevelInfoKey = [NSString stringWithFormat:@"DictInfoLevel%ld",(long)currentLevel];
         NSMutableDictionary *infoDict = [[dataMgr objectForKey:currentLevelInfoKey] mutableCopy];
         if (!infoDict) {
             infoDict = [NSMutableDictionary dictionary];
         }
         
         NSNumber *gamePlayed = [infoDict objectForKey:kGamePlayed];
-        [infoDict setObject:[NSNumber numberWithInt:([gamePlayed integerValue] + 1)] forKey:kGamePlayed];
+        [infoDict setObject:[NSNumber numberWithInteger:([gamePlayed integerValue] + 1)] forKey:kGamePlayed];
         if (lastGameWin) {
             lastGameWin = NO;
             crtStreak = 1;
@@ -163,7 +190,7 @@
         if (crtStreak > [infoDict[kCurrentStreak] integerValue] ) {
             infoDict[kCurrentStreak] = @(crtStreak);
         }
-        NSLog(@"crtStreak is %i, LonggestLoseStreak is %i,LonggestCrtStreak is %i",crtStreak,[infoDict[kLLoseStreak] integerValue],[infoDict[kCurrentStreak] integerValue]);
+        NSLog(@"crtStreak is %i, LonggestLoseStreak is %li,LonggestCrtStreak is %li",crtStreak,(long)[infoDict[kLLoseStreak] integerValue],(long)[infoDict[kCurrentStreak] integerValue]);
         [dataMgr setObject:infoDict forKey:currentLevelInfoKey];
     }
 
@@ -172,19 +199,19 @@
 }
 
 - (void)gameWin {
-    int currentLevel = [dataMgr integerForKey:kLevel];
+    NSInteger currentLevel = [dataMgr integerForKey:kLevel];
     NSString *alertMessage;
 
     if (currentLevel < 3) {
-        NSString *currentLevelInfoKey = [NSString stringWithFormat:@"DictInfoLevel%d",currentLevel];
+        NSString *currentLevelInfoKey = [NSString stringWithFormat:@"DictInfoLevel%ld",(long)currentLevel];
         NSMutableDictionary *infoDict = [[dataMgr objectForKey:currentLevelInfoKey] mutableCopy];
         if (!infoDict) {
             infoDict = [NSMutableDictionary dictionary];
         }
-        int gamePlayed = [infoDict[kGamePlayed] integerValue];
-        int gameWon = [infoDict[kGameWon] integerValue];
-        //    float gamePercentage = (gameWon + 1) / (float)(gamePlayed + 1) * 100;
+        NSInteger gamePlayed = [infoDict[kGamePlayed] integerValue];
+        NSInteger gameWon = [infoDict[kGameWon] integerValue];
         NSString *gamePercentageStr = [NSString stringWithFormat:@"%.2f %%",(gameWon + 1) / (float)(gamePlayed + 1) * 100];
+
         infoDict[kGamePlayed] = @(gamePlayed + 1);
         infoDict[kGameWon] = @(gameWon + 1);
         infoDict[kPercentage] = gamePercentageStr;
@@ -208,13 +235,13 @@
         if (currentBestTime == 0 || gameTime < currentBestTime) {
             infoDict[kBestTime] = @(gameTime);
             
-            alertMessage = [NSString stringWithFormat:@"The shortest time in this level!\nBest time : %.1f s\nGames played : %d\nGames won : %d\nPercentage : %@",gameTime / 10,gamePlayed + 1,gameWon + 1,gamePercentageStr];
+            alertMessage = [NSString stringWithFormat:@"The shortest time in this level!\nBest time : %.1f s\nGames played : %ld\nGames won : %ld\nPercentage : %@",gameTime / 10,(long)gamePlayed+1,(long)gameWon+1,gamePercentageStr];
         }
         //didn't get new record
         else {
-            alertMessage = [NSString stringWithFormat:@"Time : %.1f s\nGames played : %d\nGames won : %d\nPercentage : %@",gameTime / 10,gamePlayed + 1,gameWon + 1,gamePercentageStr];
+            alertMessage = [NSString stringWithFormat:@"Time : %.1f s\nGames played : %ld\nGames won : %ld\nPercentage : %@",gameTime / 10,(long)gamePlayed +1,(long)gameWon + 1,gamePercentageStr];
         }
-        NSLog(@"crtStreak is %i, LonggestWinStreak is %i,LonggestCrtStreak is %i",crtStreak,[infoDict[kLWinStreak] integerValue],[infoDict[kCurrentStreak] integerValue]);
+        NSLog(@"crtStreak is %i, LonggestWinStreak is %li,LonggestCrtStreak is %li",crtStreak,(long)[infoDict[kLWinStreak] integerValue],(long)[infoDict[kCurrentStreak] integerValue]);
         [dataMgr setObject:infoDict forKey:currentLevelInfoKey];
 
     }
@@ -222,7 +249,7 @@
         alertMessage = @"";
     }
     [self stopTimer];
-    UIAlertView *alertWin = [[UIAlertView alloc]initWithTitle:@"You win!" message:alertMessage delegate:self cancelButtonTitle:@"new game" otherButtonTitles:@"OK",nil];
+    UIAlertView *alertWin = [[UIAlertView alloc]initWithTitle:@"You win!" message:alertMessage delegate:self cancelButtonTitle:@"New Game" otherButtonTitles:@"OK",nil];
     [alertWin show];
 }
 
@@ -235,7 +262,7 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if ([keyPath isEqualToString:markedNumber]) {
         NSInteger markedNbr = [[self.boardView valueForKey:markedNumber] integerValue];
-        showMineLabel.text = [NSString stringWithFormat:@"%d",[dataMgr integerForKey:kCustomLevelMine] - markedNbr];
+        showMineLabel.text = [NSString stringWithFormat:@"%ld",(long)[dataMgr integerForKey:kCustomLevelMine] - markedNbr];
     }
 }
 

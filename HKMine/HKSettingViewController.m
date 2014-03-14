@@ -45,11 +45,7 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
 {
     [super viewDidLoad];
     dataMgr = [HKDataMgr shared];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -88,7 +84,7 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
     switch (section) {
         case 0:
         {
-            int selectLevel = [dataMgr integerForKey:kLevel];
+            NSInteger selectLevel = [dataMgr integerForKey:kLevel];
             if (selectLevel < 3) {
                 rowNumber = 4;
             }
@@ -219,7 +215,7 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    int lastSelectLevel = [dataMgr integerForKey:kLevel];
+    NSInteger lastSelectLevel = [dataMgr integerForKey:kLevel];
     
     
     if (lastSelectLevel == indexPath.row) {

@@ -57,18 +57,18 @@
     return [[NSUserDefaults standardUserDefaults] objectForKey:key];
 }
 
-- (NSDictionary *)statisticsForLevel:(int)level {
-    NSString *currentLevelInfoKey = [NSString stringWithFormat:@"DictInfoLevel%d",level];
+- (NSDictionary *)statisticsForLevel:(NSInteger)level {
+    NSString *currentLevelInfoKey = [NSString stringWithFormat:@"DictInfoLevel%ld",(long)level];
     NSDictionary *infoDict = [self objectForKey:currentLevelInfoKey];
     if (!infoDict) {
         infoDict = [self resetDict:level];
     }
-    NSLog(@" statistics level is %d dict is %@",level,infoDict);
+    NSLog(@" statistics level is %ld dict is %@",(long)level,infoDict);
     return infoDict;
 }
 
-- (NSDictionary *)resetDict:(int)level {
-    NSString *currentLevelInfoKey = [NSString stringWithFormat:@"DictInfoLevel%d",level];
+- (NSDictionary *)resetDict:(NSInteger)level {
+    NSString *currentLevelInfoKey = [NSString stringWithFormat:@"DictInfoLevel%ld",(long)level];
     
  NSDictionary *infoDict= @{kBestTime: @(0),
                 kGamePlayed:@(0),
@@ -78,7 +78,7 @@
                 kLLoseStreak:@(0),
                 kCurrentStreak:@(0),
                 };
-    NSLog(@"reset level is %d dict is %@",level,infoDict);
+    NSLog(@"reset level is %ld dict is %@",(long)level,infoDict);
 
     [self setObject:infoDict forKey:currentLevelInfoKey];
     return infoDict;

@@ -68,7 +68,7 @@ typedef NS_ENUM(NSUInteger, StateType) {
     
     // random mines
     int addedMineCount = 0;
-    srand(time(0)); // 用当前时间设置rand()的种子
+    srand((int)time(0)); // 用当前时间设置rand()的种子
     while (addedMineCount < mineNumber) {
         int randIndex = rand() % (self.rowCount * self.columnCount);
         HKCellState * mineCellState = self.cellsStates[randIndex];
@@ -224,7 +224,7 @@ typedef NS_ENUM(NSUInteger, StateType) {
 
 - (void)cellDidPressAtRowIdx:(int)rowIdx columnIdx:(int)columnIdx cellAtrribute:(int)atrribute{
     //修改对应格子属性
-    int index = self.columnCount * rowIdx + columnIdx;
+    NSInteger index = self.columnCount * rowIdx + columnIdx;
     HKCellState *cellState = self.cellsStates[index];
     [self redrawCellAtRowIndex:rowIdx columnIndex:columnIdx];
     if (isNewGame == YES) {
@@ -240,7 +240,7 @@ typedef NS_ENUM(NSUInteger, StateType) {
         cellState.CellAttribute = 2;
         ++ self.markedNumber;
         -- mineNumber;
-        NSLog(@"markedNumber is %d",self.markedNumber);
+        NSLog(@"markedNumber is %lu",(unsigned long)self.markedNumber);
         [self redrawCellAtRowIndex:rowIdx columnIndex:columnIdx];
     }
     
@@ -299,7 +299,7 @@ typedef NS_ENUM(NSUInteger, StateType) {
             cellState.CellAttribute = 0;
             -- self.markedNumber;
             ++ mineNumber;
-            NSLog(@"markedNumber is %d",self.markedNumber);
+            NSLog(@"markedNumber is %lu",(unsigned long)self.markedNumber);
             [self redrawCellAtRowIndex:rowIdx columnIndex:columnIdx];
         }
     }

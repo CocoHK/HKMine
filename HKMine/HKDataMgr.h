@@ -30,7 +30,7 @@
 - (BOOL)boolForKey:(NSString *)key;
 - (id)objectForKey:(NSString *)key;
 
-- (NSDictionary *)statisticsForLevel:(int)level;
-- (NSDictionary *)resetDict:(int)level;
+- (NSDictionary *)statisticsForLevel:(NSInteger)level;
+- (NSDictionary *)resetDict:(NSInteger)level;
 
 @end

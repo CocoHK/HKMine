@@ -36,7 +36,9 @@
 		CCCCB21218D0C4E20044029E /* 310-alarm-clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCCCB20E18D0C4E20044029E /* 310-alarm-clock@2x.png */; };
 		CCCCB21518D0CBFE0044029E /* labelBomb.png in Resources */ = {isa = PBXBuildFile; fileRef = CCCCB21318D0CBFE0044029E /* labelBomb.png */; };
 		CCCCB21618D0CBFE0044029E /* labelBomb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCCCB21418D0CBFE0044029E /* labelBomb@2x.png */; };
-		CCD02F9618C68E9800B460DB /* HKDataMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = CCD02F9518C68E9800B460DB /* HKDataMgr.m */; };
+		CCFE502D18D20B77000C4602 /* HKDataMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFE502C18D20B77000C4602 /* HKDataMgr.m */; };
+		CCFE503018D20BB6000C4602 /* MZRSlideInMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFE502F18D20BB6000C4602 /* MZRSlideInMenu.m */; };
+		CCFE504018D25070000C4602 /* HKMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFE503F18D25070000C4602 /* HKMoreViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,8 +81,12 @@
 		CCCCB20E18D0C4E20044029E /* 310-alarm-clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "310-alarm-clock@2x.png"; path = "HKMine/images/310-alarm-clock@2x.png"; sourceTree = SOURCE_ROOT; };
 		CCCCB21318D0CBFE0044029E /* labelBomb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = labelBomb.png; path = HKMine/images/labelBomb.png; sourceTree = SOURCE_ROOT; };
 		CCCCB21418D0CBFE0044029E /* labelBomb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "labelBomb@2x.png"; path = "HKMine/images/labelBomb@2x.png"; sourceTree = SOURCE_ROOT; };
-		CCD02F9418C68E9800B460DB /* HKDataMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKDataMgr.h; sourceTree = SOURCE_ROOT; };
-		CCD02F9518C68E9800B460DB /* HKDataMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKDataMgr.m; sourceTree = SOURCE_ROOT; };
+		CCFE502B18D20B77000C4602 /* HKDataMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKDataMgr.h; path = HKMine/HKDataMgr.h; sourceTree = SOURCE_ROOT; };
+		CCFE502C18D20B77000C4602 /* HKDataMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKDataMgr.m; path = HKMine/HKDataMgr.m; sourceTree = SOURCE_ROOT; };
+		CCFE502E18D20BB6000C4602 /* MZRSlideInMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MZRSlideInMenu.h; path = HKMine/thirdParty/MZRSlideInMenu.h; sourceTree = SOURCE_ROOT; };
+		CCFE502F18D20BB6000C4602 /* MZRSlideInMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MZRSlideInMenu.m; path = HKMine/thirdParty/MZRSlideInMenu.m; sourceTree = SOURCE_ROOT; };
+		CCFE503E18D25070000C4602 /* HKMoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKMoreViewController.h; path = HKMine/HKMoreViewController.h; sourceTree = SOURCE_ROOT; };
+		CCFE503F18D25070000C4602 /* HKMoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKMoreViewController.m; path = HKMine/HKMoreViewController.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,15 +163,19 @@
 				CCBA2B4F1870610B00647596 /* HKBoardView.m */,
 				CCBA2B501870610B00647596 /* HKModels.h */,
 				CCBA2B511870610B00647596 /* HKModels.m */,
-				CCD02F9418C68E9800B460DB /* HKDataMgr.h */,
-				CCD02F9518C68E9800B460DB /* HKDataMgr.m */,
+				CCFE502B18D20B77000C4602 /* HKDataMgr.h */,
+				CCFE502C18D20B77000C4602 /* HKDataMgr.m */,
 				CCBA2B521870610B00647596 /* HKViewController.h */,
 				CCBA2B531870610B00647596 /* HKViewController.m */,
 				CCB4DD4418A2E294006699C3 /* HKSettingViewController.h */,
 				CCB4DD4518A2E294006699C3 /* HKSettingViewController.m */,
 				CCB4DD4618A2E294006699C3 /* HKStatisticsViewController.h */,
 				CCB4DD4718A2E294006699C3 /* HKStatisticsViewController.m */,
+				CCFE503E18D25070000C4602 /* HKMoreViewController.h */,
+				CCFE503F18D25070000C4602 /* HKMoreViewController.m */,
 				CCBA2B581870611200647596 /* Main.storyboard */,
+				CCFE502E18D20BB6000C4602 /* MZRSlideInMenu.h */,
+				CCFE502F18D20BB6000C4602 /* MZRSlideInMenu.m */,
 				CCB3C6621879D6EF00CD470B /* Images.xcassets */,
 				CCC5DC0C185DFC9F0075A2B5 /* Supporting Files */,
 			);
@@ -272,11 +282,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCB4DD4818A2E294006699C3 /* HKSettingViewController.m in Sources */,
-				CCD02F9618C68E9800B460DB /* HKDataMgr.m in Sources */,
+				CCFE502D18D20B77000C4602 /* HKDataMgr.m in Sources */,
+				CCFE503018D20BB6000C4602 /* MZRSlideInMenu.m in Sources */,
 				CCBA2B621870611F00647596 /* main.m in Sources */,
 				CCBA2B571870610B00647596 /* HKViewController.m in Sources */,
 				CCBA2B561870610B00647596 /* HKModels.m in Sources */,
 				CCBA2B541870610B00647596 /* HKAppDelegate.m in Sources */,
+				CCFE504018D25070000C4602 /* HKMoreViewController.m in Sources */,
 				CCB4DD4918A2E294006699C3 /* HKStatisticsViewController.m in Sources */,
 				CCBA2B551870610B00647596 /* HKBoardView.m in Sources */,
 			);

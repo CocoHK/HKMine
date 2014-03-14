@@ -7,11 +7,12 @@
 //
 
 #import "HKBoardView.h"
+#import "MZRSlideInMenu.h"
 
-@interface HKViewController : UIViewController <UIScrollViewDelegate,HKBoardViewDelegate,UIAlertViewDelegate> {
+@interface HKViewController : UIViewController <UIScrollViewDelegate,HKBoardViewDelegate,UIAlertViewDelegate,MZRSlideInMenuDelegate> {
     IBOutlet UIScrollView *scrollView;
     IBOutlet UIButton *restartBtn;
-    IBOutlet UIBarButtonItem *preferenceBtn;
+    IBOutlet UIBarButtonItem *optionBtn;
     IBOutlet UIBarButtonItem *statisticsBtn;
     IBOutlet UILabel *countTimeLabel;
     IBOutlet UILabel *showMineLabel;
