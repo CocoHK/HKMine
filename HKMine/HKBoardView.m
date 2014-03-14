@@ -8,6 +8,7 @@
 
 #import "HKBoardView.h"
 #import "HKModels.h"
+#import <QuartzCore/QuartzCore.h>
 
 typedef NS_ENUM(NSUInteger, StateType) {
     StateTypeDefault = 0,
@@ -115,23 +116,28 @@ typedef NS_ENUM(NSUInteger, StateType) {
     switch (state) {
         default:
         case StateTypeDefault:
+        case StateTypeMarked:
             [[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]] setFill];
             break;
         case StateTypeMine:
-            [[UIColor colorWithPatternImage:[UIImage imageNamed:@"mine gray.png"]] setFill];
-            break;
         case StateTypeNumber:
         case StateTypeEmpty:
             [[UIColor colorWithPatternImage:[UIImage imageNamed:@"bgPress.png"]] setFill];
             break;
-        case StateTypeMarked:
-            [[UIColor colorWithPatternImage:[UIImage imageNamed:@"bgMark.png"]] setFill];
-
     }
     [rectanglePath fill];
     [rectanglePath stroke];
-    
-    if (state == StateTypeNumber) {
+    if (state == StateTypeMine) {
+        int margin = 4;
+        UIImage *mineImage = [UIImage imageNamed:@"mine gray.png"];
+        [mineImage drawInRect:CGRectInset(bounds, margin, margin)];
+    }
+    else if (state == StateTypeMarked) {
+        int margin = 7;
+        UIImage *mineImage = [UIImage imageNamed:@"59-flag.png"];
+        [mineImage drawInRect:CGRectInset(bounds, margin, margin)];
+    }
+    else if (state == StateTypeNumber) {
         UIColor *numberColor;
         switch (cellNumber) {
             default:
@@ -162,7 +168,8 @@ typedef NS_ENUM(NSUInteger, StateType) {
                 break;
         }
         int margin = 5;
-        UIFont *font = [UIFont fontWithName:@"Helvetica" size:MAX(8, self.sideLength - margin - margin)];
+        UIFont *font = [UIFont fontWithName:@"Helvetica" size:MAX(8, self.sideLength - margin *2.5)];
+
         NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
         paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;
         paragraphStyle.alignment = NSTextAlignmentCenter;
@@ -171,6 +178,7 @@ typedef NS_ENUM(NSUInteger, StateType) {
                                       NSForegroundColorAttributeName:numberColor};
         [[@(cellNumber) stringValue] drawInRect:CGRectInset(bounds, margin, margin) withAttributes:attributes];
     }
+
 }
 
 - (void)drawCellAtRowIndex:(NSUInteger)rowIndex columnIndex:(NSUInteger)columnIndex {

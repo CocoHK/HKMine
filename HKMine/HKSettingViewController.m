@@ -132,7 +132,7 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
                     cell.textLabel.text = levelTitles[indexPath.row];
                     cell.detailTextLabel.text = detailTitles[indexPath.row];
                     
-                    int selectLevel = [dataMgr integerForKey:kLevel];
+                    NSInteger selectLevel = [dataMgr integerForKey:kLevel];
                     
                     if (indexPath.row == selectLevel)
                         cell.accessoryType = UITableViewCellAccessoryCheckmark;
@@ -176,10 +176,10 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
                     cell.textLabel.text = @"Mine";
                     UISlider *mineSlider = (UISlider *)[cell viewWithTag:202];
                     mineSlider.minimumValue = 10;
-                    int widthValue = [dataMgr integerForKey:kCustomLevelWidth];
-                    int heightValue =[dataMgr integerForKey:kCustomLevelHeight];
+                    NSInteger widthValue = [dataMgr integerForKey:kCustomLevelWidth];
+                    NSInteger heightValue =[dataMgr integerForKey:kCustomLevelHeight];
                     mineSlider.maximumValue = (widthValue - 1) * (heightValue - 1);
-                    int mineValue = [dataMgr integerForKey:kCustomLevelMine];
+                    NSInteger mineValue = [dataMgr integerForKey:kCustomLevelMine];
                     
                     mineSlider.value = mineValue;
                     UILabel *mineLabel = (UILabel *)[cell viewWithTag:201];
@@ -298,7 +298,7 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
 }
 
 - (IBAction)changeSwitch:(UISwitch *)sender {
-    BOOL ifOn = sender.on;
+//    BOOL ifOn = sender.on;
 }
 
 @end
