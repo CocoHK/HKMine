@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CC92B6D218D33AA6000816A9 /* 59-flag.png in Resources */ = {isa = PBXBuildFile; fileRef = CC92B6D018D33AA6000816A9 /* 59-flag.png */; };
-		CC92B6D318D33AA6000816A9 /* 59-flag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC92B6D118D33AA6000816A9 /* 59-flag@2x.png */; };
 		CC92B6D518D3525E000816A9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC92B6D418D3525E000816A9 /* QuartzCore.framework */; };
 		CCB3C6631879D6EF00CD470B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCB3C6621879D6EF00CD470B /* Images.xcassets */; };
 		CCB4DD4818A2E294006699C3 /* HKSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB4DD4518A2E294006699C3 /* HKSettingViewController.m */; };
@@ -39,14 +37,19 @@
 		CCCCB21218D0C4E20044029E /* 310-alarm-clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCCCB20E18D0C4E20044029E /* 310-alarm-clock@2x.png */; };
 		CCCCB21518D0CBFE0044029E /* labelBomb.png in Resources */ = {isa = PBXBuildFile; fileRef = CCCCB21318D0CBFE0044029E /* labelBomb.png */; };
 		CCCCB21618D0CBFE0044029E /* labelBomb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCCCB21418D0CBFE0044029E /* labelBomb@2x.png */; };
+		CCDD008D18D798D300426E9A /* 59-flag.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDD008818D798D300426E9A /* 59-flag.png */; };
+		CCDD008E18D798D300426E9A /* 59-flag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDD008918D798D300426E9A /* 59-flag@2x.png */; };
+		CCDD008F18D798D300426E9A /* 269-happyface.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDD008A18D798D300426E9A /* 269-happyface.png */; };
+		CCDD009018D798D300426E9A /* 269-happyface@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDD008B18D798D300426E9A /* 269-happyface@2x.png */; };
+		CCDD009118D798D300426E9A /* 270-unhappyface.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDD008C18D798D300426E9A /* 270-unhappyface.png */; };
+		CCDD009318D798F800426E9A /* 270-unhappyface@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDD009218D798F800426E9A /* 270-unhappyface@2x.png */; };
+		CCDD009718D7AF8700426E9A /* digital-7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDD009618D7AF8700426E9A /* digital-7.ttf */; };
 		CCFE502D18D20B77000C4602 /* HKDataMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFE502C18D20B77000C4602 /* HKDataMgr.m */; };
 		CCFE503018D20BB6000C4602 /* MZRSlideInMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFE502F18D20BB6000C4602 /* MZRSlideInMenu.m */; };
 		CCFE504018D25070000C4602 /* HKMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFE503F18D25070000C4602 /* HKMoreViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CC92B6D018D33AA6000816A9 /* 59-flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "59-flag.png"; sourceTree = SOURCE_ROOT; };
-		CC92B6D118D33AA6000816A9 /* 59-flag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "59-flag@2x.png"; sourceTree = SOURCE_ROOT; };
 		CC92B6D418D3525E000816A9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CCB3C6621879D6EF00CD470B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = SOURCE_ROOT; };
 		CCB4DD4418A2E294006699C3 /* HKSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKSettingViewController.h; path = HKMine/HKSettingViewController.h; sourceTree = SOURCE_ROOT; };
@@ -87,6 +90,13 @@
 		CCCCB20E18D0C4E20044029E /* 310-alarm-clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "310-alarm-clock@2x.png"; path = "HKMine/images/310-alarm-clock@2x.png"; sourceTree = SOURCE_ROOT; };
 		CCCCB21318D0CBFE0044029E /* labelBomb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = labelBomb.png; path = HKMine/images/labelBomb.png; sourceTree = SOURCE_ROOT; };
 		CCCCB21418D0CBFE0044029E /* labelBomb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "labelBomb@2x.png"; path = "HKMine/images/labelBomb@2x.png"; sourceTree = SOURCE_ROOT; };
+		CCDD008818D798D300426E9A /* 59-flag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "59-flag.png"; path = "HKMine/images/59-flag.png"; sourceTree = SOURCE_ROOT; };
+		CCDD008918D798D300426E9A /* 59-flag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "59-flag@2x.png"; path = "HKMine/images/59-flag@2x.png"; sourceTree = SOURCE_ROOT; };
+		CCDD008A18D798D300426E9A /* 269-happyface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "269-happyface.png"; path = "HKMine/images/269-happyface.png"; sourceTree = SOURCE_ROOT; };
+		CCDD008B18D798D300426E9A /* 269-happyface@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "269-happyface@2x.png"; path = "HKMine/images/269-happyface@2x.png"; sourceTree = SOURCE_ROOT; };
+		CCDD008C18D798D300426E9A /* 270-unhappyface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "270-unhappyface.png"; path = "HKMine/images/270-unhappyface.png"; sourceTree = SOURCE_ROOT; };
+		CCDD009218D798F800426E9A /* 270-unhappyface@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "270-unhappyface@2x.png"; path = "HKMine/images/270-unhappyface@2x.png"; sourceTree = SOURCE_ROOT; };
+		CCDD009618D7AF8700426E9A /* digital-7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "digital-7.ttf"; sourceTree = SOURCE_ROOT; };
 		CCFE502B18D20B77000C4602 /* HKDataMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKDataMgr.h; path = HKMine/HKDataMgr.h; sourceTree = SOURCE_ROOT; };
 		CCFE502C18D20B77000C4602 /* HKDataMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKDataMgr.m; path = HKMine/HKDataMgr.m; sourceTree = SOURCE_ROOT; };
 		CCFE502E18D20BB6000C4602 /* MZRSlideInMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MZRSlideInMenu.h; path = HKMine/thirdParty/MZRSlideInMenu.h; sourceTree = SOURCE_ROOT; };
@@ -113,8 +123,12 @@
 		CCBDABAC18CFBD0D002110FF /* images */ = {
 			isa = PBXGroup;
 			children = (
-				CC92B6D018D33AA6000816A9 /* 59-flag.png */,
-				CC92B6D118D33AA6000816A9 /* 59-flag@2x.png */,
+				CCDD009218D798F800426E9A /* 270-unhappyface@2x.png */,
+				CCDD008818D798D300426E9A /* 59-flag.png */,
+				CCDD008918D798D300426E9A /* 59-flag@2x.png */,
+				CCDD008A18D798D300426E9A /* 269-happyface.png */,
+				CCDD008B18D798D300426E9A /* 269-happyface@2x.png */,
+				CCDD008C18D798D300426E9A /* 270-unhappyface.png */,
 				CCBDABA418CFBC9D002110FF /* mine gray.png */,
 				CCBDABA518CFBC9D002110FF /* mine gray@2x.png */,
 				CCBDABA618CFBC9D002110FF /* mine red.png */,
@@ -195,6 +209,7 @@
 		CCC5DC0C185DFC9F0075A2B5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CCDD009618D7AF8700426E9A /* digital-7.ttf */,
 				CCBDABAC18CFBD0D002110FF /* images */,
 				CCBA2B5D1870611F00647596 /* HKMine-Info.plist */,
 				CCBA2B5B1870611F00647596 /* InfoPlist.strings */,
@@ -267,20 +282,25 @@
 				CCB3C6631879D6EF00CD470B /* Images.xcassets in Resources */,
 				CCCCB20F18D0C4E20044029E /* 283-bomb.png in Resources */,
 				CCBDABD318CFD6A2002110FF /* bgPress.png in Resources */,
+				CCDD008D18D798D300426E9A /* 59-flag.png in Resources */,
 				CCBDABAB18CFBC9D002110FF /* mine red@2x.png in Resources */,
 				CCCCB21218D0C4E20044029E /* 310-alarm-clock@2x.png in Resources */,
 				CCBDABA918CFBC9D002110FF /* mine gray@2x.png in Resources */,
 				CCCCB21518D0CBFE0044029E /* labelBomb.png in Resources */,
+				CCDD009718D7AF8700426E9A /* digital-7.ttf in Resources */,
 				CCBDABD418CFD6A2002110FF /* bgPress@2x.png in Resources */,
 				CCBDABD718CFD88B002110FF /* bgMark.png in Resources */,
 				CCBA2B5A1870611200647596 /* Main.storyboard in Resources */,
 				CCCCB21618D0CBFE0044029E /* labelBomb@2x.png in Resources */,
+				CCDD009318D798F800426E9A /* 270-unhappyface@2x.png in Resources */,
 				CCBDABD818CFD88B002110FF /* bgMark@2x.png in Resources */,
+				CCDD009018D798D300426E9A /* 269-happyface@2x.png in Resources */,
+				CCDD008E18D798D300426E9A /* 59-flag@2x.png in Resources */,
 				CCBDABCB18CFD3B3002110FF /* background.png in Resources */,
-				CC92B6D218D33AA6000816A9 /* 59-flag.png in Resources */,
+				CCDD009118D798D300426E9A /* 270-unhappyface.png in Resources */,
 				CCBDABCC18CFD3B3002110FF /* background@2x.png in Resources */,
 				CCCCB21118D0C4E20044029E /* 310-alarm-clock.png in Resources */,
-				CC92B6D318D33AA6000816A9 /* 59-flag@2x.png in Resources */,
+				CCDD008F18D798D300426E9A /* 269-happyface.png in Resources */,
 				CCBA2B601870611F00647596 /* InfoPlist.strings in Resources */,
 				CCCCB21018D0C4E20044029E /* 283-bomb@2x.png in Resources */,
 			);

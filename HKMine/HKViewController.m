@@ -12,6 +12,7 @@
 #import "HKSettingViewController.h"
 #import "HKStatisticsViewController.h"
 #import "HKMoreViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 #define kCustomLevelWidth @"kCustomLevelWidth"
 #define kCustomLevelHeight @"kCustomLevelHeight"
@@ -40,14 +41,39 @@
 }
 
 - (void)viewDidLoad {
+    NSArray *familyNames = [[NSArray alloc] initWithArray:[UIFont familyNames]];
+    NSArray *fontNames;
+    NSInteger indFamily, indFont;
+    for (indFamily=0; indFamily<[familyNames count]; ++indFamily)
+    {
+        NSLog(@"Family name: %@", [familyNames objectAtIndex:indFamily]);
+        fontNames = [[NSArray alloc] initWithArray:
+                     [UIFont fontNamesForFamilyName:
+                      [familyNames objectAtIndex:indFamily]]];
+        for (indFont=0; indFont<[fontNames count]; ++indFont)
+        {
+            NSLog(@"    Font name: %@", [fontNames objectAtIndex:indFont]);
+        }
+    }
     [super viewDidLoad];
     dataMgr = [HKDataMgr shared];
     //和边框有15像素的距离
     [scrollView setContentInset:UIEdgeInsetsMake(15, 15, 15, 15)];
     self.boardView.boardViewDelegate = self;
     gameTime = 0;
-    countTimeLabel.text = @"0";
-    showMineLabel.text = @"0";
+    countTimeLabel.text = @"000";
+    countTimeLabel.textAlignment = NSTextAlignmentCenter;
+//    countTimeLabel.layer.shadowOffset = CGSizeMake(-1.0f, -1.0f);
+//    countTimeLabel.layer.shadowColor = [UIColor blackColor].CGColor;
+//    countTimeLabel.layer.shadowOpacity = 1.0;
+//    countTimeLabel.layer.shadowRadius = 5.0f;
+//    countTimeLabel.layer.borderColor = [UIColor darkGrayColor].CGColor;
+//    countTimeLabel.layer.cornerRadius =3.0f;
+//    countTimeLabel.layer.masksToBounds = NO;
+
+    countTimeLabel.font = [UIFont fontWithName:@"digital-7" size:20.0f];
+    showMineLabel.font = [UIFont fontWithName:@"digital-7" size:19.0f];
+    showMineLabel.text = @"000";
     [self startNewGame];
 }
 
@@ -95,6 +121,7 @@
 #pragma mark - Game Control
 
 - (void)startNewGame {
+    restartBtn.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"269-happyface.png"]];
     scrollView.zoomScale = 1;
     [self.boardView setupWithRowCount:[dataMgr integerForKey:kCustomLevelHeight]
                           columnCount:[dataMgr integerForKey:kCustomLevelWidth]
@@ -167,6 +194,7 @@
 }
 
 - (void)gameOver {
+    restartBtn.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"270-unhappyface.png"]];
     NSInteger currentLevel = [dataMgr integerForKey:kLevel];
     if (currentLevel < 3) {
         NSString *currentLevelInfoKey = [NSString stringWithFormat:@"DictInfoLevel%ld",(long)currentLevel];
@@ -193,7 +221,7 @@
         NSLog(@"crtStreak is %i, LonggestLoseStreak is %li,LonggestCrtStreak is %li",crtStreak,(long)[infoDict[kLLoseStreak] integerValue],(long)[infoDict[kCurrentStreak] integerValue]);
         [dataMgr setObject:infoDict forKey:currentLevelInfoKey];
     }
-
+    
     [self stopTimer];
     scrollView.zoomScale = scrollView.minimumZoomScale;
 }
