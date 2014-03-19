@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC2DCF5118D9CAD600C1BD98 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2DCF5018D9CAD600C1BD98 /* iAd.framework */; };
 		CC92B6D518D3525E000816A9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC92B6D418D3525E000816A9 /* QuartzCore.framework */; };
 		CCB3C6631879D6EF00CD470B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCB3C6621879D6EF00CD470B /* Images.xcassets */; };
 		CCB4DD4818A2E294006699C3 /* HKSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB4DD4518A2E294006699C3 /* HKSettingViewController.m */; };
@@ -50,6 +51,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC2DCF5018D9CAD600C1BD98 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		CC92B6D418D3525E000816A9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CCB3C6621879D6EF00CD470B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = SOURCE_ROOT; };
 		CCB4DD4418A2E294006699C3 /* HKSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKSettingViewController.h; path = HKMine/HKSettingViewController.h; sourceTree = SOURCE_ROOT; };
@@ -110,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC2DCF5118D9CAD600C1BD98 /* iAd.framework in Frameworks */,
 				CC92B6D518D3525E000816A9 /* QuartzCore.framework in Frameworks */,
 				CCC5DC08185DFC9F0075A2B5 /* CoreGraphics.framework in Frameworks */,
 				CCC5DC0A185DFC9F0075A2B5 /* UIKit.framework in Frameworks */,
@@ -169,6 +172,7 @@
 		CCC5DC04185DFC9F0075A2B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CC2DCF5018D9CAD600C1BD98 /* iAd.framework */,
 				CC92B6D418D3525E000816A9 /* QuartzCore.framework */,
 				CCC5DC05185DFC9F0075A2B5 /* Foundation.framework */,
 				CCC5DC07185DFC9F0075A2B5 /* CoreGraphics.framework */,

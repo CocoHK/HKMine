@@ -41,40 +41,19 @@
 }
 
 - (void)viewDidLoad {
-    NSArray *familyNames = [[NSArray alloc] initWithArray:[UIFont familyNames]];
-    NSArray *fontNames;
-    NSInteger indFamily, indFont;
-    for (indFamily=0; indFamily<[familyNames count]; ++indFamily)
-    {
-        NSLog(@"Family name: %@", [familyNames objectAtIndex:indFamily]);
-        fontNames = [[NSArray alloc] initWithArray:
-                     [UIFont fontNamesForFamilyName:
-                      [familyNames objectAtIndex:indFamily]]];
-        for (indFont=0; indFont<[fontNames count]; ++indFont)
-        {
-            NSLog(@"    Font name: %@", [fontNames objectAtIndex:indFont]);
-        }
-    }
     [super viewDidLoad];
     dataMgr = [HKDataMgr shared];
     //和边框有15像素的距离
     [scrollView setContentInset:UIEdgeInsetsMake(15, 15, 15, 15)];
     self.boardView.boardViewDelegate = self;
     gameTime = 0;
-    countTimeLabel.text = @"000";
+    countTimeLabel.text = @"0";
     countTimeLabel.textAlignment = NSTextAlignmentCenter;
-//    countTimeLabel.layer.shadowOffset = CGSizeMake(-1.0f, -1.0f);
-//    countTimeLabel.layer.shadowColor = [UIColor blackColor].CGColor;
-//    countTimeLabel.layer.shadowOpacity = 1.0;
-//    countTimeLabel.layer.shadowRadius = 5.0f;
-//    countTimeLabel.layer.borderColor = [UIColor darkGrayColor].CGColor;
-//    countTimeLabel.layer.cornerRadius =3.0f;
-//    countTimeLabel.layer.masksToBounds = NO;
-
-    countTimeLabel.font = [UIFont fontWithName:@"digital-7" size:20.0f];
+    countTimeLabel.font = [UIFont fontWithName:@"digital-7" size:19.0f];
     showMineLabel.font = [UIFont fontWithName:@"digital-7" size:19.0f];
-    showMineLabel.text = @"000";
+    showMineLabel.text = @"0";
     [self startNewGame];
+    adView.delegate = self;
 }
 
 - (void)startTimer {
@@ -128,6 +107,7 @@
                            sideLength:32
                             mineCount:[dataMgr integerForKey:kCustomLevelMine]];
     [self scrollViewSetup];
+    [self scrollViewCenterContent];
     showMineLabel.text = [NSString stringWithFormat:@"%ld",(long)[dataMgr integerForKey:kCustomLevelMine]] ;
     NSLog(@"showMineLabel is %@",showMineLabel.text);
     self.boardView.userInteractionEnabled = YES;
@@ -299,5 +279,20 @@
 - (void)dealloc {
     [self.boardView removeObserver:self forKeyPath:markedNumber];
 }
+
+#pragma mark - ADBannerView
+- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error{
+    NSLog(@"bannerview did not receive any banner due to %@", error);}
+
+- (void)bannerViewActionDidFinish:(ADBannerView *)banner{NSLog(@"bannerview was selected");}
+//
+- (BOOL)bannerViewActionShouldBegin:(ADBannerView *)banner willLeaveApplication:(BOOL)willLeave {
+    NSLog(@"Banner was clicked on; will%sleave application", willLeave ? " " : " not ");
+    
+//    [buttonTest setEnabled:!willLeave];
+    return YES;
+}
+//
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner {NSLog(@"banner was loaded");}
 
 @end
