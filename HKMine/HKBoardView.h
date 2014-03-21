@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 @protocol HKBoardViewDelegate <NSObject>
 - (void)gameStart;
@@ -16,9 +18,24 @@
 
 @end
 
+@interface SoundEffect : NSObject {
+    SystemSoundID soundId;
+}
+- (id)initWithSoundNamed:(NSString *)filename type:(NSString *)typeName;
+- (void)play;
+
+@end
+
 #pragma mark - 
 
-@interface HKBoardView : UIView <UIGestureRecognizerDelegate>
+@interface HKBoardView : UIView <UIGestureRecognizerDelegate> {
+    BOOL ifNeedSound;
+    BOOL ifNeedVibration;
+}
+
+@property (nonatomic,retain) SoundEffect *soundClick;
+@property (nonatomic,retain) SoundEffect *soundMark;
+@property (nonatomic,retain) SoundEffect *soundBomb;
 
 @property (nonatomic, assign) NSUInteger rowCount, columnCount, markedNumber;
 

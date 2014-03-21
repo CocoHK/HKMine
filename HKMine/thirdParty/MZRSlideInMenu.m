@@ -10,8 +10,7 @@
 #import "HKSettingViewController.h"
 
 static const CGFloat kMenuItemBarHeight = 60.0;
-static const CGFloat kMenuItemBarGap = 20.0;
-static const CGFloat kMenuItemMarginBottom = 30.0;
+static const CGFloat kMenuItemBarGap = 40.0;
 static const CGFloat kMenuItemLabelMarginTop = 4.0;
 static const CGFloat kMenuItemLabelMarginBottom = 4.0;
 static const CGFloat kMenuItemLabelMarginLeft = 14.0;
@@ -61,6 +60,7 @@ typedef NS_ENUM(NSUInteger, MenuDirection)
         self.backgroundColor = [UIColor clearColor];
         
         self.view = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.frame.size.width, self.frame.size.height)];
+        NSLog(@"slideMenu view is %@",NSStringFromCGRect(self.view.frame));
         self.view.backgroundColor = [UIColor blackColor];
         self.view.alpha = 0.0;
         [self addSubview:self.view];
@@ -86,11 +86,6 @@ typedef NS_ENUM(NSUInteger, MenuDirection)
     [self.menuItems addObject:menuItem];
 }
 
-- (void)showMenuFromRight
-{
-    self.menuDirection = MenuDirectionRight;
-    [self showMenu];
-}
 
 - (void)showMenuFromLeft
 {
@@ -127,7 +122,8 @@ typedef NS_ENUM(NSUInteger, MenuDirection)
             itemBarGap = self.itemBarGap;
         }
         
-        CGFloat y = CGRectGetHeight(self.frame) - kMenuItemMarginBottom - itemBarHeight * (i + 1) - itemBarGap * i;
+        CGFloat y = CGRectGetHeight(self.frame) *0.75 - itemBarHeight * (i + 1) - itemBarGap * i;
+        //        CGFloat y = CGRectGetHeight(self.frame) / 4;
         
         MZRMenuItem *menuItem = self.menuItems[self.menuItems.count-i-1];
         NSString *title = menuItem.title;
@@ -165,14 +161,8 @@ typedef NS_ENUM(NSUInteger, MenuDirection)
                                      labelSize.height + kMenuItemLabelMarginTop + kMenuItemLabelMarginBottom);
         
         CGFloat x = 0.0;
-        if (self.menuDirection==MenuDirectionRight)
-        {
-            x = CGRectGetWidth(self.frame);
-        }
-        else if (self.menuDirection==MenuDirectionLeft)
-        {
-            x = -menuSize.width;
-        }
+        
+        x = -menuSize.width;
         
         CGRect labelRect = CGRectMake(0.0, 0.0, labelSize.width, labelSize.height);
         CGRect menuRect = CGRectMake(x, y, menuSize.width, itemBarHeight);
@@ -198,14 +188,6 @@ typedef NS_ENUM(NSUInteger, MenuDirection)
         CGFloat delay = kDelayInterval * i;
         
         CGFloat newX = 0.0;
-        if (self.menuDirection==MenuDirectionRight)
-        {
-            newX = CGRectGetWidth(self.frame) - CGRectGetWidth(menuButton.frame);
-        }
-        else if (self.menuDirection==MenuDirectionLeft)
-        {
-            newX = 0.0;
-        }
         
         [[UIApplication sharedApplication].keyWindow addSubview:self];
         
@@ -218,7 +200,7 @@ typedef NS_ENUM(NSUInteger, MenuDirection)
              [menuButton setFrame:newFrame];
          } completion:^(BOOL finished) {
              
-        }];
+         }];
     }
 }
 
@@ -253,15 +235,7 @@ typedef NS_ENUM(NSUInteger, MenuDirection)
         
         CGFloat delay = kDelayInterval * i;
         
-        CGFloat newX = 0.0;
-        if (self.menuDirection==MenuDirectionRight)
-        {
-            newX = CGRectGetWidth(self.frame);
-        }
-        else if (self.menuDirection==MenuDirectionLeft)
-        {
-            newX = - CGRectGetWidth(menuButton.frame);
-        }
+        CGFloat newX = - CGRectGetWidth(menuButton.frame);
         
         [UIView animateWithDuration:kAnimationDuration delay:delay options:UIViewAnimationOptionCurveEaseIn animations:^
          {
@@ -295,13 +269,4 @@ typedef NS_ENUM(NSUInteger, MenuDirection)
     return menuItem.title;
 }
 
-//- (id)buttonTitleAtIndex:(NSInteger)index
-//{
-//    if (index>=self.menuItems.count) {
-//        return nil;
-//    }
-//    
-//    MZRMenuItem *menuItem = self.menuItems[index];
-//    return menuItem;
-//}
 @end

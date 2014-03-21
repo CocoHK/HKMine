@@ -41,6 +41,7 @@
 }
 
 - (void)viewDidLoad {
+
     [super viewDidLoad];
     dataMgr = [HKDataMgr shared];
     //和边框有15像素的距离
@@ -288,9 +289,7 @@
 //
 - (BOOL)bannerViewActionShouldBegin:(ADBannerView *)banner willLeaveApplication:(BOOL)willLeave {
     NSLog(@"Banner was clicked on; will%sleave application", willLeave ? " " : " not ");
-    
-//    [buttonTest setEnabled:!willLeave];
-    return YES;
+        return YES;
 }
 //
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner {NSLog(@"banner was loaded");}

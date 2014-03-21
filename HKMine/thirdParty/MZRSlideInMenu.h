@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AGWindowView.h"
 
 @protocol MZRSlideInMenuDelegate;
-@interface MZRSlideInMenu : UIControl
+@interface MZRSlideInMenu : AGWindowView
 
 @property (weak, nonatomic) id<MZRSlideInMenuDelegate> delegate;
 
@@ -27,9 +28,6 @@
 
 /* item bar gap */
 @property (assign, nonatomic) CGFloat itemBarGap;
-
-/* show menu from right */
-- (void)showMenuFromRight;
 
 /* show menu from left */
 - (void)showMenuFromLeft;

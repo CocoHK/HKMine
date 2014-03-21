@@ -14,7 +14,8 @@
 #define kCustomLevelWidth @"kCustomLevelWidth"
 #define kCustomLevelHeight @"kCustomLevelHeight"
 #define kCustomLevelMine @"kCustomLevelMine"
-
+#define kNeedSound @"kNeedSound"
+#define kNeedVibration @"kNeedVibration"
 
 @implementation HKAppDelegate
 
@@ -27,6 +28,9 @@
         [dataMgr setInteger:9 forKey:kCustomLevelWidth];
         [dataMgr setInteger:9 forKey:kCustomLevelHeight];
         [dataMgr setInteger:10 forKey:kCustomLevelMine];
+        [dataMgr setBool:YES forKey:kNeedSound];
+        [dataMgr setBool:YES forKey:kNeedVibration];
+
     }
 //    HKPreferenceViewController *preferenceViewController = [HKPreferenceViewController new];
 //    self.navigationController = [[UINavigationController alloc]initWithRootViewController:preferenceViewController];

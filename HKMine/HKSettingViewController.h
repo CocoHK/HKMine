@@ -13,4 +13,7 @@
 - (IBAction)changeStepper:(id)sender;
 - (IBAction)changeSlider:(id)sender;
 - (IBAction)changeSwitch:(id)sender;
+
+@property(nonatomic,assign) BOOL needSound;
+@property(nonatomic,assign) BOOL needShake;
 @end

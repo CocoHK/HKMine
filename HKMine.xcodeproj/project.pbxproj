@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		CC2DCF5118D9CAD600C1BD98 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2DCF5018D9CAD600C1BD98 /* iAd.framework */; };
+		CC2DCF5518DA031A00C1BD98 /* digital-7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC2DCF5418DA031A00C1BD98 /* digital-7.ttf */; };
+		CC2DCF5718DA08F500C1BD98 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2DCF5618DA08F500C1BD98 /* AVFoundation.framework */; };
+		CC2DCF5D18DA416700C1BD98 /* soundBomb.wav in Resources */ = {isa = PBXBuildFile; fileRef = CC2DCF5A18DA416700C1BD98 /* soundBomb.wav */; };
+		CC2DCF5E18DA416700C1BD98 /* soundClick.wav in Resources */ = {isa = PBXBuildFile; fileRef = CC2DCF5B18DA416700C1BD98 /* soundClick.wav */; };
+		CC2DCF5F18DA416700C1BD98 /* soundMarked.wav in Resources */ = {isa = PBXBuildFile; fileRef = CC2DCF5C18DA416700C1BD98 /* soundMarked.wav */; };
+		CC2DCF6618DA4B2B00C1BD98 /* AGWindowView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2DCF6318DA4B2B00C1BD98 /* AGWindowView.m */; };
+		CC2DCF6918DB290F00C1BD98 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2DCF6818DB290F00C1BD98 /* AudioToolbox.framework */; };
 		CC92B6D518D3525E000816A9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC92B6D418D3525E000816A9 /* QuartzCore.framework */; };
 		CCB3C6631879D6EF00CD470B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCB3C6621879D6EF00CD470B /* Images.xcassets */; };
 		CCB4DD4818A2E294006699C3 /* HKSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB4DD4518A2E294006699C3 /* HKSettingViewController.m */; };
@@ -27,13 +34,9 @@
 		CCBDABCC18CFD3B3002110FF /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCBDABCA18CFD3B3002110FF /* background@2x.png */; };
 		CCBDABD318CFD6A2002110FF /* bgPress.png in Resources */ = {isa = PBXBuildFile; fileRef = CCBDABD118CFD6A2002110FF /* bgPress.png */; };
 		CCBDABD418CFD6A2002110FF /* bgPress@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCBDABD218CFD6A2002110FF /* bgPress@2x.png */; };
-		CCBDABD718CFD88B002110FF /* bgMark.png in Resources */ = {isa = PBXBuildFile; fileRef = CCBDABD518CFD88B002110FF /* bgMark.png */; };
-		CCBDABD818CFD88B002110FF /* bgMark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCBDABD618CFD88B002110FF /* bgMark@2x.png */; };
 		CCC5DC06185DFC9F0075A2B5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC5DC05185DFC9F0075A2B5 /* Foundation.framework */; };
 		CCC5DC08185DFC9F0075A2B5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC5DC07185DFC9F0075A2B5 /* CoreGraphics.framework */; };
 		CCC5DC0A185DFC9F0075A2B5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCC5DC09185DFC9F0075A2B5 /* UIKit.framework */; };
-		CCCCB20F18D0C4E20044029E /* 283-bomb.png in Resources */ = {isa = PBXBuildFile; fileRef = CCCCB20B18D0C4E20044029E /* 283-bomb.png */; };
-		CCCCB21018D0C4E20044029E /* 283-bomb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCCCB20C18D0C4E20044029E /* 283-bomb@2x.png */; };
 		CCCCB21118D0C4E20044029E /* 310-alarm-clock.png in Resources */ = {isa = PBXBuildFile; fileRef = CCCCB20D18D0C4E20044029E /* 310-alarm-clock.png */; };
 		CCCCB21218D0C4E20044029E /* 310-alarm-clock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCCCB20E18D0C4E20044029E /* 310-alarm-clock@2x.png */; };
 		CCCCB21518D0CBFE0044029E /* labelBomb.png in Resources */ = {isa = PBXBuildFile; fileRef = CCCCB21318D0CBFE0044029E /* labelBomb.png */; };
@@ -44,7 +47,6 @@
 		CCDD009018D798D300426E9A /* 269-happyface@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDD008B18D798D300426E9A /* 269-happyface@2x.png */; };
 		CCDD009118D798D300426E9A /* 270-unhappyface.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDD008C18D798D300426E9A /* 270-unhappyface.png */; };
 		CCDD009318D798F800426E9A /* 270-unhappyface@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CCDD009218D798F800426E9A /* 270-unhappyface@2x.png */; };
-		CCDD009718D7AF8700426E9A /* digital-7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCDD009618D7AF8700426E9A /* digital-7.ttf */; };
 		CCFE502D18D20B77000C4602 /* HKDataMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFE502C18D20B77000C4602 /* HKDataMgr.m */; };
 		CCFE503018D20BB6000C4602 /* MZRSlideInMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFE502F18D20BB6000C4602 /* MZRSlideInMenu.m */; };
 		CCFE504018D25070000C4602 /* HKMoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCFE503F18D25070000C4602 /* HKMoreViewController.m */; };
@@ -52,6 +54,15 @@
 
 /* Begin PBXFileReference section */
 		CC2DCF5018D9CAD600C1BD98 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		CC2DCF5418DA031A00C1BD98 /* digital-7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "digital-7.ttf"; path = "HKMine/thirdParty/digital-7.ttf"; sourceTree = SOURCE_ROOT; };
+		CC2DCF5618DA08F500C1BD98 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		CC2DCF5A18DA416700C1BD98 /* soundBomb.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = soundBomb.wav; path = HKMine/thirdParty/soundBomb.wav; sourceTree = SOURCE_ROOT; };
+		CC2DCF5B18DA416700C1BD98 /* soundClick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = soundClick.wav; path = HKMine/thirdParty/soundClick.wav; sourceTree = SOURCE_ROOT; };
+		CC2DCF5C18DA416700C1BD98 /* soundMarked.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = soundMarked.wav; path = HKMine/thirdParty/soundMarked.wav; sourceTree = SOURCE_ROOT; };
+		CC2DCF6218DA4B2B00C1BD98 /* AGWindowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGWindowView.h; sourceTree = "<group>"; };
+		CC2DCF6318DA4B2B00C1BD98 /* AGWindowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGWindowView.m; sourceTree = "<group>"; };
+		CC2DCF6418DA4B2B00C1BD98 /* AGWindowViewDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGWindowViewDefines.h; sourceTree = "<group>"; };
+		CC2DCF6818DB290F00C1BD98 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		CC92B6D418D3525E000816A9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CCB3C6621879D6EF00CD470B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = SOURCE_ROOT; };
 		CCB4DD4418A2E294006699C3 /* HKSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKSettingViewController.h; path = HKMine/HKSettingViewController.h; sourceTree = SOURCE_ROOT; };
@@ -79,15 +90,11 @@
 		CCBDABCA18CFD3B3002110FF /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background@2x.png"; path = "HKMine/images/background@2x.png"; sourceTree = SOURCE_ROOT; };
 		CCBDABD118CFD6A2002110FF /* bgPress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bgPress.png; path = HKMine/images/bgPress.png; sourceTree = SOURCE_ROOT; };
 		CCBDABD218CFD6A2002110FF /* bgPress@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bgPress@2x.png"; path = "HKMine/images/bgPress@2x.png"; sourceTree = SOURCE_ROOT; };
-		CCBDABD518CFD88B002110FF /* bgMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bgMark.png; path = HKMine/images/bgMark.png; sourceTree = SOURCE_ROOT; };
-		CCBDABD618CFD88B002110FF /* bgMark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bgMark@2x.png"; path = "HKMine/images/bgMark@2x.png"; sourceTree = SOURCE_ROOT; };
 		CCC5DC02185DFC9F0075A2B5 /* HKMine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HKMine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCC5DC05185DFC9F0075A2B5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CCC5DC07185DFC9F0075A2B5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		CCC5DC09185DFC9F0075A2B5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CCC5DC27185DFC9F0075A2B5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		CCCCB20B18D0C4E20044029E /* 283-bomb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "283-bomb.png"; path = "HKMine/images/283-bomb.png"; sourceTree = SOURCE_ROOT; };
-		CCCCB20C18D0C4E20044029E /* 283-bomb@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "283-bomb@2x.png"; path = "HKMine/images/283-bomb@2x.png"; sourceTree = SOURCE_ROOT; };
 		CCCCB20D18D0C4E20044029E /* 310-alarm-clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "310-alarm-clock.png"; path = "HKMine/images/310-alarm-clock.png"; sourceTree = SOURCE_ROOT; };
 		CCCCB20E18D0C4E20044029E /* 310-alarm-clock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "310-alarm-clock@2x.png"; path = "HKMine/images/310-alarm-clock@2x.png"; sourceTree = SOURCE_ROOT; };
 		CCCCB21318D0CBFE0044029E /* labelBomb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = labelBomb.png; path = HKMine/images/labelBomb.png; sourceTree = SOURCE_ROOT; };
@@ -98,7 +105,6 @@
 		CCDD008B18D798D300426E9A /* 269-happyface@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "269-happyface@2x.png"; path = "HKMine/images/269-happyface@2x.png"; sourceTree = SOURCE_ROOT; };
 		CCDD008C18D798D300426E9A /* 270-unhappyface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "270-unhappyface.png"; path = "HKMine/images/270-unhappyface.png"; sourceTree = SOURCE_ROOT; };
 		CCDD009218D798F800426E9A /* 270-unhappyface@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "270-unhappyface@2x.png"; path = "HKMine/images/270-unhappyface@2x.png"; sourceTree = SOURCE_ROOT; };
-		CCDD009618D7AF8700426E9A /* digital-7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "digital-7.ttf"; sourceTree = SOURCE_ROOT; };
 		CCFE502B18D20B77000C4602 /* HKDataMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKDataMgr.h; path = HKMine/HKDataMgr.h; sourceTree = SOURCE_ROOT; };
 		CCFE502C18D20B77000C4602 /* HKDataMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKDataMgr.m; path = HKMine/HKDataMgr.m; sourceTree = SOURCE_ROOT; };
 		CCFE502E18D20BB6000C4602 /* MZRSlideInMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MZRSlideInMenu.h; path = HKMine/thirdParty/MZRSlideInMenu.h; sourceTree = SOURCE_ROOT; };
@@ -112,6 +118,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC2DCF6918DB290F00C1BD98 /* AudioToolbox.framework in Frameworks */,
+				CC2DCF5718DA08F500C1BD98 /* AVFoundation.framework in Frameworks */,
 				CC2DCF5118D9CAD600C1BD98 /* iAd.framework in Frameworks */,
 				CC92B6D518D3525E000816A9 /* QuartzCore.framework in Frameworks */,
 				CCC5DC08185DFC9F0075A2B5 /* CoreGraphics.framework in Frameworks */,
@@ -123,6 +131,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC2DCF6018DA4AB900C1BD98 /* Submodules */ = {
+			isa = PBXGroup;
+			children = (
+				CC2DCF6118DA4B2B00C1BD98 /* AGWindowView */,
+				CCFE502E18D20BB6000C4602 /* MZRSlideInMenu.h */,
+				CCFE502F18D20BB6000C4602 /* MZRSlideInMenu.m */,
+			);
+			name = Submodules;
+			sourceTree = "<group>";
+		};
+		CC2DCF6118DA4B2B00C1BD98 /* AGWindowView */ = {
+			isa = PBXGroup;
+			children = (
+				CC2DCF6218DA4B2B00C1BD98 /* AGWindowView.h */,
+				CC2DCF6318DA4B2B00C1BD98 /* AGWindowView.m */,
+				CC2DCF6418DA4B2B00C1BD98 /* AGWindowViewDefines.h */,
+			);
+			name = AGWindowView;
+			path = HKMine/thirdParty/AGWindowView;
+			sourceTree = "<group>";
+		};
 		CCBDABAC18CFBD0D002110FF /* images */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,10 +169,6 @@
 				CCBDABCA18CFD3B3002110FF /* background@2x.png */,
 				CCBDABD118CFD6A2002110FF /* bgPress.png */,
 				CCBDABD218CFD6A2002110FF /* bgPress@2x.png */,
-				CCBDABD518CFD88B002110FF /* bgMark.png */,
-				CCBDABD618CFD88B002110FF /* bgMark@2x.png */,
-				CCCCB20B18D0C4E20044029E /* 283-bomb.png */,
-				CCCCB20C18D0C4E20044029E /* 283-bomb@2x.png */,
 				CCCCB20D18D0C4E20044029E /* 310-alarm-clock.png */,
 				CCCCB20E18D0C4E20044029E /* 310-alarm-clock@2x.png */,
 				CCCCB21318D0CBFE0044029E /* labelBomb.png */,
@@ -155,6 +180,7 @@
 		CCC5DBF9185DFC9F0075A2B5 = {
 			isa = PBXGroup;
 			children = (
+				CC2DCF6018DA4AB900C1BD98 /* Submodules */,
 				CCC5DC0B185DFC9F0075A2B5 /* DrawPractice */,
 				CCC5DC04185DFC9F0075A2B5 /* Frameworks */,
 				CCC5DC03185DFC9F0075A2B5 /* Products */,
@@ -172,6 +198,8 @@
 		CCC5DC04185DFC9F0075A2B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CC2DCF6818DB290F00C1BD98 /* AudioToolbox.framework */,
+				CC2DCF5618DA08F500C1BD98 /* AVFoundation.framework */,
 				CC2DCF5018D9CAD600C1BD98 /* iAd.framework */,
 				CC92B6D418D3525E000816A9 /* QuartzCore.framework */,
 				CCC5DC05185DFC9F0075A2B5 /* Foundation.framework */,
@@ -202,8 +230,6 @@
 				CCFE503E18D25070000C4602 /* HKMoreViewController.h */,
 				CCFE503F18D25070000C4602 /* HKMoreViewController.m */,
 				CCBA2B581870611200647596 /* Main.storyboard */,
-				CCFE502E18D20BB6000C4602 /* MZRSlideInMenu.h */,
-				CCFE502F18D20BB6000C4602 /* MZRSlideInMenu.m */,
 				CCB3C6621879D6EF00CD470B /* Images.xcassets */,
 				CCC5DC0C185DFC9F0075A2B5 /* Supporting Files */,
 			);
@@ -213,7 +239,10 @@
 		CCC5DC0C185DFC9F0075A2B5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CCDD009618D7AF8700426E9A /* digital-7.ttf */,
+				CC2DCF5A18DA416700C1BD98 /* soundBomb.wav */,
+				CC2DCF5B18DA416700C1BD98 /* soundClick.wav */,
+				CC2DCF5C18DA416700C1BD98 /* soundMarked.wav */,
+				CC2DCF5418DA031A00C1BD98 /* digital-7.ttf */,
 				CCBDABAC18CFBD0D002110FF /* images */,
 				CCBA2B5D1870611F00647596 /* HKMine-Info.plist */,
 				CCBA2B5B1870611F00647596 /* InfoPlist.strings */,
@@ -283,21 +312,21 @@
 			files = (
 				CCBDABA818CFBC9D002110FF /* mine gray.png in Resources */,
 				CCBDABAA18CFBC9D002110FF /* mine red.png in Resources */,
+				CC2DCF5D18DA416700C1BD98 /* soundBomb.wav in Resources */,
 				CCB3C6631879D6EF00CD470B /* Images.xcassets in Resources */,
-				CCCCB20F18D0C4E20044029E /* 283-bomb.png in Resources */,
+				CC2DCF5F18DA416700C1BD98 /* soundMarked.wav in Resources */,
 				CCBDABD318CFD6A2002110FF /* bgPress.png in Resources */,
 				CCDD008D18D798D300426E9A /* 59-flag.png in Resources */,
 				CCBDABAB18CFBC9D002110FF /* mine red@2x.png in Resources */,
 				CCCCB21218D0C4E20044029E /* 310-alarm-clock@2x.png in Resources */,
 				CCBDABA918CFBC9D002110FF /* mine gray@2x.png in Resources */,
+				CC2DCF5E18DA416700C1BD98 /* soundClick.wav in Resources */,
 				CCCCB21518D0CBFE0044029E /* labelBomb.png in Resources */,
-				CCDD009718D7AF8700426E9A /* digital-7.ttf in Resources */,
 				CCBDABD418CFD6A2002110FF /* bgPress@2x.png in Resources */,
-				CCBDABD718CFD88B002110FF /* bgMark.png in Resources */,
 				CCBA2B5A1870611200647596 /* Main.storyboard in Resources */,
 				CCCCB21618D0CBFE0044029E /* labelBomb@2x.png in Resources */,
+				CC2DCF5518DA031A00C1BD98 /* digital-7.ttf in Resources */,
 				CCDD009318D798F800426E9A /* 270-unhappyface@2x.png in Resources */,
-				CCBDABD818CFD88B002110FF /* bgMark@2x.png in Resources */,
 				CCDD009018D798D300426E9A /* 269-happyface@2x.png in Resources */,
 				CCDD008E18D798D300426E9A /* 59-flag@2x.png in Resources */,
 				CCBDABCB18CFD3B3002110FF /* background.png in Resources */,
@@ -306,7 +335,6 @@
 				CCCCB21118D0C4E20044029E /* 310-alarm-clock.png in Resources */,
 				CCDD008F18D798D300426E9A /* 269-happyface.png in Resources */,
 				CCBA2B601870611F00647596 /* InfoPlist.strings in Resources */,
-				CCCCB21018D0C4E20044029E /* 283-bomb@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +347,7 @@
 			files = (
 				CCB4DD4818A2E294006699C3 /* HKSettingViewController.m in Sources */,
 				CCFE502D18D20B77000C4602 /* HKDataMgr.m in Sources */,
+				CC2DCF6618DA4B2B00C1BD98 /* AGWindowView.m in Sources */,
 				CCFE503018D20BB6000C4602 /* MZRSlideInMenu.m in Sources */,
 				CCBA2B621870611F00647596 /* main.m in Sources */,
 				CCBA2B571870610B00647596 /* HKViewController.m in Sources */,

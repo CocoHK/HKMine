@@ -14,6 +14,8 @@
 #define kCustomLevelWidth @"kCustomLevelWidth"
 #define kCustomLevelHeight @"kCustomLevelHeight"
 #define kCustomLevelMine @"kCustomLevelMine"
+#define kNeedSound @"kNeedSound"
+#define kNeedVibration @"kNeedVibration"
 
 typedef NS_ENUM(NSUInteger, CellLevel) {
     CellLevelEasy = 0,
@@ -201,7 +203,25 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
             }
             cell.textLabel.text = section1Array[indexPath.row];
             UISwitch *aSwitch = (UISwitch *)[cell viewWithTag:301];
-            aSwitch.on = YES;
+
+            switch (indexPath.row) {
+
+                case 0:
+                {
+                   BOOL addSound = [dataMgr boolForKey:kNeedSound];
+                    aSwitch.on = addSound;
+                    NSLog(@"switch if is on %@",aSwitch.on?@"YES":@"NO");
+                }
+                    break;
+                case 1:
+                {
+                    BOOL addVibration = [dataMgr boolForKey:kNeedVibration];
+                    aSwitch.on = addVibration;
+                }
+                    break;
+                default:
+                    break;
+            }
             
         }
         default:
@@ -213,7 +233,7 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+   
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     NSInteger lastSelectLevel = [dataMgr integerForKey:kLevel];
     
@@ -298,7 +318,23 @@ typedef NS_ENUM(NSUInteger, CellLevel) {
 }
 
 - (IBAction)changeSwitch:(UISwitch *)sender {
-//    BOOL ifOn = sender.on;
+    //get index of selected row
+    UIView *cellView = [sender superview];
+    while (cellView && ![cellView isKindOfClass:[UITableViewCell class]]) {
+        cellView = cellView.superview;
+    }
+    NSIndexPath *cellIndex = [self.tableView indexPathForCell:(UITableViewCell *)cellView];
+    if (cellIndex.row == 0) {
+        [dataMgr willChangeValueForKey:kNeedSound];
+        [dataMgr setBool:sender.on forKey:kNeedSound];
+        [dataMgr didChangeValueForKey:kNeedSound];
+        NSLog(@"addSound is %@",[dataMgr boolForKey:kNeedSound]?@"yes":@"no");
+        
+    }
+    else if (cellIndex.row == 1) {
+        [dataMgr setBool:sender.on forKey:kNeedVibration];
+        NSLog(@"addVibration is %@",sender.on?@"yes":@"no");
+    }
 }
 
 @end

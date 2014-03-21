@@ -10,6 +10,7 @@
 #import "MZRSlideInMenu.h"
 #import <iAd/iAd.h>
 
+
 @interface HKViewController : UIViewController <UIScrollViewDelegate,HKBoardViewDelegate,UIAlertViewDelegate,MZRSlideInMenuDelegate,ADBannerViewDelegate> {
     IBOutlet UIScrollView *scrollView;
     IBOutlet UIButton *restartBtn;
@@ -20,6 +21,7 @@
     IBOutlet UIImageView *clockImageView;
     IBOutlet UIImageView *bombImageView;
     IBOutlet ADBannerView *adView;
+
 }
 
 @property (nonatomic, assign) IBOutlet HKBoardView *boardView;

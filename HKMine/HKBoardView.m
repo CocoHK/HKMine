@@ -9,6 +9,36 @@
 #import "HKBoardView.h"
 #import "HKModels.h"
 #import <QuartzCore/QuartzCore.h>
+#import "HKDataMgr.h"
+
+#define kNeedSound @"kNeedSound"
+#define kNeedVibration @"kNeedVibration"
+
+@implementation SoundEffect
+- (id)initWithSoundNamed:(NSString *)filename type:(NSString *)typeName{
+    if (self = [super init]) {
+        NSString *filePath = [[NSBundle mainBundle] pathForResource:filename ofType:typeName];
+        NSURL *fileURL = [NSURL fileURLWithPath:filePath];
+        if (fileURL != nil) {
+            SystemSoundID theSoundID;
+            OSStatus error = AudioServicesCreateSystemSoundID((__bridge CFURLRef)fileURL, &theSoundID);
+            if (error == kAudioServicesNoError) {
+                soundId = theSoundID;
+            }
+        }
+    }
+    return self;
+}
+
+- (void)dealloc {
+    AudioServicesDisposeSystemSoundID(soundId);
+}
+
+- (void)play {
+    AudioServicesPlaySystemSound(soundId);
+}
+
+@end
 
 typedef NS_ENUM(NSUInteger, StateType) {
     StateTypeDefault = 0,
@@ -24,6 +54,33 @@ typedef NS_ENUM(NSUInteger, StateType) {
     int noMineCellNumber;
     NSInteger mineNumber;
     BOOL isNewGame;
+}
+
+- (void)awakeFromNib {
+    HKDataMgr *dataMgr = [HKDataMgr shared];
+    self.soundMark = [[SoundEffect alloc] initWithSoundNamed:@"soundMarked" type:@"wav"];
+    self.soundClick = [[SoundEffect alloc] initWithSoundNamed:@"soundClick" type:@"wav"];
+    self.soundBomb = [[SoundEffect alloc] initWithSoundNamed:@"soundBomb" type:@"wav"];
+    [dataMgr addObserver:self forKeyPath:kNeedSound options:0 context:NULL];
+    [dataMgr addObserver:self forKeyPath:kNeedVibration options:0 context:NULL];
+    ifNeedSound = [dataMgr boolForKey:kNeedSound];
+    ifNeedVibration = [dataMgr boolForKey:kNeedVibration];
+    NSLog(@"needSound is %@ need Shake is %@",ifNeedSound?@"Yes":@"no",ifNeedVibration?@"Yes":@"no");
+}
+
+- (void)dealloc {
+    HKDataMgr *dataMgr = [HKDataMgr shared];
+    [dataMgr removeObserver:self forKeyPath:kNeedSound];
+    [dataMgr removeObserver:self forKeyPath:kNeedVibration];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:kNeedSound]) {
+        ifNeedSound = [[HKDataMgr shared] boolForKey:kNeedSound];
+    }
+    if ([keyPath isEqualToString:kNeedVibration]) {
+        ifNeedVibration = [[HKDataMgr shared] boolForKey:kNeedVibration];
+    }
 }
 
 - (void)setupWithRowCount:(NSUInteger)rowCount
@@ -250,6 +307,9 @@ typedef NS_ENUM(NSUInteger, StateType) {
         -- mineNumber;
         NSLog(@"markedNumber is %lu",(unsigned long)self.markedNumber);
         [self redrawCellAtRowIndex:rowIdx columnIndex:columnIdx];
+        if (ifNeedSound == YES) {
+            [self.soundMark play];
+        }
     }
     
     //if this cell is digged
@@ -273,6 +333,12 @@ typedef NS_ENUM(NSUInteger, StateType) {
             }
             // disable touch
             self.userInteractionEnabled = NO;
+            if (ifNeedSound == YES) {
+            [self.soundBomb play];
+            }
+            if (ifNeedVibration == YES) {
+                AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+            }
             if ([self.boardViewDelegate respondsToSelector:@selector(gameOver)]) {
                 [self.boardViewDelegate gameOver];
             }
@@ -289,13 +355,19 @@ typedef NS_ENUM(NSUInteger, StateType) {
                         }
                     }
                 }
+
             }
+
         }
+//        [self.soundClick play];
+
         
         if (cellState.number >= 0) {
             ++noMineCellNumber;
+            if (ifNeedSound == YES) {
+                [self.soundClick play];
+            }
         }
-//        NSLog(@"noMineCellNumber is %d",noMineCellNumber);
     }
 
     
@@ -307,7 +379,10 @@ typedef NS_ENUM(NSUInteger, StateType) {
             cellState.CellAttribute = 0;
             -- self.markedNumber;
             ++ mineNumber;
-            NSLog(@"markedNumber is %lu",(unsigned long)self.markedNumber);
+//            NSLog(@"markedNumber is %lu",(unsigned long)self.markedNumber);
+            if (ifNeedSound == YES) {
+            [self.soundMark play];
+            }
             [self redrawCellAtRowIndex:rowIdx columnIndex:columnIdx];
         }
     }
@@ -357,6 +432,5 @@ typedef NS_ENUM(NSUInteger, StateType) {
         }
     }
 }
-
 
 @end
