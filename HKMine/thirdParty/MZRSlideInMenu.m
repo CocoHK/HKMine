@@ -63,6 +63,7 @@ typedef NS_ENUM(NSUInteger, MenuDirection)
         NSLog(@"slideMenu view is %@",NSStringFromCGRect(self.view.frame));
         self.view.backgroundColor = [UIColor blackColor];
         self.view.alpha = 0.0;
+        self.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [self addSubview:self.view];
         
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(viewTouched)];
@@ -93,37 +94,38 @@ typedef NS_ENUM(NSUInteger, MenuDirection)
     [self showMenu];
 }
 
-- (void)showMenu
-{
-    [UIView animateWithDuration:kAnimationDuration delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^
-     {
+- (void)showMenu {
+    [UIView animateWithDuration:kAnimationDuration delay:0.0 options:UIViewAnimationOptionCurveEaseIn animations:^ {
          self.view.alpha = kBackgroundAlpha;
-     } completion:^(BOOL finished)
-     {
+     } completion:^(BOOL finished) {
          
      }];
     
-    if (self.menuItems.count==0)
-    {
+    if (self.menuItems.count==0) {
         return;
     }
     
-    for (int i=0; i < self.menuItems.count; i++)
+    
+    [[UIApplication sharedApplication].keyWindow addSubview:self];
+    CGFloat itemBarHeight = kMenuItemBarHeight;
+    if (self.itemBarHeight)
     {
-        CGFloat itemBarHeight = kMenuItemBarHeight;
-        if (self.itemBarHeight)
-        {
-            itemBarHeight = self.itemBarHeight;
-        }
-        
-        CGFloat itemBarGap = kMenuItemBarGap;
-        if (self.itemBarGap)
-        {
-            itemBarGap = self.itemBarGap;
-        }
-        
-        CGFloat y = CGRectGetHeight(self.frame) *0.75 - itemBarHeight * (i + 1) - itemBarGap * i;
-        //        CGFloat y = CGRectGetHeight(self.frame) / 4;
+        itemBarHeight = self.itemBarHeight;
+    }
+    
+    CGFloat itemBarGap = kMenuItemBarGap;
+    if (self.itemBarGap)
+    {
+        itemBarGap = self.itemBarGap;
+    }
+    
+    CGFloat maxY = UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)?CGRectGetWidth(self.frame):CGRectGetHeight(self.frame);
+    CGFloat maxHeight = itemBarHeight * self.menuItems.count + itemBarGap * (self.menuItems.count - 1);
+    maxY -= maxHeight;
+    maxY = maxHeight + maxY/2.0;
+    
+    for (int i=0; i < self.menuItems.count; i++) {
+        CGFloat y = maxY - itemBarHeight * (i + 1) - itemBarGap * i;
         
         MZRMenuItem *menuItem = self.menuItems[self.menuItems.count-i-1];
         NSString *title = menuItem.title;
@@ -166,18 +168,20 @@ typedef NS_ENUM(NSUInteger, MenuDirection)
         
         CGRect labelRect = CGRectMake(0.0, 0.0, labelSize.width, labelSize.height);
         CGRect menuRect = CGRectMake(x, y, menuSize.width, itemBarHeight);
-        
+
         UILabel *menuLabel = [[UILabel alloc] initWithFrame:labelRect];
         [menuLabel setBackgroundColor:[UIColor clearColor]];
         [menuLabel setFont:labelFont];
         [menuLabel setTextColor:textColor];
         [menuLabel setText:title];
+        menuLabel.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
         
         UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [menuButton setFrame:menuRect];
         [menuButton setTag:kMenuItemTagBase + self.menuItems.count-i-1];
         [menuButton setBackgroundColor:buttonBackgroundColor];
         [menuButton addTarget:self action:@selector(menuButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+        menuButton.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
         [self addSubview:menuButton];
         
         menuLabel.center = CGPointMake(CGRectGetWidth(menuButton.frame)/2, CGRectGetHeight(menuButton.frame)/2);
@@ -189,18 +193,16 @@ typedef NS_ENUM(NSUInteger, MenuDirection)
         
         CGFloat newX = 0.0;
         
-        [[UIApplication sharedApplication].keyWindow addSubview:self];
-        
-        [UIView animateWithDuration:kAnimationDuration delay:delay options:UIViewAnimationOptionCurveEaseOut animations:^
-         {
+        [UIView animateWithDuration:kAnimationDuration
+                              delay:delay
+                            options:UIViewAnimationOptionCurveEaseOut
+                         animations:^{
              CGRect newFrame = CGRectMake(newX,
                                           CGRectGetMinY(menuButton.frame),
                                           CGRectGetWidth(menuButton.frame),
                                           CGRectGetHeight(menuButton.frame));
              [menuButton setFrame:newFrame];
-         } completion:^(BOOL finished) {
-             
-         }];
+         } completion:nil];
     }
 }
 

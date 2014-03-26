@@ -41,7 +41,10 @@
 }
 
 - (void)viewDidLoad {
-
+//    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+//    self.navigationController.navigationBar.shadowImage = [UIImage new];
+//    self.navigationController.navigationBar.translucent = YES;
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.jpg"]];
     [super viewDidLoad];
     dataMgr = [HKDataMgr shared];
     //和边框有15像素的距离
@@ -142,7 +145,7 @@
 }
 
 - (IBAction)clickOptionBtn:(id)sender {
-//    optionBtn = sender;
+    
     MZRSlideInMenu *menu = [[MZRSlideInMenu alloc] init];
     [menu setDelegate:self];
     [menu addMenuItemWithTitle:@"Settings"];

@@ -56,6 +56,7 @@ typedef NS_ENUM(NSUInteger, StateType) {
     BOOL isNewGame;
 }
 
+#pragma mark - Add observer
 - (void)awakeFromNib {
     HKDataMgr *dataMgr = [HKDataMgr shared];
     self.soundMark = [[SoundEffect alloc] initWithSoundNamed:@"soundMarked" type:@"wav"];
@@ -83,6 +84,7 @@ typedef NS_ENUM(NSUInteger, StateType) {
     }
 }
 
+#pragma mark - set BoardView
 - (void)setupWithRowCount:(NSUInteger)rowCount
               columnCount:(NSUInteger)columnCount
                sideLength:(CGFloat)sideLength
@@ -95,21 +97,21 @@ typedef NS_ENUM(NSUInteger, StateType) {
     mineNumber = mineCount;
     isNewGame = YES;
     
+    //setup long press gesture
+    UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongGesture:)];
+    longPressGesture.numberOfTapsRequired = 0;
+    longPressGesture.numberOfTouchesRequired = 1;
+    longPressGesture.minimumPressDuration = 0.5;
+    [self addGestureRecognizer:longPressGesture];
+    
     //setup tap gesture
     UITapGestureRecognizer * tapPressGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
     tapPressGesture.numberOfTapsRequired = 1;
     tapPressGesture.numberOfTouchesRequired = 1;
 //    tapPressGesture.delegate = self;
     [self addGestureRecognizer:tapPressGesture];
-    
-    //setup long press gesture
-    UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongGesture:)];
-    longPressGesture.numberOfTapsRequired = 0;
-    longPressGesture.numberOfTouchesRequired = 1;
-    longPressGesture.minimumPressDuration = 0.3;
-//    longPressGesture.delegate = self;
-    [self addGestureRecognizer:longPressGesture];
-    [longPressGesture requireGestureRecognizerToFail:tapPressGesture];
+    [tapPressGesture requireGestureRecognizerToFail:longPressGesture];
+
     
     
     [self resize];
@@ -179,6 +181,7 @@ typedef NS_ENUM(NSUInteger, StateType) {
         case StateTypeMine:
         case StateTypeNumber:
         case StateTypeEmpty:
+//            [UIColor clearColor];
             [[UIColor colorWithPatternImage:[UIImage imageNamed:@"bgPress.png"]] setFill];
             break;
     }

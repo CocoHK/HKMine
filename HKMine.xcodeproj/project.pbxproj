@@ -15,6 +15,8 @@
 		CC2DCF5F18DA416700C1BD98 /* soundMarked.wav in Resources */ = {isa = PBXBuildFile; fileRef = CC2DCF5C18DA416700C1BD98 /* soundMarked.wav */; };
 		CC2DCF6618DA4B2B00C1BD98 /* AGWindowView.m in Sources */ = {isa = PBXBuildFile; fileRef = CC2DCF6318DA4B2B00C1BD98 /* AGWindowView.m */; };
 		CC2DCF6918DB290F00C1BD98 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2DCF6818DB290F00C1BD98 /* AudioToolbox.framework */; };
+		CC2DCF6B18DC9A0A00C1BD98 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CC2DCF6A18DC9A0A00C1BD98 /* bg.jpg */; };
+		CC2DCF6D18DC9B0100C1BD98 /* bg2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CC2DCF6C18DC9B0100C1BD98 /* bg2.jpg */; };
 		CC92B6D518D3525E000816A9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC92B6D418D3525E000816A9 /* QuartzCore.framework */; };
 		CCB3C6631879D6EF00CD470B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCB3C6621879D6EF00CD470B /* Images.xcassets */; };
 		CCB4DD4818A2E294006699C3 /* HKSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB4DD4518A2E294006699C3 /* HKSettingViewController.m */; };
@@ -63,6 +65,8 @@
 		CC2DCF6318DA4B2B00C1BD98 /* AGWindowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGWindowView.m; sourceTree = "<group>"; };
 		CC2DCF6418DA4B2B00C1BD98 /* AGWindowViewDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGWindowViewDefines.h; sourceTree = "<group>"; };
 		CC2DCF6818DB290F00C1BD98 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		CC2DCF6A18DC9A0A00C1BD98 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = SOURCE_ROOT; };
+		CC2DCF6C18DC9B0100C1BD98 /* bg2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg2.jpg; sourceTree = SOURCE_ROOT; };
 		CC92B6D418D3525E000816A9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CCB3C6621879D6EF00CD470B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = SOURCE_ROOT; };
 		CCB4DD4418A2E294006699C3 /* HKSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKSettingViewController.h; path = HKMine/HKSettingViewController.h; sourceTree = SOURCE_ROOT; };
@@ -155,6 +159,8 @@
 		CCBDABAC18CFBD0D002110FF /* images */ = {
 			isa = PBXGroup;
 			children = (
+				CC2DCF6C18DC9B0100C1BD98 /* bg2.jpg */,
+				CC2DCF6A18DC9A0A00C1BD98 /* bg.jpg */,
 				CCDD009218D798F800426E9A /* 270-unhappyface@2x.png */,
 				CCDD008818D798D300426E9A /* 59-flag.png */,
 				CCDD008918D798D300426E9A /* 59-flag@2x.png */,
@@ -310,6 +316,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC2DCF6D18DC9B0100C1BD98 /* bg2.jpg in Resources */,
+				CC2DCF6B18DC9A0A00C1BD98 /* bg.jpg in Resources */,
 				CCBDABA818CFBC9D002110FF /* mine gray.png in Resources */,
 				CCBDABAA18CFBC9D002110FF /* mine red.png in Resources */,
 				CC2DCF5D18DA416700C1BD98 /* soundBomb.wav in Resources */,

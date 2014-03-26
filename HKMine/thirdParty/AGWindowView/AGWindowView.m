@@ -146,18 +146,16 @@ static NSMutableArray *_activeWindowViews;
     
     CGAffineTransform transform = CGAffineTransformMakeRotation(angle);
     CGRect frame = [[self class] rectInWindowBounds:self.window.bounds statusBarOrientation:statusBarOrientation statusBarHeight:statusBarHeight];
-    
+
     [self setIfNotEqualTransform:transform frame:frame];
 }
 
 - (void)setIfNotEqualTransform:(CGAffineTransform)transform frame:(CGRect)frame
 {
-    if(!CGAffineTransformEqualToTransform(self.transform, transform))
-    {
+    if(!CGAffineTransformEqualToTransform(self.transform, transform)) {
         self.transform = transform;
     }
-    if(!CGRectEqualToRect(self.frame, frame))
-    {
+    if(!CGRectEqualToRect(self.frame, frame)) {
         self.frame = frame;
     }
 }
