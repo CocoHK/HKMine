@@ -116,7 +116,7 @@
 		CCBDABCA18CFD3B3002110FF /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "background@2x.png"; path = "HKMine/images/background@2x.png"; sourceTree = SOURCE_ROOT; };
 		CCBDABD118CFD6A2002110FF /* bgPress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bgPress.png; path = HKMine/images/bgPress.png; sourceTree = SOURCE_ROOT; };
 		CCBDABD218CFD6A2002110FF /* bgPress@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bgPress@2x.png"; path = "HKMine/images/bgPress@2x.png"; sourceTree = SOURCE_ROOT; };
-		CCC5DC02185DFC9F0075A2B5 /* HKMine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HKMine.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCC5DC02185DFC9F0075A2B5 /* Mr. Mine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mr. Mine.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCC5DC05185DFC9F0075A2B5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CCC5DC07185DFC9F0075A2B5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		CCC5DC09185DFC9F0075A2B5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -228,7 +228,7 @@
 		CCC5DC03185DFC9F0075A2B5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CCC5DC02185DFC9F0075A2B5 /* HKMine.app */,
+				CCC5DC02185DFC9F0075A2B5 /* Mr. Mine.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -294,9 +294,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CCC5DC01185DFC9F0075A2B5 /* HKMine */ = {
+		CCC5DC01185DFC9F0075A2B5 /* Mr. Mine */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CCC5DC37185DFC9F0075A2B5 /* Build configuration list for PBXNativeTarget "HKMine" */;
+			buildConfigurationList = CCC5DC37185DFC9F0075A2B5 /* Build configuration list for PBXNativeTarget "Mr. Mine" */;
 			buildPhases = (
 				CCC5DBFE185DFC9F0075A2B5 /* Sources */,
 				CCC5DBFF185DFC9F0075A2B5 /* Frameworks */,
@@ -306,9 +306,9 @@
 			);
 			dependencies = (
 			);
-			name = HKMine;
+			name = "Mr. Mine";
 			productName = DrawPractice;
-			productReference = CCC5DC02185DFC9F0075A2B5 /* HKMine.app */;
+			productReference = CCC5DC02185DFC9F0075A2B5 /* Mr. Mine.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -339,7 +339,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CCC5DC01185DFC9F0075A2B5 /* HKMine */,
+				CCC5DC01185DFC9F0075A2B5 /* Mr. Mine */,
 			);
 		};
 /* End PBXProject section */
@@ -515,7 +515,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HKMine/HKMine-Prefix.pch";
 				INFOPLIST_FILE = "HKMine/HKMine-Info.plist";
-				PRODUCT_NAME = HKMine;
+				PRODUCT_NAME = "Mr. Mine";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -531,7 +531,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HKMine/HKMine-Prefix.pch";
 				INFOPLIST_FILE = "HKMine/HKMine-Info.plist";
-				PRODUCT_NAME = HKMine;
+				PRODUCT_NAME = "Mr. Mine";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -549,7 +549,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CCC5DC37185DFC9F0075A2B5 /* Build configuration list for PBXNativeTarget "HKMine" */ = {
+		CCC5DC37185DFC9F0075A2B5 /* Build configuration list for PBXNativeTarget "Mr. Mine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CCC5DC38185DFC9F0075A2B5 /* Debug */,

@@ -41,8 +41,9 @@
 }
 
 - (void)viewDidLoad {
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg10.png"]];
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg10.png"]];
+    
     dataMgr = [HKDataMgr shared];
     //margin 15
     [scrollView setContentInset:UIEdgeInsetsMake(15, 15, 15, 15)];
