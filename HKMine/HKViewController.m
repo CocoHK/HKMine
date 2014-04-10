@@ -41,13 +41,10 @@
 }
 
 - (void)viewDidLoad {
-//    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-//    self.navigationController.navigationBar.shadowImage = [UIImage new];
-//    self.navigationController.navigationBar.translucent = YES;
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.jpg"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg10.png"]];
     [super viewDidLoad];
     dataMgr = [HKDataMgr shared];
-    //和边框有15像素的距离
+    //margin 15
     [scrollView setContentInset:UIEdgeInsetsMake(15, 15, 15, 15)];
     self.boardView.boardViewDelegate = self;
     gameTime = 0;
@@ -110,6 +107,7 @@
                           columnCount:[dataMgr integerForKey:kCustomLevelWidth]
                            sideLength:32
                             mineCount:[dataMgr integerForKey:kCustomLevelMine]];
+    [self.boardView setBackgroundColor:[UIColor clearColor]];
     [self scrollViewSetup];
     [self scrollViewCenterContent];
     showMineLabel.text = [NSString stringWithFormat:@"%ld",(long)[dataMgr integerForKey:kCustomLevelMine]] ;

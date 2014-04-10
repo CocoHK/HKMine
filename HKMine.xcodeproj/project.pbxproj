@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC12240618E32FB600C617D7 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC12240518E32FB600C617D7 /* MessageUI.framework */; };
+		CC12241418E4967600C617D7 /* ego_bg_iphone4.png in Resources */ = {isa = PBXBuildFile; fileRef = CC12241318E4967600C617D7 /* ego_bg_iphone4.png */; };
+		CC12241618E4989A00C617D7 /* 8215.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CC12241518E4989A00C617D7 /* 8215.jpg */; };
+		CC12241818E498E200C617D7 /* 103.png in Resources */ = {isa = PBXBuildFile; fileRef = CC12241718E498E200C617D7 /* 103.png */; };
+		CC12241C18E49B7200C617D7 /* galaxy-iphone-5-wallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CC12241B18E49B7200C617D7 /* galaxy-iphone-5-wallpaper.jpg */; };
+		CC12241E18E49BF800C617D7 /* Metal-Surface-iPhone-5-Wallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CC12241D18E49BF800C617D7 /* Metal-Surface-iPhone-5-Wallpaper.jpg */; };
+		CC12242018E5D2F800C617D7 /* Black plaid background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CC12241F18E5D2F800C617D7 /* Black plaid background.jpg */; };
 		CC2DCF5118D9CAD600C1BD98 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2DCF5018D9CAD600C1BD98 /* iAd.framework */; };
 		CC2DCF5518DA031A00C1BD98 /* digital-7.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC2DCF5418DA031A00C1BD98 /* digital-7.ttf */; };
-		CC2DCF5718DA08F500C1BD98 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2DCF5618DA08F500C1BD98 /* AVFoundation.framework */; };
 		CC2DCF5D18DA416700C1BD98 /* soundBomb.wav in Resources */ = {isa = PBXBuildFile; fileRef = CC2DCF5A18DA416700C1BD98 /* soundBomb.wav */; };
 		CC2DCF5E18DA416700C1BD98 /* soundClick.wav in Resources */ = {isa = PBXBuildFile; fileRef = CC2DCF5B18DA416700C1BD98 /* soundClick.wav */; };
 		CC2DCF5F18DA416700C1BD98 /* soundMarked.wav in Resources */ = {isa = PBXBuildFile; fileRef = CC2DCF5C18DA416700C1BD98 /* soundMarked.wav */; };
@@ -18,6 +24,11 @@
 		CC2DCF6B18DC9A0A00C1BD98 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CC2DCF6A18DC9A0A00C1BD98 /* bg.jpg */; };
 		CC2DCF6D18DC9B0100C1BD98 /* bg2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CC2DCF6C18DC9B0100C1BD98 /* bg2.jpg */; };
 		CC92B6D518D3525E000816A9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC92B6D418D3525E000816A9 /* QuartzCore.framework */; };
+		CC9630B618F6D97D003488BF /* bg101.png in Resources */ = {isa = PBXBuildFile; fileRef = CC9630B418F6D97D003488BF /* bg101.png */; };
+		CC9630B718F6D97D003488BF /* bg101@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC9630B518F6D97D003488BF /* bg101@2x.png */; };
+		CC9630B918F6E0D5003488BF /* Sansation-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC9630B818F6E0D5003488BF /* Sansation-Light.ttf */; };
+		CC9630C018F6ED30003488BF /* bg10.png in Resources */ = {isa = PBXBuildFile; fileRef = CC9630BE18F6ED30003488BF /* bg10.png */; };
+		CC9630C118F6ED30003488BF /* bg10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CC9630BF18F6ED30003488BF /* bg10@2x.png */; };
 		CCB3C6631879D6EF00CD470B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCB3C6621879D6EF00CD470B /* Images.xcassets */; };
 		CCB4DD4818A2E294006699C3 /* HKSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB4DD4518A2E294006699C3 /* HKSettingViewController.m */; };
 		CCB4DD4918A2E294006699C3 /* HKStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCB4DD4718A2E294006699C3 /* HKStatisticsViewController.m */; };
@@ -55,9 +66,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC12240518E32FB600C617D7 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		CC12241318E4967600C617D7 /* ego_bg_iphone4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ego_bg_iphone4.png; sourceTree = SOURCE_ROOT; };
+		CC12241518E4989A00C617D7 /* 8215.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8215.jpg; sourceTree = SOURCE_ROOT; };
+		CC12241718E498E200C617D7 /* 103.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 103.png; sourceTree = SOURCE_ROOT; };
+		CC12241B18E49B7200C617D7 /* galaxy-iphone-5-wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "galaxy-iphone-5-wallpaper.jpg"; sourceTree = SOURCE_ROOT; };
+		CC12241D18E49BF800C617D7 /* Metal-Surface-iPhone-5-Wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Metal-Surface-iPhone-5-Wallpaper.jpg"; sourceTree = SOURCE_ROOT; };
+		CC12241F18E5D2F800C617D7 /* Black plaid background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Black plaid background.jpg"; sourceTree = SOURCE_ROOT; };
 		CC2DCF5018D9CAD600C1BD98 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		CC2DCF5418DA031A00C1BD98 /* digital-7.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "digital-7.ttf"; path = "HKMine/thirdParty/digital-7.ttf"; sourceTree = SOURCE_ROOT; };
-		CC2DCF5618DA08F500C1BD98 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		CC2DCF5A18DA416700C1BD98 /* soundBomb.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = soundBomb.wav; path = HKMine/thirdParty/soundBomb.wav; sourceTree = SOURCE_ROOT; };
 		CC2DCF5B18DA416700C1BD98 /* soundClick.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = soundClick.wav; path = HKMine/thirdParty/soundClick.wav; sourceTree = SOURCE_ROOT; };
 		CC2DCF5C18DA416700C1BD98 /* soundMarked.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = soundMarked.wav; path = HKMine/thirdParty/soundMarked.wav; sourceTree = SOURCE_ROOT; };
@@ -68,6 +85,11 @@
 		CC2DCF6A18DC9A0A00C1BD98 /* bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg.jpg; sourceTree = SOURCE_ROOT; };
 		CC2DCF6C18DC9B0100C1BD98 /* bg2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg2.jpg; sourceTree = SOURCE_ROOT; };
 		CC92B6D418D3525E000816A9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CC9630B418F6D97D003488BF /* bg101.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg101.png; sourceTree = SOURCE_ROOT; };
+		CC9630B518F6D97D003488BF /* bg101@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg101@2x.png"; sourceTree = SOURCE_ROOT; };
+		CC9630B818F6E0D5003488BF /* Sansation-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Sansation-Light.ttf"; path = "HKMine/thirdParty/Sansation-Light.ttf"; sourceTree = SOURCE_ROOT; };
+		CC9630BE18F6ED30003488BF /* bg10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg10.png; sourceTree = SOURCE_ROOT; };
+		CC9630BF18F6ED30003488BF /* bg10@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg10@2x.png"; sourceTree = SOURCE_ROOT; };
 		CCB3C6621879D6EF00CD470B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = SOURCE_ROOT; };
 		CCB4DD4418A2E294006699C3 /* HKSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKSettingViewController.h; path = HKMine/HKSettingViewController.h; sourceTree = SOURCE_ROOT; };
 		CCB4DD4518A2E294006699C3 /* HKSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKSettingViewController.m; path = HKMine/HKSettingViewController.m; sourceTree = SOURCE_ROOT; };
@@ -122,8 +144,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC12240618E32FB600C617D7 /* MessageUI.framework in Frameworks */,
 				CC2DCF6918DB290F00C1BD98 /* AudioToolbox.framework in Frameworks */,
-				CC2DCF5718DA08F500C1BD98 /* AVFoundation.framework in Frameworks */,
 				CC2DCF5118D9CAD600C1BD98 /* iAd.framework in Frameworks */,
 				CC92B6D518D3525E000816A9 /* QuartzCore.framework in Frameworks */,
 				CCC5DC08185DFC9F0075A2B5 /* CoreGraphics.framework in Frameworks */,
@@ -159,6 +181,16 @@
 		CCBDABAC18CFBD0D002110FF /* images */ = {
 			isa = PBXGroup;
 			children = (
+				CC9630BE18F6ED30003488BF /* bg10.png */,
+				CC9630BF18F6ED30003488BF /* bg10@2x.png */,
+				CC9630B418F6D97D003488BF /* bg101.png */,
+				CC9630B518F6D97D003488BF /* bg101@2x.png */,
+				CC12241F18E5D2F800C617D7 /* Black plaid background.jpg */,
+				CC12241D18E49BF800C617D7 /* Metal-Surface-iPhone-5-Wallpaper.jpg */,
+				CC12241B18E49B7200C617D7 /* galaxy-iphone-5-wallpaper.jpg */,
+				CC12241718E498E200C617D7 /* 103.png */,
+				CC12241518E4989A00C617D7 /* 8215.jpg */,
+				CC12241318E4967600C617D7 /* ego_bg_iphone4.png */,
 				CC2DCF6C18DC9B0100C1BD98 /* bg2.jpg */,
 				CC2DCF6A18DC9A0A00C1BD98 /* bg.jpg */,
 				CCDD009218D798F800426E9A /* 270-unhappyface@2x.png */,
@@ -204,8 +236,8 @@
 		CCC5DC04185DFC9F0075A2B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CC12240518E32FB600C617D7 /* MessageUI.framework */,
 				CC2DCF6818DB290F00C1BD98 /* AudioToolbox.framework */,
-				CC2DCF5618DA08F500C1BD98 /* AVFoundation.framework */,
 				CC2DCF5018D9CAD600C1BD98 /* iAd.framework */,
 				CC92B6D418D3525E000816A9 /* QuartzCore.framework */,
 				CCC5DC05185DFC9F0075A2B5 /* Foundation.framework */,
@@ -248,6 +280,7 @@
 				CC2DCF5A18DA416700C1BD98 /* soundBomb.wav */,
 				CC2DCF5B18DA416700C1BD98 /* soundClick.wav */,
 				CC2DCF5C18DA416700C1BD98 /* soundMarked.wav */,
+				CC9630B818F6E0D5003488BF /* Sansation-Light.ttf */,
 				CC2DCF5418DA031A00C1BD98 /* digital-7.ttf */,
 				CCBDABAC18CFBD0D002110FF /* images */,
 				CCBA2B5D1870611F00647596 /* HKMine-Info.plist */,
@@ -318,26 +351,37 @@
 			files = (
 				CC2DCF6D18DC9B0100C1BD98 /* bg2.jpg in Resources */,
 				CC2DCF6B18DC9A0A00C1BD98 /* bg.jpg in Resources */,
+				CC12241618E4989A00C617D7 /* 8215.jpg in Resources */,
+				CC9630B918F6E0D5003488BF /* Sansation-Light.ttf in Resources */,
 				CCBDABA818CFBC9D002110FF /* mine gray.png in Resources */,
+				CC12242018E5D2F800C617D7 /* Black plaid background.jpg in Resources */,
 				CCBDABAA18CFBC9D002110FF /* mine red.png in Resources */,
 				CC2DCF5D18DA416700C1BD98 /* soundBomb.wav in Resources */,
 				CCB3C6631879D6EF00CD470B /* Images.xcassets in Resources */,
 				CC2DCF5F18DA416700C1BD98 /* soundMarked.wav in Resources */,
 				CCBDABD318CFD6A2002110FF /* bgPress.png in Resources */,
 				CCDD008D18D798D300426E9A /* 59-flag.png in Resources */,
+				CC9630B718F6D97D003488BF /* bg101@2x.png in Resources */,
 				CCBDABAB18CFBC9D002110FF /* mine red@2x.png in Resources */,
 				CCCCB21218D0C4E20044029E /* 310-alarm-clock@2x.png in Resources */,
 				CCBDABA918CFBC9D002110FF /* mine gray@2x.png in Resources */,
 				CC2DCF5E18DA416700C1BD98 /* soundClick.wav in Resources */,
 				CCCCB21518D0CBFE0044029E /* labelBomb.png in Resources */,
 				CCBDABD418CFD6A2002110FF /* bgPress@2x.png in Resources */,
+				CC9630B618F6D97D003488BF /* bg101.png in Resources */,
 				CCBA2B5A1870611200647596 /* Main.storyboard in Resources */,
 				CCCCB21618D0CBFE0044029E /* labelBomb@2x.png in Resources */,
+				CC12241818E498E200C617D7 /* 103.png in Resources */,
 				CC2DCF5518DA031A00C1BD98 /* digital-7.ttf in Resources */,
 				CCDD009318D798F800426E9A /* 270-unhappyface@2x.png in Resources */,
 				CCDD009018D798D300426E9A /* 269-happyface@2x.png in Resources */,
 				CCDD008E18D798D300426E9A /* 59-flag@2x.png in Resources */,
 				CCBDABCB18CFD3B3002110FF /* background.png in Resources */,
+				CC12241C18E49B7200C617D7 /* galaxy-iphone-5-wallpaper.jpg in Resources */,
+				CC12241E18E49BF800C617D7 /* Metal-Surface-iPhone-5-Wallpaper.jpg in Resources */,
+				CC9630C118F6ED30003488BF /* bg10@2x.png in Resources */,
+				CC9630C018F6ED30003488BF /* bg10.png in Resources */,
+				CC12241418E4967600C617D7 /* ego_bg_iphone4.png in Resources */,
 				CCDD009118D798D300426E9A /* 270-unhappyface.png in Resources */,
 				CCBDABCC18CFD3B3002110FF /* background@2x.png in Resources */,
 				CCCCB21118D0C4E20044029E /* 310-alarm-clock.png in Resources */,

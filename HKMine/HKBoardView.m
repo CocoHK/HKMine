@@ -170,19 +170,19 @@ typedef NS_ENUM(NSUInteger, StateType) {
 
 - (void)drawSquare:(CGRect)bounds state:(StateType)state cellNumber:(NSUInteger)cellNumber {
     UIBezierPath *rectanglePath = [UIBezierPath bezierPathWithRect:bounds];
-    rectanglePath.lineWidth = 1.7;
-    [[UIColor blackColor] setStroke];
+    rectanglePath.lineWidth =1;
+    [[UIColor grayColor] setStroke];    
+    
     switch (state) {
         default:
         case StateTypeDefault:
         case StateTypeMarked:
-            [[UIColor colorWithPatternImage:[UIImage imageNamed:@"background.png"]] setFill];
+            [[UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:0.5] setFill];
             break;
         case StateTypeMine:
         case StateTypeNumber:
         case StateTypeEmpty:
-//            [UIColor clearColor];
-            [[UIColor colorWithPatternImage:[UIImage imageNamed:@"bgPress.png"]] setFill];
+            [[UIColor clearColor] setFill];
             break;
     }
     [rectanglePath fill];
@@ -202,34 +202,40 @@ typedef NS_ENUM(NSUInteger, StateType) {
         switch (cellNumber) {
             default:
             case 1:
-                numberColor = [UIColor colorWithRed:28/255.0f green:71/255.0f blue:179/255.0f alpha:1];
+                numberColor = [UIColor colorWithRed:133/255.0f green:212/255.0f blue:235/255.0f alpha:1];
+                
                 break;
             case 2:
-                numberColor = [UIColor colorWithRed:27/255.0f green:80/255.0f blue:0/255.0f alpha:1];
-
+                
+                numberColor = [UIColor colorWithRed:236/255.0f green:212/255.0f blue:42/255.0f alpha:1];
                 break;
             case 3:
-                numberColor = [UIColor colorWithRed:166/255.0f green:0/255.0f blue:0/255.0f alpha:1];
+                numberColor = [UIColor colorWithRed:185/255.0f green:136/255.0f blue:193/255.0f alpha:1];
+                
+                
                 break;
             case 4:
-                numberColor = [UIColor colorWithRed:0/255.0f green:21/255.0f blue:110/255.0f alpha:1];
+                numberColor = [UIColor colorWithRed:227/255.0f green:174/255.0f blue:140/255.0f alpha:1];
+                
+                
                 break;
             case 5:
-                numberColor = [UIColor colorWithRed:107/255.0f green:0/255.0f blue:0/255.0f alpha:1];
+                numberColor = [UIColor colorWithRed:216/255.0f green:149/255.0f blue:57/255.0f alpha:1];
                 break;
             case 6:
-                numberColor = [UIColor colorWithRed:0/255.0f green:104/255.0f blue:113/255.0f alpha:1];
+                numberColor = [UIColor colorWithRed:183/255.0f green:209/219.0f blue:79/255.0f alpha:0.5];
+                
                 break;
             case 7:
-                numberColor = [UIColor colorWithRed:94/255.0f green:3/255.0f blue:13/255.0f alpha:1];
+                numberColor = [UIColor colorWithRed:163/255.0f green:217/255.0f blue:158/255.0f alpha:1];
                 break;
             case 8:
-                numberColor = [UIColor colorWithRed:50/255.0f green:6/255.0f blue:49/255.0f alpha:1];
+                numberColor = [UIColor colorWithRed:176/255.0f green:50/255.0f blue:72/255.0f alpha:1];
                 break;
         }
-        int margin = 5;
-        UIFont *font = [UIFont fontWithName:@"Helvetica" size:MAX(8, self.sideLength - margin *2.5)];
-
+        int margin = 3;
+        UIFont *font = [UIFont fontWithName:@"Sansation-Light" size:MAX(8, self.sideLength - margin *2.5)];
+        
         NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
         paragraphStyle.lineBreakMode = NSLineBreakByCharWrapping;
         paragraphStyle.alignment = NSTextAlignmentCenter;
@@ -238,7 +244,7 @@ typedef NS_ENUM(NSUInteger, StateType) {
                                       NSForegroundColorAttributeName:numberColor};
         [[@(cellNumber) stringValue] drawInRect:CGRectInset(bounds, margin, margin) withAttributes:attributes];
     }
-
+    
 }
 
 - (void)drawCellAtRowIndex:(NSUInteger)rowIndex columnIndex:(NSUInteger)columnIndex {

@@ -23,7 +23,6 @@
 
 #import "AGWindowView.h"
 #import <QuartzCore/QuartzCore.h>
-
 static NSMutableArray *_activeWindowViews;
 
 @interface AGWindowView ()
