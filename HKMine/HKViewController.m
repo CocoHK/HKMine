@@ -42,7 +42,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg10.png"]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"img_bg"]];
     
     dataMgr = [HKDataMgr shared];
     //margin 15
@@ -102,7 +102,7 @@
 #pragma mark - Game Control
 
 - (void)startNewGame {
-    restartBtn.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"269-happyface.png"]];
+    restartBtn.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"img_happyface"]];
     scrollView.zoomScale = 1;
     [self.boardView setupWithRowCount:[dataMgr integerForKey:kCustomLevelHeight]
                           columnCount:[dataMgr integerForKey:kCustomLevelWidth]
@@ -177,7 +177,7 @@
 }
 
 - (void)gameOver {
-    restartBtn.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"270-unhappyface.png"]];
+    restartBtn.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"img_unhappyface"]];
     NSInteger currentLevel = [dataMgr integerForKey:kLevel];
     if (currentLevel < 3) {
         NSString *currentLevelInfoKey = [NSString stringWithFormat:@"DictInfoLevel%ld",(long)currentLevel];

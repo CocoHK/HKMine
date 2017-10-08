@@ -14,8 +14,6 @@
 - (void)gameStart;
 - (void)gameOver;
 - (void)gameWin;
-//- (void)mineNumberDidChanged:(NSInteger)mineNumber;
-
 @end
 
 @interface SoundEffect : NSObject {

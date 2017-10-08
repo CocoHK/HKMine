@@ -96,12 +96,12 @@
             NSMutableDictionary *infoDict = [[dataMgr statisticsForLevel:indexPath.section] mutableCopy];
 
             statisticsDetailTitles = @[[NSString stringWithFormat:@"%.1f s",[infoDict[kBestTime] doubleValue]/10],
-                                       [infoDict[kGamePlayed] stringValue],
-                                       [infoDict[kGameWon] stringValue],
-                                       infoDict[kPercentage],
-                                       [infoDict[kLWinStreak] stringValue],
-                                       [infoDict[kLLoseStreak] stringValue],
-                                       [infoDict[kCurrentStreak] stringValue]];
+                                       [infoDict[kGamePlayed] stringValue] ?: @"0",
+                                       [infoDict[kGameWon] stringValue] ?: @"0",
+                                       infoDict[kPercentage] ?: @"0%",
+                                       [infoDict[kLWinStreak] stringValue] ?: @"0",
+                                       [infoDict[kLLoseStreak] stringValue] ?: @"0",
+                                       [infoDict[kCurrentStreak] stringValue] ?: @"0"];
         }
         cell.textLabel.text = statisticsTitles[indexPath.row];
         cell.detailTextLabel.text = statisticsDetailTitles[indexPath.row];

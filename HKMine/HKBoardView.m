@@ -189,12 +189,12 @@ typedef NS_ENUM(NSUInteger, StateType) {
     [rectanglePath stroke];
     if (state == StateTypeMine) {
         int margin = 4;
-        UIImage *mineImage = [UIImage imageNamed:@"mine gray.png"];
+        UIImage *mineImage = [UIImage imageNamed:@"img_mine_gray"];
         [mineImage drawInRect:CGRectInset(bounds, margin, margin)];
     }
     else if (state == StateTypeMarked) {
         int margin = 7;
-        UIImage *mineImage = [UIImage imageNamed:@"59-flag.png"];
+        UIImage *mineImage = [UIImage imageNamed:@"img_flag"];
         [mineImage drawInRect:CGRectInset(bounds, margin, margin)];
     }
     else if (state == StateTypeNumber) {
