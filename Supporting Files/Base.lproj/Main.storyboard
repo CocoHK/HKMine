@@ -148,16 +148,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <adBannerView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="C5k-z4-g1F">
-                                <rect key="frame" x="0.0" y="553" width="375" height="50"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                            </adBannerView>
-                            <scrollView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.5" maximumZoomScale="1.5" id="Hbe-mL-BFI">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="553"/>
+                            <scrollView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" minimumZoomScale="0.5" maximumZoomScale="1.5" id="Hbe-mL-BFI">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="8SP-fC-95h" customClass="HKBoardView">
-                                        <rect key="frame" x="27.5" y="84.5" width="320" height="417"/>
+                                        <rect key="frame" x="27.5" y="115.5" width="320" height="417"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
@@ -220,7 +216,6 @@
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="adView" destination="C5k-z4-g1F" id="Inn-GL-CyO"/>
                         <outlet property="boardView" destination="8SP-fC-95h" id="Pnu-PR-GAr"/>
                         <outlet property="bombImageView" destination="Mbq-2W-fai" id="Fy3-TH-Cc6"/>
                         <outlet property="clockImageView" destination="8fp-h8-tag" id="CCv-j2-ucc"/>
@@ -233,7 +228,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="372" y="-287"/>
+            <point key="canvasLocation" x="371.5" y="-287.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zZs-qj-BAe">
